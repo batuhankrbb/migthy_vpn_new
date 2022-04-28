@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mightyvpn/utils/constant.dart';
 import '../main.dart';
-import '../utils/colors.dart';
+
 import 'package:nb_utils/nb_utils.dart';
 
 class BandwidthComponent extends StatelessWidget {
   const BandwidthComponent({Key? key}) : super(key: key);
 
   BoxDecoration itemDecoration() {
-    return BoxDecoration(color: primaryColor.withOpacity(0.1), borderRadius: radius());
+    return BoxDecoration(
+        color: primaryColor.withOpacity(0.1), borderRadius: radius());
   }
 
-  Widget bandwidthSection({required String title, required String value, required IconData iconData}) {
+  Widget bandwidthSection(
+      {required String title,
+      required String value,
+      required IconData iconData}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -24,7 +29,8 @@ class BandwidthComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(title, style: boldTextStyle(), textAlign: TextAlign.center),
-            Text(value, style: secondaryTextStyle(), textAlign: TextAlign.center),
+            Text(value,
+                style: secondaryTextStyle(), textAlign: TextAlign.center),
           ],
         ).flexible()
       ],

@@ -5,8 +5,10 @@ import '../component/AdmobComponent.dart';
 import '../main.dart';
 import '../utils/AdConfigurationConstants.dart';
 import '../utils/AdMobUtils.dart';
-import '../utils/colors.dart';
+
 import 'package:nb_utils/nb_utils.dart';
+
+import '../utils/constant.dart';
 
 class LanguageScreen extends StatefulWidget {
   @override
@@ -21,13 +23,17 @@ class _LanguageScreenState extends State<LanguageScreen> {
   }
 
   init() async {
-      loadInterstitialAd();
+    loadInterstitialAd();
   }
 
   Color? getSelectedColor(LanguageDataModel data) {
-    if (getStringAsync(SELECTED_LANGUAGE_CODE) == data.languageCode.validate() && appStore.isDarkMode) {
+    if (getStringAsync(SELECTED_LANGUAGE_CODE) ==
+            data.languageCode.validate() &&
+        appStore.isDarkMode) {
       return primaryColor.withOpacity(0.2);
-    } else if (getStringAsync(SELECTED_LANGUAGE_CODE) == data.languageCode.validate() && !appStore.isDarkMode) {
+    } else if (getStringAsync(SELECTED_LANGUAGE_CODE) ==
+            data.languageCode.validate() &&
+        !appStore.isDarkMode) {
       return primaryColor.withOpacity(0.1);
     } else {
       return null;
@@ -46,7 +52,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
         language.lblChangeLanguage,
         backWidget: IconButton(
           onPressed: () {
-              showInterstitialAd();
+            showInterstitialAd();
 
             finish(context);
           },
@@ -81,7 +87,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       children: [
                         Text(data.name.validate(), style: boldTextStyle()),
                         8.height,
-                        Text(data.subTitle.validate(), style: secondaryTextStyle()),
+                        Text(data.subTitle.validate(),
+                            style: secondaryTextStyle()),
                       ],
                     ).expand(),
                     Image.asset(data.flag.validate(), width: 34),
@@ -103,16 +110,16 @@ class _LanguageScreenState extends State<LanguageScreen> {
       bottomNavigationBar: Container(
           height: 50,
           child: AdWidget(
-                  ad: BannerAd(
-                    adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
-                    size: AdSize.banner,
-                    listener: BannerAdListener(onAdLoaded: (ad) {
-                      //
-                    }),
-                    request: const AdRequest(),
-                  )..load(),
-                )
-             ,
+            ad: BannerAd(
+              adUnitId:
+                  kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
+              size: AdSize.banner,
+              listener: BannerAdListener(onAdLoaded: (ad) {
+                //
+              }),
+              request: const AdRequest(),
+            )..load(),
+          ),
           color: Colors.white),
     );
   }

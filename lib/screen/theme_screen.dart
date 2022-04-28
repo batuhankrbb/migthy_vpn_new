@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../component/AdmobComponent.dart';
 import '../main.dart';
 import '../utils/AdMobUtils.dart';
-import '../utils/colors.dart';
+
 import '../utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -26,7 +26,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
 
   void init() async {
     currentIndex = getIntAsync(THEME_MODE_INDEX);
-      loadInterstitialAd();
+    loadInterstitialAd();
   }
 
   @override
@@ -69,68 +69,71 @@ class _ThemeScreenState extends State<ThemeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(
-        language.lblSelectYourTheme,
-        backWidget: IconButton(
-          onPressed: () {
+        appBar: appBarWidget(
+          language.lblSelectYourTheme,
+          backWidget: IconButton(
+            onPressed: () {
               showInterstitialAd();
-            finish(context);
-          },
-          icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
-        ),
-        showBack: true,
-        elevation: 0,
-        color: context.scaffoldBackgroundColor,
-      ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Wrap(
-          spacing: 16,
-          runSpacing: 16,
-          children: List.generate(
-            ThemeModes.values.length,
-            (index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: radius(),
-                  color: getSelectedColor(index),
-                  border: Border.all(color: context.dividerColor),
-                ),
-                width: context.width() / 2 - 24,
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Text(_getName(ThemeModes.values[index]), style: boldTextStyle()).expand(),
-                    _getIcons(context, ThemeModes.values[index]),
-                  ],
-                ),
-              ).onTap(() async {
-                currentIndex = index;
-                if (index == AppThemeMode.themeModeSystem) {
-                  appStore.setDarkMode(MediaQuery.of(context).platformBrightness == Brightness.dark);
-                } else if (index == AppThemeMode.themeModeLight) {
-                  appStore.setDarkMode(false);
-                } else if (index == AppThemeMode.themeModeDark) {
-                  appStore.setDarkMode(true);
-                }
-                setValue(THEME_MODE_INDEX, index);
-                setState(() {});
-              }, borderRadius: radius());
+              finish(context);
             },
+            icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
+          ),
+          showBack: true,
+          elevation: 0,
+          color: context.scaffoldBackgroundColor,
+        ),
+        body: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Wrap(
+            spacing: 16,
+            runSpacing: 16,
+            children: List.generate(
+              ThemeModes.values.length,
+              (index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: radius(),
+                    color: getSelectedColor(index),
+                    border: Border.all(color: context.dividerColor),
+                  ),
+                  width: context.width() / 2 - 24,
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    children: [
+                      Text(_getName(ThemeModes.values[index]),
+                              style: boldTextStyle())
+                          .expand(),
+                      _getIcons(context, ThemeModes.values[index]),
+                    ],
+                  ),
+                ).onTap(() async {
+                  currentIndex = index;
+                  if (index == AppThemeMode.themeModeSystem) {
+                    appStore.setDarkMode(
+                        MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark);
+                  } else if (index == AppThemeMode.themeModeLight) {
+                    appStore.setDarkMode(false);
+                  } else if (index == AppThemeMode.themeModeDark) {
+                    appStore.setDarkMode(true);
+                  }
+                  setValue(THEME_MODE_INDEX, index);
+                  setState(() {});
+                }, borderRadius: radius());
+              },
+            ),
           ),
         ),
-      ),
-      bottomNavigationBar: 
-        AdWidget(
-              ad: BannerAd(
-                adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
-                size: AdSize.banner,
-                listener: BannerAdListener(onAdLoaded: (ad) {
-                  //
-                }),
-                request: const AdRequest(),
-              )..load(),
-            )
-    );
+        bottomNavigationBar: AdWidget(
+          ad: BannerAd(
+            adUnitId:
+                kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
+            size: AdSize.banner,
+            listener: BannerAdListener(onAdLoaded: (ad) {
+              //
+            }),
+            request: const AdRequest(),
+          )..load(),
+        ));
   }
 }

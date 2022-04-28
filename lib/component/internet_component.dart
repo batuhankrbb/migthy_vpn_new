@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import '../utils/colors.dart';
+
 import 'package:nb_utils/nb_utils.dart';
+
+import '../utils/constant.dart';
 
 class InternetComponent extends StatelessWidget {
   final double? rate;
   final IconData iconData;
 
-  InternetComponent({this.rate, required this.iconData, Key? key}) : super(key: key);
+  InternetComponent({this.rate, required this.iconData, Key? key})
+      : super(key: key);
 
   BoxDecoration itemDecoration() {
-    return BoxDecoration(color: primaryColor.withOpacity(0.1), borderRadius: radius());
+    return BoxDecoration(
+        color: primaryColor.withOpacity(0.1), borderRadius: radius());
   }
 
   @override
@@ -26,7 +30,9 @@ class InternetComponent extends StatelessWidget {
           16.width,
           createRichText(
             list: [
-              TextSpan(text: rate!.toStringAsFixed(2), style: boldTextStyle(size: 24, color: primaryColor)),
+              TextSpan(
+                  text: rate!.toStringAsFixed(2),
+                  style: boldTextStyle(size: 24, color: primaryColor)),
               TextSpan(text: " Mbps", style: secondaryTextStyle(size: 12)),
             ],
           ),

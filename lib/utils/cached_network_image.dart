@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mightyvpn/utils/constant.dart';
 import 'images.dart';
 import 'package:nb_utils/nb_utils.dart';
 

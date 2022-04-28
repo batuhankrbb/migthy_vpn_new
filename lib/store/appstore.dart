@@ -5,7 +5,7 @@ import '../language/app_localizations.dart';
 import '../language/base_language.dart';
 import '../main.dart';
 import '../model/server_model.dart';
-import '../utils/colors.dart';
+
 import '../utils/constant.dart';
 import 'package:mobx/mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -31,7 +31,8 @@ abstract class AppStoreBase with Store {
   ServerModel mSelectedServerModel = AppConstant.defaultServer;
 
   @action
-  Future<void> setConnectivityResult(ConnectivityResult aConnectivityResult) async {
+  Future<void> setConnectivityResult(
+      ConnectivityResult aConnectivityResult) async {
     mConnectivityResult = aConnectivityResult;
   }
 
@@ -80,8 +81,11 @@ abstract class AppStoreBase with Store {
 
   @action
   Future<void> setLanguage(String aCode, {BuildContext? context}) async {
-    selectedLanguageDataModel = getSelectedLanguageModel(defaultLanguage: AppConstant.defaultLanguage);
-    selectedLanguage = getSelectedLanguageModel(defaultLanguage: AppConstant.defaultLanguage)!.languageCode!;
+    selectedLanguageDataModel =
+        getSelectedLanguageModel(defaultLanguage: AppConstant.defaultLanguage);
+    selectedLanguage =
+        getSelectedLanguageModel(defaultLanguage: AppConstant.defaultLanguage)!
+            .languageCode!;
     log("Selected language $selectedLanguage");
     if (context != null) language = BaseLanguage.of(context)!;
     language = await const AppLocalizations().load(Locale(selectedLanguage));

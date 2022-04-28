@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import '../main.dart';
-import '../utils/colors.dart';
+
 import '../utils/common.dart';
 import '../utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -21,20 +21,26 @@ class _AboutScreenState extends State<AboutScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: appBarWidget(language.lblAboutUs, color: context.scaffoldBackgroundColor),
+        appBar: appBarWidget(language.lblAboutUs,
+            color: context.scaffoldBackgroundColor),
         body: SnapHelperWidget<PackageInfo>(
           future: PackageInfo.fromPlatform(),
           onSuccess: (data) => SingleChildScrollView(
             child: Container(
               margin: EdgeInsets.all(16),
-              padding: EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 50),
+              padding:
+                  EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 50),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(AppConstant.appName, style: boldTextStyle(size: 25)),
                   16.height,
-                  const Divider(height: 16, thickness: 4, color: primaryColor, endIndent: 250),
+                  const Divider(
+                      height: 16,
+                      thickness: 4,
+                      color: primaryColor,
+                      endIndent: 250),
                   16.height,
                   Text(language.lblVersion, style: boldTextStyle()),
                   Text(data.version, style: primaryTextStyle()),
@@ -51,9 +57,11 @@ class _AboutScreenState extends State<AboutScreen> {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(MaterialCommunityIcons.shopping_outline, color: primaryColor),
+                        const Icon(MaterialCommunityIcons.shopping_outline,
+                            color: primaryColor),
                         4.width,
-                        Text(language.lblPurchase, style: boldTextStyle(color: primaryColor)),
+                        Text(language.lblPurchase,
+                            style: boldTextStyle(color: primaryColor)),
                       ],
                     ),
                   ),
@@ -63,14 +71,17 @@ class _AboutScreenState extends State<AboutScreen> {
                     color: appButtonColor,
                     elevation: 0,
                     onTap: () {
-                      AppCommon.launchUrl(Urls.documentation, forceWebView: true);
+                      AppCommon.launchUrl(Urls.documentation,
+                          forceWebView: true);
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.contact_page_outlined, color: primaryColor),
+                        const Icon(Icons.contact_page_outlined,
+                            color: primaryColor),
                         4.width,
-                        Text(language.lblDocument, style: boldTextStyle(color: primaryColor)),
+                        Text(language.lblDocument,
+                            style: boldTextStyle(color: primaryColor)),
                       ],
                     ),
                   ),

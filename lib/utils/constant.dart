@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../model/server_model.dart';
 import 'images.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -91,3 +93,26 @@ class Urls {
 const AD_MOB_OPEN_AD_ID = "ca-app-pub-8037703403650159/1710755075";
 const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
 const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
+
+
+
+
+const primaryColor = Color(0xFF005AFF);
+const appButtonColor = Color(0xFFe3effe);
+const defaultPrimaryColor = primaryColor;
+const secondaryColor = Color(0xFF000000);
+const scaffoldColorDark = Color(0xFF090909);
+const appButtonColorDark = Color(0xFF282828);
+
+const vpnLogo = 'assets/images/vpn_logo.png';
+const onBoardScreenImg = 'assets/images/onBoardScreenImage2.png';
+
+class LanguageImages {
+  static const icUs = "assets/flag/ic_us.png";
+  static const icGermany = "assets/flag/ic_germany.png";
+  static const icAr = "assets/flag/ic_ar.png";
+  static const icJapanese = "assets/flag/ic_japanese.png";
+  static const icKorean = "assets/flag/ic_korean.png";
+  static const icThai = "assets/flag/ic_thai.png";
+  static const icVietnamese = "assets/flag/ic_vietnamese.png";
+}

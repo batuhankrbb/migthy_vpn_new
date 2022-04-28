@@ -3,15 +3,18 @@ import 'package:internet_speed_test/callbacks_enum.dart';
 import 'package:internet_speed_test/internet_speed_test.dart';
 import '../component/internet_component.dart';
 import '../main.dart';
-import '../utils/colors.dart';
+
 import 'package:nb_utils/nb_utils.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
+
+import '../utils/constant.dart';
 
 class InternetSpeedTestScreen extends StatefulWidget {
   const InternetSpeedTestScreen({Key? key}) : super(key: key);
 
   @override
-  _InternetSpeedTestScreenState createState() => _InternetSpeedTestScreenState();
+  _InternetSpeedTestScreenState createState() =>
+      _InternetSpeedTestScreenState();
 }
 
 class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
@@ -141,26 +144,53 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SfRadialGauge(
-                title: const GaugeTitle(text: ' ', textStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                title: const GaugeTitle(
+                    text: ' ',
+                    textStyle:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                 axes: <RadialAxis>[
                   RadialAxis(
                     minimum: 0,
                     maximum: 100,
                     axisLabelStyle: const GaugeTextStyle(color: primaryColor),
                     ranges: <GaugeRange>[
-                      GaugeRange(startValue: 0, endValue: 30, color: primaryColor.withOpacity(0.7), startWidth: 10, endWidth: 10),
-                      GaugeRange(startValue: 30, endValue: 60, color: primaryColor.withOpacity(0.7), startWidth: 10, endWidth: 10),
-                      GaugeRange(startValue: 60, endValue: 100, color: primaryColor.withOpacity(0.7), startWidth: 10, endWidth: 10)
+                      GaugeRange(
+                          startValue: 0,
+                          endValue: 30,
+                          color: primaryColor.withOpacity(0.7),
+                          startWidth: 10,
+                          endWidth: 10),
+                      GaugeRange(
+                          startValue: 30,
+                          endValue: 60,
+                          color: primaryColor.withOpacity(0.7),
+                          startWidth: 10,
+                          endWidth: 10),
+                      GaugeRange(
+                          startValue: 60,
+                          endValue: 100,
+                          color: primaryColor.withOpacity(0.7),
+                          startWidth: 10,
+                          endWidth: 10)
                     ],
                     pointers: <GaugePointer>[
-                      NeedlePointer(value: displayRate, enableAnimation: true, needleColor: primaryColor, animationType: AnimationType.bounceOut),
+                      NeedlePointer(
+                          value: displayRate,
+                          enableAnimation: true,
+                          needleColor: primaryColor,
+                          animationType: AnimationType.bounceOut),
                     ],
                     annotations: <GaugeAnnotation>[
                       GaugeAnnotation(
                         widget: createRichText(
                           list: [
-                            TextSpan(text: displayRate.toStringAsFixed(2), style: boldTextStyle(size: 24, color: primaryColor)),
-                            TextSpan(text: " $unitText", style: secondaryTextStyle(size: 14)),
+                            TextSpan(
+                                text: displayRate.toStringAsFixed(2),
+                                style: boldTextStyle(
+                                    size: 24, color: primaryColor)),
+                            TextSpan(
+                                text: " $unitText",
+                                style: secondaryTextStyle(size: 14)),
                           ],
                         ),
                         angle: 90,
@@ -190,8 +220,14 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  InternetComponent(rate: downloadRate, iconData: Icons.arrow_downward_outlined).expand(),
-                  InternetComponent(rate: uploadRate, iconData: Icons.arrow_upward_outlined).expand(),
+                  InternetComponent(
+                          rate: downloadRate,
+                          iconData: Icons.arrow_downward_outlined)
+                      .expand(),
+                  InternetComponent(
+                          rate: uploadRate,
+                          iconData: Icons.arrow_upward_outlined)
+                      .expand(),
                 ],
               ),
             ],

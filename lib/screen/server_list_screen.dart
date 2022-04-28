@@ -8,8 +8,10 @@ import '../model/server_model.dart';
 import '../utils/AdConfigurationConstants.dart';
 import '../utils/AdMobUtils.dart';
 import '../utils/cached_network_image.dart';
-import '../utils/colors.dart';
+
 import 'package:nb_utils/nb_utils.dart';
+
+import '../utils/constant.dart';
 
 class ServerListScreen extends StatefulWidget {
   const ServerListScreen({Key? key}) : super(key: key);
@@ -31,7 +33,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
   void init() async {
     isSelected = vpnStore.serverList.indexWhere(
         (element) => element.uid == appStore.mSelectedServerModel.uid);
-      loadInterstitialAd();
+    loadInterstitialAd();
   }
 
   @override
@@ -53,7 +55,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
           language.lblServerList,
           backWidget: IconButton(
             onPressed: () {
-                showInterstitialAd();
+              showInterstitialAd();
               finish(context);
             },
             icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
@@ -99,7 +101,8 @@ class _ServerListScreenState extends State<ServerListScreen> {
         ),
         bottomNavigationBar: AdWidget(
           ad: BannerAd(
-            adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
+            adUnitId:
+                kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
             size: AdSize.banner,
             listener: BannerAdListener(onAdLoaded: (ad) {
               //

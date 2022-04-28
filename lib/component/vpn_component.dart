@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import '../utils/constant.dart';
 import 'circle_painter.dart';
 import '../main.dart';
-import '../utils/colors.dart';
+
 import '../utils/enums.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -10,13 +11,19 @@ class VpnComponent extends StatefulWidget {
   final Function()? onStartTapped;
   final Function()? onTapped;
 
-  const VpnComponent({Key? key, this.vpnStatus = false, required this.onStartTapped, required this.onTapped}) : super(key: key);
+  const VpnComponent(
+      {Key? key,
+      this.vpnStatus = false,
+      required this.onStartTapped,
+      required this.onTapped})
+      : super(key: key);
 
   @override
   State<VpnComponent> createState() => _VpnComponentState();
 }
 
-class _VpnComponentState extends State<VpnComponent> with TickerProviderStateMixin {
+class _VpnComponentState extends State<VpnComponent>
+    with TickerProviderStateMixin {
   AnimationController? _circleRippleController;
   AnimationController? _controller;
 
@@ -29,7 +36,9 @@ class _VpnComponentState extends State<VpnComponent> with TickerProviderStateMix
   }
 
   void init() async {
-    _circleRippleController = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000))..repeat();
+    _circleRippleController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 2000))
+      ..repeat();
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 50),
@@ -54,7 +63,8 @@ class _VpnComponentState extends State<VpnComponent> with TickerProviderStateMix
 
   LinearGradient getConnectedGradient() {
     return LinearGradient(
-      colors: List<Color>.generate(9, (index) => primaryColor.withOpacity(index / 100)),
+      colors: List<Color>.generate(
+          9, (index) => primaryColor.withOpacity(index / 100)),
     );
   }
 
@@ -76,18 +86,23 @@ class _VpnComponentState extends State<VpnComponent> with TickerProviderStateMix
           child: GestureDetector(
             onTap: widget.onTapped,
             child: CustomPaint(
-              painter: CirclePainter(_circleRippleController, color: primaryColor),
+              painter:
+                  CirclePainter(_circleRippleController, color: primaryColor),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(defaultRadius),
                 child: ScaleTransition(
                   scale: Tween(begin: 0.95, end: 1.0).animate(
-                    CurvedAnimation(parent: _circleRippleController!, curve: Curves.ease),
+                    CurvedAnimation(
+                        parent: _circleRippleController!, curve: Curves.ease),
                   ),
                   child: Container(
                     width: context.width() * 0.45,
                     padding: const EdgeInsets.all(26),
-                    decoration: BoxDecoration(shape: BoxShape.circle, gradient: getConnectedGradient()),
-                    child: const Icon(LineIcons.stop_circle, size: 86, color: Colors.white),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: getConnectedGradient()),
+                    child: const Icon(LineIcons.stop_circle,
+                        size: 86, color: Colors.white),
                   ),
                 ),
               ),
@@ -109,11 +124,14 @@ class _VpnComponentState extends State<VpnComponent> with TickerProviderStateMix
           onTap: widget.onStartTapped,
           child: Container(
             padding: const EdgeInsets.all(32),
-            decoration: BoxDecoration(shape: BoxShape.circle, color: primaryColor.withOpacity(0.1)),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: primaryColor.withOpacity(0.1)),
             child: Column(
               children: [
-                const Icon(Icons.power_settings_new, size: 86, color: primaryColor),
-                Text(getStatus(vpnStore.vpnStatus != VPNStatus.disconnected), style: boldTextStyle(color: primaryColor, size: 18)),
+                const Icon(Icons.power_settings_new,
+                    size: 86, color: primaryColor),
+                Text(getStatus(vpnStore.vpnStatus != VPNStatus.disconnected),
+                    style: boldTextStyle(color: primaryColor, size: 18)),
               ],
             ),
           ),

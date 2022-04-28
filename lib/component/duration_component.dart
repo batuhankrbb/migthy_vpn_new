@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../main.dart';
-import '../utils/colors.dart';
+
 import 'package:nb_utils/nb_utils.dart';
+
+import '../utils/constant.dart';
 
 class DurationComponent extends StatelessWidget {
   const DurationComponent({Key? key}) : super(key: key);

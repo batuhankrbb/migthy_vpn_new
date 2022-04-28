@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
+import '../utils/constant.dart';
 import 'dashboard_screen.dart';
 import 'internet_speed_screen.dart';
 import 'settings_screen.dart';
-import '../utils/colors.dart';
+
 import 'package:nb_utils/nb_utils.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -59,7 +60,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             tooltip: language.lblVPNConnect,
             activeIcon: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(color: primaryColor.withOpacity(0.1), borderRadius: radius()),
+              decoration: BoxDecoration(
+                  color: primaryColor.withOpacity(0.1), borderRadius: radius()),
               child: const Icon(Icons.vpn_key_outlined),
             ),
           ),
@@ -69,7 +71,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             tooltip: language.lblInternetSpeed,
             activeIcon: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(color: primaryColor.withOpacity(0.1), borderRadius: radius()),
+              decoration: BoxDecoration(
+                  color: primaryColor.withOpacity(0.1), borderRadius: radius()),
               child: const Icon(Icons.speed_outlined),
             ),
           ),
@@ -79,7 +82,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             tooltip: language.lblSetting,
             activeIcon: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(color: primaryColor.withOpacity(0.1), borderRadius: radius()),
+              decoration: BoxDecoration(
+                  color: primaryColor.withOpacity(0.1), borderRadius: radius()),
               child: const Icon(Icons.settings_outlined),
             ),
           ),

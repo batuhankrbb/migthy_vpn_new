@@ -12,7 +12,7 @@ import '../main.dart';
 import 'server_list_screen.dart';
 import '../utils/AdConfigurationConstants.dart';
 import '../utils/cached_network_image.dart';
-import '../utils/colors.dart';
+
 import '../utils/common.dart';
 import '../utils/constant.dart';
 import '../utils/enums.dart';
@@ -36,7 +36,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   void init() async {
     initializeStream();
-      loadInterstitialAd();
+    loadInterstitialAd();
   }
 
   @override
@@ -86,7 +86,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> stopVpn() async {
     await vpnServicesMethods.stopVpn().then((value) {
       toast(language.lblDisconnect);
-        showInterstitialAd();
+      showInterstitialAd();
       appStore.setLoading(false);
     }).catchError((e) {
       toast(e.toString());
