@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/language/LanguageAr.dart';
-import 'package:mightyvpn/language/LanguageEn.dart';
-import 'package:mightyvpn/language/LanguageDe.dart';
-import 'package:mightyvpn/language/base_language.dart';
+import 'LanguageAr.dart';
+import 'LanguageEn.dart';
+import 'LanguageDe.dart';
+import 'base_language.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class AppLocalizations extends LocalizationsDelegate<BaseLanguage> {

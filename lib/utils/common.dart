@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/model/vpn_status.dart';
-import 'package:mightyvpn/utils/constant.dart';
-import 'package:mightyvpn/utils/images.dart';
+import '../main.dart';
+import '../model/vpn_status.dart';
+import 'constant.dart';
+import 'images.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 

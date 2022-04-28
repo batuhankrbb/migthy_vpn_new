@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/common.dart';
-import 'package:mightyvpn/utils/constant.dart';
-import 'package:mightyvpn/utils/enums.dart';
+import '../main.dart';
+import '../utils/common.dart';
+import '../utils/constant.dart';
+import '../utils/enums.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class StatusComponent extends StatelessWidget {

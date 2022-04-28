@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/model/server_model.dart';
-import 'package:mightyvpn/utils/constant.dart';
+import '../main.dart';
+import '../model/server_model.dart';
+import '../utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:path_provider/path_provider.dart';
 

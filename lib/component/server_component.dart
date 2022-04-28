@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/model/server_model.dart';
+import '../model/server_model.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class ServerComponent extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_ip_address/get_ip_address.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/colors.dart';
-import 'package:mightyvpn/utils/enums.dart';
+import '../main.dart';
+import '../utils/colors.dart';
+import '../utils/enums.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class IpComponent extends StatelessWidget {

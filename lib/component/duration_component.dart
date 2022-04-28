@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/colors.dart';
+import '../main.dart';
+import '../utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class DurationComponent extends StatelessWidget {

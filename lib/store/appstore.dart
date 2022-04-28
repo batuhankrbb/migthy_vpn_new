@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/language/app_localizations.dart';
-import 'package:mightyvpn/language/base_language.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/model/server_model.dart';
-import 'package:mightyvpn/utils/colors.dart';
-import 'package:mightyvpn/utils/constant.dart';
+import '../language/app_localizations.dart';
+import '../language/base_language.dart';
+import '../main.dart';
+import '../model/server_model.dart';
+import '../utils/colors.dart';
+import '../utils/constant.dart';
 import 'package:mobx/mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/colors.dart';
-import 'package:mightyvpn/utils/common.dart';
-import 'package:mightyvpn/utils/constant.dart';
+import '../main.dart';
+import '../utils/colors.dart';
+import '../utils/common.dart';
+import '../utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:package_info/package_info.dart';
 

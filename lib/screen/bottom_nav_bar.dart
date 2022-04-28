@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/screen/dashboard_screen.dart';
-import 'package:mightyvpn/screen/internet_speed_screen.dart';
-import 'package:mightyvpn/screen/settings_screen.dart';
-import 'package:mightyvpn/utils/colors.dart';
+import '../main.dart';
+import 'dashboard_screen.dart';
+import 'internet_speed_screen.dart';
+import 'settings_screen.dart';
+import '../utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class BottomNavBar extends StatefulWidget {

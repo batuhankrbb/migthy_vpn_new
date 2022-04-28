@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/colors.dart';
-import 'package:mightyvpn/utils/constant.dart';
+import '../component/AdmobComponent.dart';
+import '../main.dart';
+import '../utils/AdMobUtils.dart';
+import '../utils/colors.dart';
+import '../utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mightyvpn/utils/AdConfigurationConstants.dart';
+import '../utils/AdConfigurationConstants.dart';
 
 class ThemeScreen extends StatefulWidget {
   @override
@@ -25,9 +26,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
 
   void init() async {
     currentIndex = getIntAsync(THEME_MODE_INDEX);
-    if (enableAdType == admob) {
       loadInterstitialAd();
-    }
   }
 
   @override
@@ -74,9 +73,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
         language.lblSelectYourTheme,
         backWidget: IconButton(
           onPressed: () {
-            if (enableAdType == admob) {
               showInterstitialAd();
-            }
             finish(context);
           },
           icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
@@ -126,7 +123,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
       bottomNavigationBar: 
         AdWidget(
               ad: BannerAd(
-                adUnitId: kReleaseMode ? mAdMobBannerId : BannerAd.testAdUnitId,
+                adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
                 size: AdSize.banner,
                 listener: BannerAdListener(onAdLoaded: (ad) {
                   //

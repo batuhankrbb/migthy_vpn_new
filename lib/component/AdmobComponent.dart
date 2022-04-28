@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mightyvpn/utils/AdMobUtils.dart';
+import '../utils/AdMobUtils.dart';
 
 RewardedAd? rewardedAd;
 InterstitialAd? myInterstitial;
 
 BannerAd buildBannerAd() {
   return BannerAd(
-    adUnitId: kReleaseMode ? getBannerAdUnitId()! : BannerAd.testAdUnitId,
+    adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
     size: AdSize.banner,
     listener: BannerAdListener(onAdLoaded: (ad) {
       //
@@ -18,7 +18,7 @@ BannerAd buildBannerAd() {
 
 Future<void> loadInterstitialAd() async {
   InterstitialAd.load(
-    adUnitId: kReleaseMode ? getInterstitialAdUnitId()! : InterstitialAd.testAdUnitId,
+    adUnitId: kReleaseMode ? getInterstitialAdUnitId() : InterstitialAd.testAdUnitId,
     request: AdRequest(),
     adLoadCallback: InterstitialAdLoadCallback(
       onAdLoaded: (InterstitialAd ad) {

@@ -2,12 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/model/server_model.dart';
-import 'package:mightyvpn/utils/AdConfigurationConstants.dart';
-import 'package:mightyvpn/utils/cached_network_image.dart';
-import 'package:mightyvpn/utils/colors.dart';
+import '../component/AdmobComponent.dart';
+import '../main.dart';
+import '../model/server_model.dart';
+import '../utils/AdConfigurationConstants.dart';
+import '../utils/AdMobUtils.dart';
+import '../utils/cached_network_image.dart';
+import '../utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class ServerListScreen extends StatefulWidget {
@@ -30,9 +31,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
   void init() async {
     isSelected = vpnStore.serverList.indexWhere(
         (element) => element.uid == appStore.mSelectedServerModel.uid);
-    if (enableAdType == admob) {
       loadInterstitialAd();
-    }
   }
 
   @override
@@ -54,10 +53,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
           language.lblServerList,
           backWidget: IconButton(
             onPressed: () {
-              if (enableAdType == admob) {
                 showInterstitialAd();
-              }
-
               finish(context);
             },
             icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
@@ -103,7 +99,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
         ),
         bottomNavigationBar: AdWidget(
           ad: BannerAd(
-            adUnitId: kReleaseMode ? mAdMobBannerId : BannerAd.testAdUnitId,
+            adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
             size: AdSize.banner,
             listener: BannerAdListener(onAdLoaded: (ad) {
               //

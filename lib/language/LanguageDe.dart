@@ -1,4 +1,4 @@
-import 'package:mightyvpn/language/base_language.dart';
+import 'base_language.dart';
 
 class LanguageDe extends BaseLanguage {
   @override

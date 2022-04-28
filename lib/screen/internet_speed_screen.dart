@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:internet_speed_test/callbacks_enum.dart';
 import 'package:internet_speed_test/internet_speed_test.dart';
-import 'package:mightyvpn/component/internet_component.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/colors.dart';
+import '../component/internet_component.dart';
+import '../main.dart';
+import '../utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 

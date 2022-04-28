@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/component/bandwidth_component.dart';
-import 'package:mightyvpn/component/duration_component.dart';
-import 'package:mightyvpn/component/ip_component.dart';
-import 'package:mightyvpn/component/status_component.dart';
-import 'package:mightyvpn/component/vpn_component.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/screen/server_list_screen.dart';
-import 'package:mightyvpn/utils/AdConfigurationConstants.dart';
-import 'package:mightyvpn/utils/cached_network_image.dart';
-import 'package:mightyvpn/utils/colors.dart';
-import 'package:mightyvpn/utils/common.dart';
-import 'package:mightyvpn/utils/constant.dart';
-import 'package:mightyvpn/utils/enums.dart';
+import '../component/AdmobComponent.dart';
+import '../component/bandwidth_component.dart';
+import '../component/duration_component.dart';
+import '../component/ip_component.dart';
+import '../component/status_component.dart';
+import '../component/vpn_component.dart';
+import '../main.dart';
+import 'server_list_screen.dart';
+import '../utils/AdConfigurationConstants.dart';
+import '../utils/cached_network_image.dart';
+import '../utils/colors.dart';
+import '../utils/common.dart';
+import '../utils/constant.dart';
+import '../utils/enums.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -36,9 +36,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   void init() async {
     initializeStream();
-    if (enableAdType == admob) {
       loadInterstitialAd();
-    }
   }
 
   @override
@@ -88,9 +86,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> stopVpn() async {
     await vpnServicesMethods.stopVpn().then((value) {
       toast(language.lblDisconnect);
-      if (enableAdType == admob) {
         showInterstitialAd();
-      }
       appStore.setLoading(false);
     }).catchError((e) {
       toast(e.toString());

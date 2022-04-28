@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/utils/colors.dart';
+import '../utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class InternetComponent extends StatelessWidget {

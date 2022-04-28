@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/component/circle_painter.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/colors.dart';
-import 'package:mightyvpn/utils/enums.dart';
+import 'circle_painter.dart';
+import '../main.dart';
+import '../utils/colors.dart';
+import '../utils/enums.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class VpnComponent extends StatefulWidget {

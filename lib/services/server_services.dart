@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/model/server_model.dart';
+import '../main.dart';
+import '../model/server_model.dart';
 
 class ServerService {
   CollectionReference<ServerModel>? ref;

@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/model/server_model.dart';
-import 'package:mightyvpn/screen/bottom_nav_bar.dart';
-import 'package:mightyvpn/utils/common.dart';
-import 'package:mightyvpn/utils/constant.dart';
-import 'package:mightyvpn/utils/images.dart';
+import '../main.dart';
+import '../model/server_model.dart';
+import 'bottom_nav_bar.dart';
+import '../utils/common.dart';
+import '../utils/constant.dart';
+import '../utils/images.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class SplashScreen extends StatefulWidget {

@@ -1,10 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/main.dart';
-import 'package:mightyvpn/utils/AdConfigurationConstants.dart';
-import 'package:mightyvpn/utils/colors.dart';
+import '../component/AdmobComponent.dart';
+import '../main.dart';
+import '../utils/AdConfigurationConstants.dart';
+import '../utils/AdMobUtils.dart';
+import '../utils/colors.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class LanguageScreen extends StatefulWidget {
@@ -20,9 +21,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   }
 
   init() async {
-    if (enableAdType == admob) {
       loadInterstitialAd();
-    }
   }
 
   Color? getSelectedColor(LanguageDataModel data) {
@@ -47,9 +46,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
         language.lblChangeLanguage,
         backWidget: IconButton(
           onPressed: () {
-            if (enableAdType == admob) {
               showInterstitialAd();
-            }
 
             finish(context);
           },
@@ -107,7 +104,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
           height: 50,
           child: AdWidget(
                   ad: BannerAd(
-                    adUnitId: kReleaseMode ? mAdMobBannerId : BannerAd.testAdUnitId,
+                    adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
                     size: AdSize.banner,
                     listener: BannerAdListener(onAdLoaded: (ad) {
                       //
