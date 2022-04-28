@@ -1,10 +1,8 @@
-import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/component/FacebookComponent.dart';
 import 'package:mightyvpn/main.dart';
 import 'package:mightyvpn/model/server_model.dart';
 import 'package:mightyvpn/utils/AdConfigurationConstants.dart';
@@ -30,11 +28,10 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 
   void init() async {
-    isSelected = vpnStore.serverList.indexWhere((element) => element.uid == appStore.mSelectedServerModel.uid);
+    isSelected = vpnStore.serverList.indexWhere(
+        (element) => element.uid == appStore.mSelectedServerModel.uid);
     if (enableAdType == admob) {
       loadInterstitialAd();
-    } else {
-      loadFaceBookInterstitialAd();
     }
   }
 
@@ -59,8 +56,6 @@ class _ServerListScreenState extends State<ServerListScreen> {
             onPressed: () {
               if (enableAdType == admob) {
                 showInterstitialAd();
-              } else {
-                showFacebookInterstitialAd();
               }
 
               finish(context);
@@ -73,7 +68,8 @@ class _ServerListScreenState extends State<ServerListScreen> {
           actions: [
             IconButton(
               onPressed: () {
-                if (vpnStore.serverList[isSelected].uid == appStore.mSelectedServerModel.uid) {
+                if (vpnStore.serverList[isSelected].uid ==
+                    appStore.mSelectedServerModel.uid) {
                   toasty(
                     context,
                     language.lblSameServerSelected,
@@ -84,7 +80,8 @@ class _ServerListScreenState extends State<ServerListScreen> {
                     textColor: textPrimaryColorGlobal,
                   );
                 } else {
-                  appStore.setSelectedServerModel(vpnStore.serverList[isSelected]);
+                  appStore
+                      .setSelectedServerModel(vpnStore.serverList[isSelected]);
                   toasty(
                     context,
                     "${language.lblServerChangedTo} ${vpnStore.serverList[isSelected].country}, ${language.lblPleaseWaitWhileReconnecting} ",
@@ -94,7 +91,8 @@ class _ServerListScreenState extends State<ServerListScreen> {
                     duration: 3.seconds,
                     textColor: textPrimaryColorGlobal,
                   );
-                  vpnServicesMethods.updateVpn(server: vpnStore.serverList[isSelected]);
+                  vpnServicesMethods.updateVpn(
+                      server: vpnStore.serverList[isSelected]);
                 }
 
                 finish(context);
@@ -103,24 +101,16 @@ class _ServerListScreenState extends State<ServerListScreen> {
             )
           ],
         ),
-        bottomNavigationBar: enableAdType == admob
-            ? AdWidget(
-                ad: BannerAd(
-                  adUnitId: kReleaseMode ? mAdMobBannerId : BannerAd.testAdUnitId,
-                  size: AdSize.banner,
-                  listener: BannerAdListener(onAdLoaded: (ad) {
-                    //
-                  }),
-                  request: const AdRequest(),
-                )..load(),
-              )
-            : FacebookBannerAd(
-                placementId: faceBookBannerPlacementId,
-                bannerSize: BannerSize.STANDARD,
-                listener: (result, value) {
-                  print("Banner Ad: $result -->  $value");
-                },
-              ),
+        bottomNavigationBar: AdWidget(
+          ad: BannerAd(
+            adUnitId: kReleaseMode ? mAdMobBannerId : BannerAd.testAdUnitId,
+            size: AdSize.banner,
+            listener: BannerAdListener(onAdLoaded: (ad) {
+              //
+            }),
+            request: const AdRequest(),
+          )..load(),
+        ),
 
         // myBanner != null ? Container(height: AdSize.banner.height.toDouble(), child: AdWidget(ad: myBanner!), color: Colors.white):SizedBox(),
         body: Observer(
@@ -136,19 +126,30 @@ class _ServerListScreenState extends State<ServerListScreen> {
                   bool selected = isSelected == index;
                   return SettingItemWidget(
                     title: data.country.validate(),
-                    decoration: BoxDecoration(color: context.cardColor, borderRadius: radius()),
-                    leading: cachedImage(data.flagUrl.validate(value: 'assets/images/vpn_logo.png'), width: 34, height: 34),
+                    decoration: BoxDecoration(
+                        color: context.cardColor, borderRadius: radius()),
+                    leading: cachedImage(
+                        data.flagUrl
+                            .validate(value: 'assets/images/vpn_logo.png'),
+                        width: 34,
+                        height: 34),
                     trailing: Row(
                       children: [
                         selected
                             ? Container(
                                 padding: const EdgeInsets.all(6),
-                                decoration: BoxDecoration(color: primaryColor.withOpacity(0.1), shape: BoxShape.circle, border: Border.all(color: primaryColor)),
-                                child: const Icon(Icons.done, size: 16, color: primaryColor),
+                                decoration: BoxDecoration(
+                                    color: primaryColor.withOpacity(0.1),
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: primaryColor)),
+                                child: const Icon(Icons.done,
+                                    size: 16, color: primaryColor),
                               )
                             : Container(
                                 padding: const EdgeInsets.all(14),
-                                decoration: BoxDecoration(border: Border.all(color: primaryColor), shape: BoxShape.circle),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: primaryColor),
+                                    shape: BoxShape.circle),
                               ),
                       ],
                     ),

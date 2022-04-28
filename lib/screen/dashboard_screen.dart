@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/component/FacebookComponent.dart';
 import 'package:mightyvpn/component/bandwidth_component.dart';
 import 'package:mightyvpn/component/duration_component.dart';
 import 'package:mightyvpn/component/ip_component.dart';
@@ -39,8 +38,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
     initializeStream();
     if (enableAdType == admob) {
       loadInterstitialAd();
-    } else {
-      loadFaceBookInterstitialAd();
     }
   }
 
@@ -93,8 +90,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       toast(language.lblDisconnect);
       if (enableAdType == admob) {
         showInterstitialAd();
-      } else {
-        showFacebookInterstitialAd();
       }
       appStore.setLoading(false);
     }).catchError((e) {

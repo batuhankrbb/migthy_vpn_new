@@ -80,7 +80,7 @@ class Urls {
   static const termsAndConditionURL = 'https://www.google.com/';
   static const supportURL = 'https://mighty.desky.support/';
   static const appShareURL = '$playStoreBaseURL$packageName';
-  static const mailto = '';
+  static const mailto = 'hi@appstun.com';
   static const purchaseUrl =
       'https://codecanyon.net/user/meetmighty/portfolio?direction=desc&order_by=sortable_at&view=grid';
   static const documentation =

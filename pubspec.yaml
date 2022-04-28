@@ -30,7 +30,6 @@ dependencies:
 
   #ads
   google_mobile_ads: ^1.2.0
-  facebook_audience_network: ^1.0.1
 
   # Firebase
   firebase_core: ^1.14.1

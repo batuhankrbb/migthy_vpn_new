@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/component/FacebookComponent.dart';
 import 'package:mightyvpn/main.dart';
 import 'package:mightyvpn/utils/colors.dart';
 import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/utils/AdConfigurationConstants.dart';
@@ -29,8 +27,6 @@ class _ThemeScreenState extends State<ThemeScreen> {
     currentIndex = getIntAsync(THEME_MODE_INDEX);
     if (enableAdType == admob) {
       loadInterstitialAd();
-    } else {
-      loadFaceBookInterstitialAd();
     }
   }
 
@@ -80,10 +76,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
           onPressed: () {
             if (enableAdType == admob) {
               showInterstitialAd();
-            } else {
-              showFacebookInterstitialAd();
             }
-
             finish(context);
           },
           icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
@@ -130,8 +123,8 @@ class _ThemeScreenState extends State<ThemeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: enableAdType == admob
-          ? AdWidget(
+      bottomNavigationBar: 
+        AdWidget(
               ad: BannerAd(
                 adUnitId: kReleaseMode ? mAdMobBannerId : BannerAd.testAdUnitId,
                 size: AdSize.banner,
@@ -141,13 +134,6 @@ class _ThemeScreenState extends State<ThemeScreen> {
                 request: const AdRequest(),
               )..load(),
             )
-          : FacebookBannerAd(
-              placementId: faceBookBannerPlacementId,
-              bannerSize: BannerSize.STANDARD,
-              listener: (result, value) {
-                print("Banner Ad: $result -->  $value");
-              },
-            ),
     );
   }
 }

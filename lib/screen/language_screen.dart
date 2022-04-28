@@ -1,9 +1,7 @@
-import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/component/AdmobComponent.dart';
-import 'package:mightyvpn/component/FacebookComponent.dart';
 import 'package:mightyvpn/main.dart';
 import 'package:mightyvpn/utils/AdConfigurationConstants.dart';
 import 'package:mightyvpn/utils/colors.dart';
@@ -24,8 +22,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
   init() async {
     if (enableAdType == admob) {
       loadInterstitialAd();
-    } else {
-      loadFaceBookInterstitialAd();
     }
   }
 
@@ -53,8 +49,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
           onPressed: () {
             if (enableAdType == admob) {
               showInterstitialAd();
-            } else {
-              showFacebookInterstitialAd();
             }
 
             finish(context);
@@ -111,8 +105,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
       ),
       bottomNavigationBar: Container(
           height: 50,
-          child: enableAdType == admob
-              ? AdWidget(
+          child: AdWidget(
                   ad: BannerAd(
                     adUnitId: kReleaseMode ? mAdMobBannerId : BannerAd.testAdUnitId,
                     size: AdSize.banner,
@@ -122,13 +115,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     request: const AdRequest(),
                   )..load(),
                 )
-              : FacebookBannerAd(
-                  placementId: faceBookBannerPlacementId,
-                  bannerSize: BannerSize.STANDARD,
-                  listener: (result, value) {
-                    print("Banner Ad: $result -->  $value");
-                  },
-                ),
+             ,
           color: Colors.white),
     );
   }

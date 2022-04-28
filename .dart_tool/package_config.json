@@ -266,12 +266,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "facebook_audience_network",
-      "rootUri": "file:///Users/batuhankarababa/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_audience_network-1.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "fake_async",
       "rootUri": "file:///Users/batuhankarababa/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
@@ -1016,7 +1010,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-04-28T12:10:21.385605Z",
+  "generated": "2022-04-28T14:09:20.180439Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

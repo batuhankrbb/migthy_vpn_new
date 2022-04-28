@@ -60,20 +60,6 @@ void main() async {
     }
   }
 
-  //region Init RevenueCat
-  // try {
-  //   await Purchases.setDebugLogsEnabled(true);
-  //   // if (appStore.isLoggedIn) {
-  //   //   await Purchases.setup(mRevenueCatKey, appUserId: appStore.userId.toString());
-  //   // } else
-  //     if (isAndroid) {
-  //     await Purchases.setup(mRevenueCatKey, appUserId: (await DeviceInfoPlugin().androidInfo).androidId.validate());
-  //    }
-  // } catch (e) {
-  //   print(e);
-  // }
-  //endregion
-
   runApp(const MyApp());
 }
 
