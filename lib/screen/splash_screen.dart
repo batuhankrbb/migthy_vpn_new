@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mightyvpn/screen/onboard/onboarding_screen.dart';
+import 'package:mightyvpn/screen/paywall_screen.dart';
 import '../main.dart';
 import '../model/server_model.dart';
 import 'bottom_nav_bar.dart';
@@ -14,7 +16,8 @@ class SplashScreen extends StatefulWidget {
   SplashScreenState createState() => SplashScreenState();
 }
 
-class SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> animation;
 
@@ -29,11 +32,15 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
       () {
         setStatusBarColor(context.scaffoldBackgroundColor);
 
-        appStore.setLanguage(getStringAsync(SharedPrefKeys.language, defaultValue: AppConstant.defaultLanguage), context: context);
+        appStore.setLanguage(
+            getStringAsync(SharedPrefKeys.language,
+                defaultValue: AppConstant.defaultLanguage),
+            context: context);
       },
     );
     animationController = AnimationController(vsync: this, duration: 1.seconds);
-    animation = CurvedAnimation(parent: animationController, curve: Curves.easeInQuad);
+    animation =
+        CurvedAnimation(parent: animationController, curve: Curves.easeInQuad);
     animationController.forward();
 
     vpnStore.setVPNStatus();
@@ -46,11 +53,18 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
       if (getStringAsync(SharedPrefKeys.selectedServer).isEmpty) {
         appStore.setSelectedServerModel(event.first);
       } else {
-        appStore.setSelectedServerModel(ServerModel.fromJson(jsonDecode(getStringAsync(SharedPrefKeys.selectedServer))));
+        appStore.setSelectedServerModel(ServerModel.fromJson(
+            jsonDecode(getStringAsync(SharedPrefKeys.selectedServer))));
       }
     });
-
-    2.seconds.delay.then((value) => push(const BottomNavBar(), isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade));
+    var showOnboard = getBoolAsync("showOnboard",defaultValue: true);
+    if (showOnboard) {
+      2.seconds.delay.then((value) => push(const OnboardingScreen(),
+          isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade));
+    } else {
+      2.seconds.delay.then((value) => push(const PaywallScreen(),
+          isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade));
+    }
   }
 
   @override
@@ -73,9 +87,13 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ScaleTransition(scale: animation, child: commonCacheImageWidget(vpnLogo, 120, width: 120, fit: BoxFit.cover)),
+              ScaleTransition(
+                  scale: animation,
+                  child: commonCacheImageWidget(vpnLogo, 120,
+                      width: 120, fit: BoxFit.cover)),
               16.height,
-              Text(AppConstant.appName, style: primaryTextStyle(size: 24, weight: FontWeight.bold)),
+              Text(AppConstant.appName,
+                  style: primaryTextStyle(size: 24, weight: FontWeight.bold)),
             ],
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../model/server_model.dart';
+import '../screen/onboard/widgets/onboard_page_widget.dart';
 import 'images.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -89,15 +90,14 @@ class Urls {
       'https://meetmighty.com/codecanyon/document/mightyvpn/';
 }
 
-
 const AD_MOB_OPEN_AD_ID = "ca-app-pub-8037703403650159/1710755075";
 const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
 const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
 
-
-
 const primaryColor = Color(0xFF005AFF);
 const appButtonColor = Color(0xFFe3effe);
+const onboardBackgroundColor = Color(0xFFe3effe);
+const onboardTextColor = Colors.black;
 const defaultPrimaryColor = primaryColor;
 const secondaryColor = Color(0xFF000000);
 const scaffoldColorDark = Color(0xFF090909);
@@ -115,7 +115,6 @@ class LanguageImages {
   static const icThai = "assets/flag/ic_thai.png";
   static const icVietnamese = "assets/flag/ic_vietnamese.png";
 }
-
 
 List<LanguageDataModel> languageList() {
   return [
@@ -140,7 +139,7 @@ List<LanguageDataModel> languageList() {
         languageCode: 'ar',
         fullLanguageCode: 'ar-AR',
         flag: LanguageImages.icAr),
-         LanguageDataModel(
+    LanguageDataModel(
         id: 3,
         name: 'Korean',
         subTitle: 'Korean VPN',
@@ -149,3 +148,24 @@ List<LanguageDataModel> languageList() {
         flag: LanguageImages.icKorean),
   ];
 }
+
+final List<Widget> introWidgetsList = [
+  const OnboardPageWidget(
+    image: LanguageImages.icGermany,
+    title: "Learn faster, than ever!",
+    description:
+        "Thanks to 123 Spanish’s visually supported flashcards, you’ll learn and memorise faster. ",
+  ),
+  const OnboardPageWidget(
+    image: LanguageImages.icJapanese,
+    title: "Regularly Updated Decks",
+    description:
+        "123 Spanish's content team studies regularly and creates and shares the most successful decks with you.",
+  ),
+  const OnboardPageWidget(
+    image: LanguageImages.icKorean,
+    title: "Study More Efficiently",
+    description:
+        "Maybe you only need some basic words for your Spain holiday. So, why do you start from the beginning? 123 Spanish gives you exactly what you need.",
+  ),
+];
