@@ -96,7 +96,6 @@ const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
 
 
 
-
 const primaryColor = Color(0xFF005AFF);
 const appButtonColor = Color(0xFFe3effe);
 const defaultPrimaryColor = primaryColor;
@@ -115,4 +114,38 @@ class LanguageImages {
   static const icKorean = "assets/flag/ic_korean.png";
   static const icThai = "assets/flag/ic_thai.png";
   static const icVietnamese = "assets/flag/ic_vietnamese.png";
+}
+
+
+List<LanguageDataModel> languageList() {
+  return [
+    LanguageDataModel(
+        id: 1,
+        name: 'English',
+        subTitle: 'English',
+        languageCode: 'en',
+        fullLanguageCode: 'en-US',
+        flag: LanguageImages.icUs),
+    LanguageDataModel(
+        id: 2,
+        name: 'Germany',
+        subTitle: 'Deutsch',
+        languageCode: 'de',
+        fullLanguageCode: 'de-DE',
+        flag: LanguageImages.icGermany),
+    LanguageDataModel(
+        id: 3,
+        name: 'Arabic',
+        subTitle: 'عربي',
+        languageCode: 'ar',
+        fullLanguageCode: 'ar-AR',
+        flag: LanguageImages.icAr),
+         LanguageDataModel(
+        id: 3,
+        name: 'Korean',
+        subTitle: 'Korean VPN',
+        languageCode: 'ko',
+        fullLanguageCode: 'ko-KR',
+        flag: LanguageImages.icKorean),
+  ];
 }

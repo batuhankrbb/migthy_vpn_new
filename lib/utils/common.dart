@@ -145,32 +145,6 @@ Widget placeholderWidget() => CircleAvatar(
     child: const Icon(Icons.person, color: Colors.black),
     backgroundColor: Colors.grey.shade300);
 
-List<LanguageDataModel> languageList() {
-  return [
-    LanguageDataModel(
-        id: 1,
-        name: 'English',
-        subTitle: 'English',
-        languageCode: 'en',
-        fullLanguageCode: 'en-US',
-        flag: LanguageImages.icUs),
-    LanguageDataModel(
-        id: 2,
-        name: 'Germany',
-        subTitle: 'Deutsch',
-        languageCode: 'de',
-        fullLanguageCode: 'de-DE',
-        flag: LanguageImages.icGermany),
-    LanguageDataModel(
-        id: 3,
-        name: 'Arabic',
-        subTitle: 'عربي',
-        languageCode: 'ar',
-        fullLanguageCode: 'ar-AR',
-        flag: LanguageImages.icAr),
-  ];
-}
-
 void initializeStream() {
   stageStream = vpnStage.receiveBroadcastStream().listen(
     (event) {

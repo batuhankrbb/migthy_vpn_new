@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mightyvpn/language/LanguageKo.dart';
 import 'LanguageAr.dart';
 import 'LanguageEn.dart';
 import 'LanguageDe.dart';
@@ -17,6 +18,8 @@ class AppLocalizations extends LocalizationsDelegate<BaseLanguage> {
         return LanguageAr();
       case 'de':
         return LanguageDe();
+      case 'ko':
+        return LanguageKo();
       default:
         return LanguageEn();
     }
