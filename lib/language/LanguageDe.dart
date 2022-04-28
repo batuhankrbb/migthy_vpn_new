@@ -30,181 +30,181 @@ class LanguageDe extends BaseLanguage {
 
   @override
   String get lblWouldYouLikeToCancelTheCurrentVPNConnection =>
-      "क्या आप वर्तमान वीपीएन कनेक्शन को रद्द करना चाहते हैं?";
+      "Möchten Sie die aktuelle VPN-Verbindung kündigen?";
 
   @override
   String get lblYourVPNConnectionHasBeenDisconnected =>
-      "आपका वीपीएन कनेक्शन डिस्कनेक्ट हो गया है";
+      "Ihre VPN-Verbindung wurde getrennt";
 
   @override
-  String get lblCurrentServer => "वर्तमान सर्वर";
+  String get lblCurrentServer => "Aktueller Server";
 
   @override
-  String get lblInternetSpeedTest => "इंटरनेट स्पीड टेस्ट";
+  String get lblInternetSpeedTest => "Internet-Geschwindigkeitstest";
 
   @override
-  String get lblDownload => "डाउनलोड";
+  String get lblDownload => "Download";
 
   @override
-  String get lblStartDownload => "डाउनलोड शुरू करें";
+  String get lblStartDownload => "Starte Download";
 
   @override
-  String get lblUpload => "डालना";
+  String get lblUpload => "Hochladen";
 
   @override
-  String get lblStartUploading => "अपलोड करना शुरू करें";
+  String get lblStartUploading => "Hochladen Starten";
 
   @override
-  String get lblServerList => "सर्वर सूची";
+  String get lblServerList => "Serverliste";
 
   @override
-  String get lblSameServerSelected => "एक ही सर्वर चयनित";
+  String get lblSameServerSelected => "Gleicher Server ausgewählt";
 
   @override
-  String get lblServerChangedTo => "सर्वर में बदल गया";
+  String get lblServerChangedTo => "Server geändert zu";
 
   @override
   String get lblPleaseWaitWhileReconnecting =>
-      "कृपया पुनः कनेक्ट करते समय प्रतीक्षा करें";
+      "Bitte warten Sie, während die Verbindung wiederhergestellt wird";
 
   @override
-  String get lblChangeLanguage => "भाषा बदलें";
+  String get lblChangeLanguage => "Sprache ändern";
 
   @override
-  String get lblTheme => "विषय";
+  String get lblTheme => "Thema";
 
   @override
-  String get lblPrivacyLolicy => "गोपनीयता नीति";
+  String get lblPrivacyLolicy => "Datenschutz-Bestimmungen";
 
   @override
-  String get lblRateLs => "हमें रेटिंग दें";
+  String get lblRateLs => "Bewerten Sie uns";
 
   @override
-  String get lblTermsAndConditions => "नियम एवं शर्तें";
+  String get lblTermsAndConditions => "Terms & Amp; Bedingungen";
 
   @override
-  String get lblShareApp => "ऐप शेयर करें";
+  String get lblShareApp => "App Teilen";
 
   @override
-  String get lblShare => "साझा करना";
+  String get lblShare => "Teilen";
 
   @override
-  String get lblAboutUs => "हमारे बारे में";
+  String get lblAboutUs => "Über Uns";
 
   @override
-  String get lblLight => "रोशनी";
+  String get lblLight => "Hell";
 
   @override
-  String get lblDark => "अंधेरा";
+  String get lblDark => "Dunkel";
 
   @override
-  String get lblSystemDefault => "प्रणालीगत चूक";
+  String get lblSystemDefault => "Systemfehler";
 
   @override
-  String get lblSelectYourTheme => "अपनी थीम का चयन करें";
+  String get lblSelectYourTheme => "Wählen Sie Ihr Thema aus";
 
   @override
-  String get lblSettings => "स्थापना";
+  String get lblSettings => "Einstellung";
 
   @override
-  String get lblPurchase => "खरीदना";
+  String get lblPurchase => "Kaufen";
 
   @override
-  String get lblDocument => "प्रलेखन";
+  String get lblDocument => "Dokumentation";
 
   @override
-  String get lblConnecting => "कनेक्ट";
+  String get lblConnecting => "Verbinden";
 
   @override
-  String get lblWait => "सर्वर के उत्तर की प्रतीक्षा";
+  String get lblWait => "Warten auf Serverantwort";
 
   @override
-  String get lblAuth => "प्रमाणित कर रहा है";
+  String get lblAuth => "Authentifizieren";
 
   @override
-  String get lblGetConfig => "ग्राहक विन्यास प्राप्त करना";
+  String get lblGetConfig => "Client-Konfiguration Abrufen";
 
   @override
-  String get lblAssignIp => "आईपी ​​पते असाइन करना";
+  String get lblAssignIp => "Assigning IP addresses";
 
   @override
-  String get lblAddRoutes => "मार्ग जोड़ना";
+  String get lblAddRoutes => "Adding routes";
 
   @override
-  String get lblConnected => "जुड़े हुए";
+  String get lblConnected => "Connected";
 
   @override
-  String get lblDisconnected => "डिस्कनेक्ट";
+  String get lblDisconnected => "Disconnected";
 
   @override
-  String get lblReconnecting => "पुनः कनेक्ट हो";
+  String get lblReconnecting => "Reconnecting";
 
   @override
-  String get lblExiting => "बाहर निकल रहा है";
+  String get lblExiting => "Exiting";
 
   @override
-  String get lblResolve => "चल नहीं रहा";
+  String get lblResolve => "Not running";
 
   @override
-  String get lblTcpConnect => "होस्ट नामों को हल करना";
+  String get lblTcpConnect => "Resolving host names";
 
   @override
-  String get lblNoNetwork => "नेटवर्क से जुड़ा नहीं";
+  String get lblNoNetwork => "Not Connected to network";
 
   @override
-  String get lblConnectRetry => "पुनः प्रयास किया जाएगा";
+  String get lblConnectRetry => "Retrying";
 
   @override
-  String get lblAuthPending => "कनेक्टिंग (टीसीपी)";
+  String get lblAuthPending => "Connecting (TCP)";
 
   @override
-  String get lblUserPause => "कनेक्शन रोका गया";
+  String get lblUserPause => "Connection paused";
 
   @override
-  String get lblNotConnected => "जुड़े नहीं हैं";
+  String get lblNotConnected => "Not Connected";
 
   @override
-  String get lblStartTest => "टेस्ट शुरू करें";
+  String get lblStartTest => "Start Test";
 
   @override
   String get lblDownloadTestFailed =>
-      "डाउनलोड परीक्षण विफल! कृपया अपने इंटरनेट कनेक्शन की जाँच करें";
+      "Download test failed! Please check your internet connection";
 
   @override
-  String get lblStartTestAgain => "फिर से परीक्षण शुरू करें";
+  String get lblStartTestAgain => "Start Test Again";
 
   @override
   String get lblUploadTestFailed =>
-      "अपलोड परीक्षण विफल! कृपया अपने इंटरनेट कनेक्शन की जाँच करें";
+      "Upload test failed! Please check your internet connection";
 
   @override
-  String get lblCancelSubscription => "सदस्यता रद्द";
+  String get lblCancelSubscription => "Cancel Subscription";
 
   @override
-  String get lblContinue => "जारी रखें";
+  String get lblContinue => "Continue";
 
   @override
-  String get lblMightyVPNPremium => "शक्तिशाली वीपीएन प्रीमियम";
+  String get lblMightyVPNPremium => "Mighty VPN Premium";
 
   @override
-  String get lblPremiumServer => "प्रीमियम सर्वर";
+  String get lblPremiumServer => "Premium Servers";
 
   @override
-  String get lblRemoveAds => "विज्ञापन हटाएँ";
+  String get lblRemoveAds => "Remove Ads";
 
   @override
-  String get lblSubscribePremium => "सदस्यता लें \nशक्तिशाली वीपीएन प्रीमियम";
+  String get lblSubscribePremium => "Subscribe \nMighty VPN Premium";
 
   @override
-  String get lblRestorePurchase => "पुनःस्थापन क्रय";
+  String get lblRestorePurchase => "Restore Purchase";
 
   @override
   String get lblCancelSubscriptionMsg =>
-      "आप Google Play Store से सदस्यता रद्द कर सकते हैं";
+      "You can cancel subscription from google play store";
 
   @override
-  String get lblSuccessfullyPurchased => "सफलतापूर्वक खरीदा";
+  String get lblSuccessfullyPurchased => "Successfully Purchased";
 
   @override
-  String get lblValidTill => "तक मान्य:";
+  String get lblValidTill => "Valid till:";
 }
