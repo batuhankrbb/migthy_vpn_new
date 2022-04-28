@@ -37,9 +37,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   void init() async {
     initializeStream();
-    if(enableAdType==admob){
+    if (enableAdType == admob) {
       loadInterstitialAd();
-    }else{
+    } else {
       loadFaceBookInterstitialAd();
     }
   }
@@ -59,7 +59,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   void startVPN() {
     appStore.setLoading(true);
-    vpnServicesMethods.startVpn(server: appStore.mSelectedServerModel).then((value) {
+    vpnServicesMethods
+        .startVpn(server: appStore.mSelectedServerModel)
+        .then((value) {
       initializeStream();
     }).catchError((e) {
       toast(e.toString(), print: true);
@@ -89,9 +91,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> stopVpn() async {
     await vpnServicesMethods.stopVpn().then((value) {
       toast(language.lblDisconnect);
-      if(enableAdType==admob){
+      if (enableAdType == admob) {
         showInterstitialAd();
-      }else{
+      } else {
         showFacebookInterstitialAd();
       }
       appStore.setLoading(false);
@@ -140,7 +142,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       dialogType: DialogType.DELETE,
                       dialogAnimation: DialogAnimation.SCALE,
                       positiveText: language.lblDisconnect,
-                      title: language.lblWouldYouLikeToCancelTheCurrentVPNConnection,
+                      title: language
+                          .lblWouldYouLikeToCancelTheCurrentVPNConnection,
                       onAccept: (c) async {
                         HapticFeedback.heavyImpact();
                         await stopVpn();
@@ -167,12 +170,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Observer(
               builder: (_) => SettingItemWidget(
                 radius: radius(),
-                decoration: boxDecorationDefault(borderRadius: radius(), color: context.cardColor, boxShadow: defaultBoxShadow(blurRadius: 0, spreadRadius: 0)),
+                decoration: boxDecorationDefault(
+                    borderRadius: radius(),
+                    color: context.cardColor,
+                    boxShadow:
+                        defaultBoxShadow(blurRadius: 0, spreadRadius: 0)),
                 title: appStore.mSelectedServerModel.country.validate(),
                 titleTextStyle: boldTextStyle(color: primaryColor),
-                leading: cachedImage(appStore.mSelectedServerModel.flagUrl.validate(value: 'assets/images/vpn_logo.png'), width: 34, height: 34),
+                leading: cachedImage(
+                    appStore.mSelectedServerModel.flagUrl
+                        .validate(value: 'assets/images/vpn_logo.png'),
+                    width: 34,
+                    height: 34),
                 onTap: () {
-                  push(const ServerListScreen(), pageRouteAnimation: PageRouteAnimation.SlideBottomTop, duration: 250.milliseconds);
+                  push(const ServerListScreen(),
+                      pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
+                      duration: 250.milliseconds);
                 },
               ).paddingSymmetric(horizontal: 26),
             ),
