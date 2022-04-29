@@ -15,7 +15,7 @@ class IpComponent extends StatelessWidget {
     return Observer(
       builder: (_) {
         return FutureBuilder(
-          future: IpAddress(type: RequestType.json).getIpAddress(),
+          future: getIP(),
           builder: (context, snap) {
             return Column(
               children: [
@@ -39,5 +39,14 @@ class IpComponent extends StatelessWidget {
         ).visible(vpnStore.vpnStatus == VPNStatus.connected);
       },
     );
+  }
+
+  Future<dynamic> getIP() {
+    try {
+      return IpAddress(type: RequestType.json).getIpAddress();
+    } catch (e) {
+      print("error buraya ulaştı = $e");
+      return "{ip: 59.1.206.3131}" as dynamic;
+    }
   }
 }

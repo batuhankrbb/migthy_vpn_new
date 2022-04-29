@@ -22,7 +22,6 @@ class ServerListScreen extends StatefulWidget {
 
 class _ServerListScreenState extends State<ServerListScreen> {
   int isSelected = -1;
-  BannerAd? myBanner;
 
   @override
   void initState() {
@@ -34,12 +33,6 @@ class _ServerListScreenState extends State<ServerListScreen> {
     isSelected = vpnStore.serverList.indexWhere(
         (element) => element.uid == appStore.mSelectedServerModel.uid);
     loadInterstitialAd();
-  }
-
-  @override
-  void dispose() {
-    myBanner?.dispose();
-    super.dispose();
   }
 
   @override
@@ -56,104 +49,178 @@ class _ServerListScreenState extends State<ServerListScreen> {
           backWidget: IconButton(
             onPressed: () {
               showInterstitialAd();
-              finish(context);
+              doneAction();
             },
             icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
           ),
           showBack: true,
           elevation: 0,
           center: true,
-          actions: [
-            IconButton(
-              onPressed: () {
-                if (vpnStore.serverList[isSelected].uid ==
-                    appStore.mSelectedServerModel.uid) {
-                  toasty(
-                    context,
-                    language.lblSameServerSelected,
-                    gravity: ToastGravity.TOP,
-                    borderRadius: radius(),
-                    bgColor: context.cardColor,
-                    duration: 3.seconds,
-                    textColor: textPrimaryColorGlobal,
-                  );
-                } else {
-                  appStore
-                      .setSelectedServerModel(vpnStore.serverList[isSelected]);
-                  toasty(
-                    context,
-                    "${language.lblServerChangedTo} ${vpnStore.serverList[isSelected].country}, ${language.lblPleaseWaitWhileReconnecting} ",
-                    gravity: ToastGravity.TOP,
-                    borderRadius: radius(),
-                    bgColor: context.cardColor,
-                    duration: 3.seconds,
-                    textColor: textPrimaryColorGlobal,
-                  );
-                  vpnServicesMethods.updateVpn(
-                      server: vpnStore.serverList[isSelected]);
-                }
-
-                finish(context);
-              },
-              icon: Icon(Icons.done, color: context.iconColor),
-            )
-          ],
         ),
-      
-
         // myBanner != null ? Container(height: AdSize.banner.height.toDouble(), child: AdWidget(ad: myBanner!), color: Colors.white):SizedBox(),
         body: Observer(
           builder: (_) => Container(
             padding: const EdgeInsets.all(16),
-            child: Wrap(
-              spacing: 16,
-              runSpacing: 16,
-              children: List.generate(
-                vpnStore.serverList.length,
-                (index) {
-                  ServerModel data = vpnStore.serverList[index];
-                  bool selected = isSelected == index;
-                  return SettingItemWidget(
-                    title: data.country.validate(),
-                    decoration: BoxDecoration(
-                        color: context.cardColor, borderRadius: radius()),
-                    leading: cachedImage(
-                        data.flagUrl
-                            .validate(value: 'assets/images/vpn_logo.png'),
-                        width: 34,
-                        height: 34),
-                    trailing: Row(
+            child: SingleChildScrollView(
+              child: Wrap(
+                spacing: 16,
+                runSpacing: 16,
+                children: List.generate(
+                  vpnStore.serverList.length,
+                  (index) {
+                    ServerModel data = vpnStore.serverList[index];
+                    bool selected = isSelected == index;
+                    return Stack(
                       children: [
-                        selected
-                            ? Container(
-                                padding: const EdgeInsets.all(6),
-                                decoration: BoxDecoration(
-                                    color: primaryColor.withOpacity(0.1),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(color: primaryColor)),
-                                child: const Icon(Icons.done,
-                                    size: 16, color: primaryColor),
-                              )
-                            : Container(
-                                padding: const EdgeInsets.all(14),
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: primaryColor),
-                                    shape: BoxShape.circle),
-                              ),
+                        SettingItemWidget(
+                          title: data.country.validate(),
+                          decoration: BoxDecoration(
+                              color: context.cardColor, borderRadius: radius()),
+                          leading: cachedImage(
+                              data.flagUrl.validate(
+                                  value: 'assets/images/vpn_logo.png'),
+                              width: 34,
+                              height: 34),
+                          trailing: buildTrailing(data, context, selected),
+                          onTap: () {
+                            if (globalStore.isPremium ||
+                                !(data.isPremium ?? true)) {
+                              isSelected = index;
+                              setState(() {});
+                            } else {
+                              //TODO SHOW ALERT
+                            }
+                          },
+                          radius: radius(),
+                        ),
                       ],
-                    ),
-                    onTap: () {
-                      isSelected = index;
-                      setState(() {});
-                    },
-                    radius: radius(),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
           ),
         ),
       );
     });
+  }
+
+  Widget buildTrailing(ServerModel data, BuildContext context, bool selected) {
+    if (globalStore.isPremium || !(data.isPremium ?? true)) {
+      //* premium ise
+      return Row(
+        children: [
+          selected
+              ? Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                      color: primaryColor.withOpacity(0.1),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: primaryColor)),
+                  child: const Icon(Icons.done, size: 16, color: primaryColor),
+                )
+              : Container(
+                  padding: const EdgeInsets.all(14),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: primaryColor),
+                      shape: BoxShape.circle),
+                ),
+        ],
+      );
+    } else {
+      return buildPremiumRow();
+    }
+  }
+
+  Widget buildPremiumRow() {
+    //TODO RETURN KRAL TACI AND VIDEO ICON
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(6),
+          child: const Icon(Icons.slideshow, size: 22, color: primaryColor),
+        )
+      ],
+    );
+  }
+
+  Widget buildPremiumOverlay(
+      ServerModel data, BuildContext context, bool selected) {
+    if (globalStore.isPremium || !(data.isPremium ?? true)) {
+      return SizedBox();
+    }
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return Container(
+                color: Colors.white,
+                height: 200,
+                width: 200,
+              );
+            });
+        //TODO alert çıkart reklam mı izlemek istersin premium mu diye. Güzel alert olsun.
+      },
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.6), borderRadius: radius()),
+        child: Opacity(
+          opacity: 0,
+          child: SettingItemWidget(
+            title: data.country.validate(),
+            decoration:
+                BoxDecoration(color: context.cardColor, borderRadius: radius()),
+            leading: cachedImage(
+                data.flagUrl.validate(value: 'assets/images/vpn_logo.png'),
+                width: 34,
+                height: 34),
+            trailing: Row(
+              children: [
+                selected
+                    ? Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                            color: primaryColor.withOpacity(0.1),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: primaryColor)),
+                        child: const Icon(Icons.done,
+                            size: 16, color: primaryColor),
+                      )
+                    : Container(
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: primaryColor),
+                            shape: BoxShape.circle),
+                      ),
+              ],
+            ),
+            onTap: () {},
+            radius: radius(),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void doneAction() {
+    if (vpnStore.serverList[isSelected].uid ==
+        appStore.mSelectedServerModel.uid) {
+      finish(context);
+    } else {
+      appStore.setSelectedServerModel(vpnStore.serverList[isSelected]);
+      toasty(
+        context,
+        "${language.lblServerChangedTo} ${vpnStore.serverList[isSelected].country}, ${language.lblPleaseWaitWhileReconnecting} ",
+        gravity: ToastGravity.TOP,
+        borderRadius: radius(),
+        bgColor: context.cardColor,
+        duration: 3.seconds,
+        textColor: textPrimaryColorGlobal,
+      );
+      vpnServicesMethods.updateVpn(server: vpnStore.serverList[isSelected]);
+    }
+
+    finish(context);
   }
 }

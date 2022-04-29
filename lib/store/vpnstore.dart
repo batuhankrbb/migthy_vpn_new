@@ -28,6 +28,7 @@ abstract class VpnStoreBase with Store {
   @action
   void setServerList(List<ServerModel> val) {
     serverList = val;
+    serverList.sort((a, b) => (a.order ?? 0).compareTo(b.order ?? 0));
   }
 
   @action
@@ -71,38 +72,54 @@ abstract class VpnStoreBase with Store {
   @action
   Future<void> setVPNStatus() async {
     String res = await vpnServicesMethods.getVPNStatus();
+ 
     if (res.validate() == 'CONNECTING') {
       vpnStatus = VPNStatus.connecting;
     } else if (res.validate() == 'WAIT') {
       vpnStatus = VPNStatus.wait;
+         appStore.setLoading(true);
     } else if (res.validate() == 'AUTH') {
       vpnStatus = VPNStatus.auth;
+         appStore.setLoading(true);
     } else if (res.validate() == 'GET_CONFIG') {
       vpnStatus = VPNStatus.getConfig;
+         appStore.setLoading(true);
     } else if (res.validate() == 'ASSIGN_IP') {
       vpnStatus = VPNStatus.assignIp;
+         appStore.setLoading(true);
     } else if (res.validate() == 'ADD_ROUTES') {
       vpnStatus = VPNStatus.addRoutes;
+         appStore.setLoading(true);
     } else if (res.validate() == 'CONNECTED') {
       vpnStatus = VPNStatus.connected;
+      appStore.setLoading(false);
     } else if (res.validate() == 'DISCONNECTED') {
       vpnStatus = VPNStatus.disconnected;
+      appStore.setLoading(false);
     } else if (res.validate() == 'RECONNECTING') {
       vpnStatus = VPNStatus.reconnecting;
+         appStore.setLoading(true);
     } else if (res.validate() == 'EXITING') {
       vpnStatus = VPNStatus.exiting;
+         appStore.setLoading(true);
     } else if (res.validate() == 'NONETWORK') {
       vpnStatus = VPNStatus.exiting;
+         appStore.setLoading(true);
     } else if (res.validate() == 'CONNECTRETRY') {
       vpnStatus = VPNStatus.connectRetry;
+         appStore.setLoading(true);
     } else if (res.validate() == 'RESOLVE') {
       vpnStatus = VPNStatus.resolve;
+         appStore.setLoading(true);
     } else if (res.validate() == 'TCP_CONNECT') {
       vpnStatus = VPNStatus.tcpConnect;
+         appStore.setLoading(true);
     } else if (res.validate() == 'AUTH_PENDING') {
       vpnStatus = VPNStatus.authPending;
+         appStore.setLoading(true);
     } else if (res.validate() == 'USERPAUSE') {
       vpnStatus = VPNStatus.userPause;
+      appStore.setLoading(false);
     } else {
       vpnStatus = VPNStatus.disconnected;
     }

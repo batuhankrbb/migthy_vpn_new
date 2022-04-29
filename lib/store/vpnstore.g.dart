@@ -9,7 +9,8 @@ part of 'vpnstore.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$VpnStore on VpnStoreBase, Store {
-  final _$vpnStatusAtom = Atom(name: 'VpnStoreBase.vpnStatus');
+  late final _$vpnStatusAtom =
+      Atom(name: 'VpnStoreBase.vpnStatus', context: context);
 
   @override
   VPNStatus get vpnStatus {
@@ -24,7 +25,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$isConnectedAtom = Atom(name: 'VpnStoreBase.isConnected');
+  late final _$isConnectedAtom =
+      Atom(name: 'VpnStoreBase.isConnected', context: context);
 
   @override
   bool get isConnected {
@@ -39,7 +41,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$mIsPreparedAtom = Atom(name: 'VpnStoreBase.mIsPrepared');
+  late final _$mIsPreparedAtom =
+      Atom(name: 'VpnStoreBase.mIsPrepared', context: context);
 
   @override
   bool get mIsPrepared {
@@ -54,7 +57,7 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$startAtom = Atom(name: 'VpnStoreBase.start');
+  late final _$startAtom = Atom(name: 'VpnStoreBase.start', context: context);
 
   @override
   String get start {
@@ -69,7 +72,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$serverListAtom = Atom(name: 'VpnStoreBase.serverList');
+  late final _$serverListAtom =
+      Atom(name: 'VpnStoreBase.serverList', context: context);
 
   @override
   List<ServerModel> get serverList {
@@ -84,7 +88,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$mVpnStageAtom = Atom(name: 'VpnStoreBase.mVpnStage');
+  late final _$mVpnStageAtom =
+      Atom(name: 'VpnStoreBase.mVpnStage', context: context);
 
   @override
   String get mVpnStage {
@@ -99,7 +104,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$mByteInAtom = Atom(name: 'VpnStoreBase.mByteIn');
+  late final _$mByteInAtom =
+      Atom(name: 'VpnStoreBase.mByteIn', context: context);
 
   @override
   String get mByteIn {
@@ -114,7 +120,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$mByteOutAtom = Atom(name: 'VpnStoreBase.mByteOut');
+  late final _$mByteOutAtom =
+      Atom(name: 'VpnStoreBase.mByteOut', context: context);
 
   @override
   String get mByteOut {
@@ -129,7 +136,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$mDurationAtom = Atom(name: 'VpnStoreBase.mDuration');
+  late final _$mDurationAtom =
+      Atom(name: 'VpnStoreBase.mDuration', context: context);
 
   @override
   String get mDuration {
@@ -144,8 +152,8 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$mLastPacketReceiveAtom =
-      Atom(name: 'VpnStoreBase.mLastPacketReceive');
+  late final _$mLastPacketReceiveAtom =
+      Atom(name: 'VpnStoreBase.mLastPacketReceive', context: context);
 
   @override
   String get mLastPacketReceive {
@@ -160,14 +168,16 @@ mixin _$VpnStore on VpnStoreBase, Store {
     });
   }
 
-  final _$setVPNStatusAsyncAction = AsyncAction('VpnStoreBase.setVPNStatus');
+  late final _$setVPNStatusAsyncAction =
+      AsyncAction('VpnStoreBase.setVPNStatus', context: context);
 
   @override
   Future<void> setVPNStatus() {
     return _$setVPNStatusAsyncAction.run(() => super.setVPNStatus());
   }
 
-  final _$VpnStoreBaseActionController = ActionController(name: 'VpnStoreBase');
+  late final _$VpnStoreBaseActionController =
+      ActionController(name: 'VpnStoreBase', context: context);
 
   @override
   void setServerList(List<ServerModel> val) {

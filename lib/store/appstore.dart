@@ -47,7 +47,9 @@ abstract class AppStoreBase with Store {
   @action
   void setSelectedServerModel(ServerModel aSelectedServerModel) {
     mSelectedServerModel = aSelectedServerModel;
-    setValue(SharedPrefKeys.selectedServer, jsonEncode(aSelectedServerModel));
+    if (globalStore.isPremium){
+      setValue(SharedPrefKeys.selectedServer, jsonEncode(aSelectedServerModel));
+    }
     log('Server Changed to ${aSelectedServerModel.country}');
   }
 

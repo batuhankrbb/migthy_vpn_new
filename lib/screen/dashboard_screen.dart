@@ -46,7 +46,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   void dispose() {
-    stageStream.cancel();
+    stageStream?.cancel();
     myInterstitial!.dispose();
     dataStream.cancel();
     super.dispose();

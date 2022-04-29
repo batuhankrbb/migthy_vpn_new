@@ -149,6 +149,7 @@ void initializeStream() {
   stageStream = vpnStage.receiveBroadcastStream().listen(
     (event) {
       vpnStore.setVpnStage(AppCommon.getStages(event));
+
       vpnStore.setVPNStatus();
     },
   );
@@ -162,6 +163,5 @@ void initializeStream() {
     vpnStore.setLastPacketReceive(data.lastPacketReceive.validate());
 
     vpnStore.setVPNStatus();
-    appStore.setLoading(false);
   });
 }

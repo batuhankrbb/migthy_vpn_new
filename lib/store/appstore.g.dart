@@ -17,8 +17,8 @@ mixin _$AppStore on AppStoreBase, Store {
               name: 'AppStoreBase.isNetworkAvailable'))
       .value;
 
-  final _$mConnectivityResultAtom =
-      Atom(name: 'AppStoreBase.mConnectivityResult');
+  late final _$mConnectivityResultAtom =
+      Atom(name: 'AppStoreBase.mConnectivityResult', context: context);
 
   @override
   ConnectivityResult get mConnectivityResult {
@@ -33,7 +33,8 @@ mixin _$AppStore on AppStoreBase, Store {
     });
   }
 
-  final _$isLoadingAtom = Atom(name: 'AppStoreBase.isLoading');
+  late final _$isLoadingAtom =
+      Atom(name: 'AppStoreBase.isLoading', context: context);
 
   @override
   bool get isLoading {
@@ -48,7 +49,8 @@ mixin _$AppStore on AppStoreBase, Store {
     });
   }
 
-  final _$selectedLanguageAtom = Atom(name: 'AppStoreBase.selectedLanguage');
+  late final _$selectedLanguageAtom =
+      Atom(name: 'AppStoreBase.selectedLanguage', context: context);
 
   @override
   String get selectedLanguage {
@@ -63,7 +65,8 @@ mixin _$AppStore on AppStoreBase, Store {
     });
   }
 
-  final _$isDarkModeAtom = Atom(name: 'AppStoreBase.isDarkMode');
+  late final _$isDarkModeAtom =
+      Atom(name: 'AppStoreBase.isDarkMode', context: context);
 
   @override
   bool get isDarkMode {
@@ -78,8 +81,8 @@ mixin _$AppStore on AppStoreBase, Store {
     });
   }
 
-  final _$mSelectedServerModelAtom =
-      Atom(name: 'AppStoreBase.mSelectedServerModel');
+  late final _$mSelectedServerModelAtom =
+      Atom(name: 'AppStoreBase.mSelectedServerModel', context: context);
 
   @override
   ServerModel get mSelectedServerModel {
@@ -95,8 +98,8 @@ mixin _$AppStore on AppStoreBase, Store {
     });
   }
 
-  final _$setConnectivityResultAsyncAction =
-      AsyncAction('AppStoreBase.setConnectivityResult');
+  late final _$setConnectivityResultAsyncAction =
+      AsyncAction('AppStoreBase.setConnectivityResult', context: context);
 
   @override
   Future<void> setConnectivityResult(ConnectivityResult aConnectivityResult) {
@@ -104,14 +107,16 @@ mixin _$AppStore on AppStoreBase, Store {
         .run(() => super.setConnectivityResult(aConnectivityResult));
   }
 
-  final _$setDarkModeAsyncAction = AsyncAction('AppStoreBase.setDarkMode');
+  late final _$setDarkModeAsyncAction =
+      AsyncAction('AppStoreBase.setDarkMode', context: context);
 
   @override
   Future<void> setDarkMode(bool aIsDarkMode) {
     return _$setDarkModeAsyncAction.run(() => super.setDarkMode(aIsDarkMode));
   }
 
-  final _$setLanguageAsyncAction = AsyncAction('AppStoreBase.setLanguage');
+  late final _$setLanguageAsyncAction =
+      AsyncAction('AppStoreBase.setLanguage', context: context);
 
   @override
   Future<void> setLanguage(String aCode, {BuildContext? context}) {
@@ -119,7 +124,8 @@ mixin _$AppStore on AppStoreBase, Store {
         .run(() => super.setLanguage(aCode, context: context));
   }
 
-  final _$AppStoreBaseActionController = ActionController(name: 'AppStoreBase');
+  late final _$AppStoreBaseActionController =
+      ActionController(name: 'AppStoreBase', context: context);
 
   @override
   void setLoading(bool val) {

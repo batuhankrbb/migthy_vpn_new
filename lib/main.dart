@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:mightyvpn/store/global_store.dart';
 import 'app_theme.dart';
 import 'language/base_language.dart';
 import 'screen/splash_screen.dart';
@@ -22,6 +23,7 @@ import 'language/app_localizations.dart';
 
 AppStore appStore = AppStore();
 VpnStore vpnStore = VpnStore();
+GlobalStore globalStore = GlobalStore();
 
 ServerService serverService = ServerService();
 
@@ -32,7 +34,7 @@ const EventChannel vpnStage = EventChannel(VpnConstants.eventStage);
 FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
 VpnServicesMethods vpnServicesMethods = VpnServicesMethods();
-late StreamSubscription stageStream;
+StreamSubscription? stageStream;
 late StreamSubscription dataStream;
 
 late BaseLanguage language;
@@ -84,7 +86,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void init() async {
     WidgetsBinding.instance!.addObserver(this);
 
-    _connectivitySubscription = _connectivity.onConnectivityChanged.listen((event) {
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen((event) {
       appStore.setConnectivityResult(event);
     });
 
@@ -94,17 +97,24 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   }
 
   @override
-  Future<void> didChangeAppLifecycleState(AppLifecycleState appLifecycleState) async {
+  Future<void> didChangeAppLifecycleState(
+      AppLifecycleState appLifecycleState) async {
     super.didChangeAppLifecycleState(appLifecycleState);
-    if (appLifecycleState == AppLifecycleState.detached || appLifecycleState == AppLifecycleState.paused || appLifecycleState == AppLifecycleState.inactive) {
+    if (appLifecycleState == AppLifecycleState.detached ||
+        appLifecycleState == AppLifecycleState.paused ||
+        appLifecycleState == AppLifecycleState.inactive) {
       _connectivitySubscription.cancel();
-      stageStream.cancel();
+      if (stageStream != null) {
+        stageStream?.cancel();
+      }
       dataStream.cancel();
     }
 
     if (appLifecycleState == AppLifecycleState.resumed) {
       _connectivitySubscription.resume();
-      stageStream.resume();
+      if (stageStream != null) {
+        stageStream?.resume();
+      }
       dataStream.resume();
     }
   }
@@ -133,9 +143,14 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         themeMode: appStore.isDarkMode ? ThemeMode.dark : ThemeMode.light,
         navigatorKey: navigatorKey,
         supportedLocales: LanguageDataModel.languageLocales(),
-        localizationsDelegates: const [AppLocalizations(), GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
+        localizationsDelegates: const [
+          AppLocalizations(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+        ],
         localeResolutionCallback: (locale, supportedLocales) => locale,
-        locale: Locale(appStore.selectedLanguage.validate(value: AppConstant.defaultLanguage)),
+        locale: Locale(appStore.selectedLanguage
+            .validate(value: AppConstant.defaultLanguage)),
       ),
     );
   }

@@ -60,6 +60,7 @@ class ServerKey {
   String createdAt = "createdAt";
   String updatedAt = "updatedAt";
   String isPremium = "isPremium";
+  String order = "order";
 }
 
 ServerKey serverKey = ServerKey();
@@ -74,6 +75,7 @@ class ServerModel {
   String? ovpnUserPassword;
   String? content;
   bool? isPremium;
+  int? order;
 
   ServerModel({
     this.flagUrl,
@@ -85,10 +87,11 @@ class ServerModel {
     this.ovpnUserPassword,
     this.content,
     this.isPremium,
+    this.order,
   });
 
   factory ServerModel.fromJson(Map<String, dynamic> json) {
-    print("geldi veri ${json[serverKey.flag]}");
+    print("veri geldi}");
     return ServerModel(
       flagUrl: json[serverKey.flag],
       isActive: json[serverKey.isActive],
@@ -99,6 +102,7 @@ class ServerModel {
       ovpnUserName: json[serverKey.userName],
       content: json[serverKey.content],
       isPremium: json[serverKey.isPremium],
+      order: json[serverKey.order],
     );
   }
 
@@ -113,6 +117,7 @@ class ServerModel {
     data[serverKey.userName] = ovpnUserName;
     data[serverKey.content] = content;
     data[serverKey.isPremium] = isPremium;
+    data[serverKey.order] = order;
     return data;
   }
 }
