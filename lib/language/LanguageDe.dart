@@ -207,4 +207,28 @@ class LanguageDe extends BaseLanguage {
 
   @override
   String get lblValidTill => "Gültig bis:";
+
+  @override
+  // TODO: implement onboard1Description
+  String get onboard1Description => throw UnimplementedError();
+
+  @override
+  // TODO: implement onboard1Title
+  String get onboard1Title => throw UnimplementedError();
+
+  @override
+  // TODO: implement onboard2Description
+  String get onboard2Description => throw UnimplementedError();
+
+  @override
+  // TODO: implement onboard2Title
+  String get onboard2Title => throw UnimplementedError();
+
+  @override
+  // TODO: implement onboard3Description
+  String get onboard3Description => throw UnimplementedError();
+
+  @override
+  // TODO: implement onboard3Title
+  String get onboard3Title => throw UnimplementedError();
 }

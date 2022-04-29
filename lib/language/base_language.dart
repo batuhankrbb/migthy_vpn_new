@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class BaseLanguage {
-  static BaseLanguage? of(BuildContext context) => Localizations.of<BaseLanguage>(context, BaseLanguage);
+  static BaseLanguage? of(BuildContext context) =>
+      Localizations.of<BaseLanguage>(context, BaseLanguage);
 
   String get lblYouAreConnectedTo;
 
@@ -137,4 +138,10 @@ abstract class BaseLanguage {
 
   String get lblValidTill;
 
+  String get onboard1Title;
+  String get onboard1Description;
+  String get onboard2Title;
+  String get onboard2Description;
+  String get onboard3Title;
+  String get onboard3Description;
 }
