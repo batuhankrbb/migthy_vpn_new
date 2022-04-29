@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.bestvpn.frevpnapp"
+        applicationId "com.website.unblocker"
         minSdkVersion 22
         targetSdkVersion 31
         versionCode 16

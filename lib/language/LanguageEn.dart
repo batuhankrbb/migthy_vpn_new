@@ -183,7 +183,7 @@ class LanguageEn extends BaseLanguage {
   String get lblContinue => "Continue";
 
   @override
-  String get lblMightyVPNPremium => "Mighty VPN Premium";
+  String get lblMightyVPNPremium => "Premium";
 
   @override
   String get lblPremiumServer => "Premium Servers";
@@ -192,7 +192,7 @@ class LanguageEn extends BaseLanguage {
   String get lblRemoveAds => "Remove Ads";
 
   @override
-  String get lblSubscribePremium => "Subscribe \nMighty VPN Premium";
+  String get lblSubscribePremium => "Subscribe \nVPN Premium";
 
   @override
   String get lblRestorePurchase => "Restore Purchase";

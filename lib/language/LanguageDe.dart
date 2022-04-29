@@ -125,86 +125,86 @@ class LanguageDe extends BaseLanguage {
   String get lblGetConfig => "Client-Konfiguration Abrufen";
 
   @override
-  String get lblAssignIp => "Assigning IP addresses";
+  String get lblAssignIp => "Vergabe von IP-Adressen";
 
   @override
-  String get lblAddRoutes => "Adding routes";
+  String get lblAddRoutes => "Strecken hinzufügen";
 
   @override
-  String get lblConnected => "Connected";
+  String get lblConnected => "In Verbindung gebracht";
 
   @override
-  String get lblDisconnected => "Disconnected";
+  String get lblDisconnected => "Getrennt";
 
   @override
-  String get lblReconnecting => "Reconnecting";
+  String get lblReconnecting => "Wiederverbinden";
 
   @override
-  String get lblExiting => "Exiting";
+  String get lblExiting => "Verlassen";
 
   @override
-  String get lblResolve => "Not running";
+  String get lblResolve => "Nicht laufen";
 
   @override
-  String get lblTcpConnect => "Resolving host names";
+  String get lblTcpConnect => "Auflösen von Hostnamen";
 
   @override
-  String get lblNoNetwork => "Not Connected to network";
+  String get lblNoNetwork => "Nicht mit Netzwerk verbunden";
 
   @override
-  String get lblConnectRetry => "Retrying";
+  String get lblConnectRetry => "Wiederholen";
 
   @override
-  String get lblAuthPending => "Connecting (TCP)";
+  String get lblAuthPending => "Verbinden (TCP)";
 
   @override
-  String get lblUserPause => "Connection paused";
+  String get lblUserPause => "Verbindung Pausiert";
 
   @override
-  String get lblNotConnected => "Not Connected";
+  String get lblNotConnected => "Nicht Verbunden";
 
   @override
-  String get lblStartTest => "Start Test";
+  String get lblStartTest => "Test Starten";
 
   @override
   String get lblDownloadTestFailed =>
-      "Download test failed! Please check your internet connection";
+      "Download-Test fehlgeschlagen! Bitte überprüfe deine Internetverbindung";
 
   @override
-  String get lblStartTestAgain => "Start Test Again";
+  String get lblStartTestAgain => "Test Erneut Starten";
 
   @override
   String get lblUploadTestFailed =>
-      "Upload test failed! Please check your internet connection";
+      "Upload-Test fehlgeschlagen! Bitte überprüfe deine Internetverbindung";
 
   @override
-  String get lblCancelSubscription => "Cancel Subscription";
+  String get lblCancelSubscription => "Abonnement Kündigen";
 
   @override
-  String get lblContinue => "Continue";
+  String get lblContinue => "Fortsetzen";
 
   @override
   String get lblMightyVPNPremium => "Premium";
 
   @override
-  String get lblPremiumServer => "Premium Servers";
+  String get lblPremiumServer => "Premium-Server";
 
   @override
-  String get lblRemoveAds => "Remove Ads";
+  String get lblRemoveAds => "Anzeigen Entfernen";
 
   @override
-  String get lblSubscribePremium => "Subscribe \nPremium";
+  String get lblSubscribePremium => "Abonnieren \nPremium";
 
   @override
-  String get lblRestorePurchase => "Restore Purchase";
+  String get lblRestorePurchase => "Kauf Wiederherstellen";
 
   @override
   String get lblCancelSubscriptionMsg =>
-      "You can cancel subscription from google play store";
+      "Sie können das Abonnement im Google Play Store kündigen";
 
   @override
-  String get lblSuccessfullyPurchased => "Successfully Purchased";
+  String get lblSuccessfullyPurchased => "Erfolgreich Gekauft";
 
   @override
-  String get lblValidTill => "Valid till:";
+  String get lblValidTill => "Gültig bis:";
 }
