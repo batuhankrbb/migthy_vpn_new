@@ -15,7 +15,7 @@ const mRevenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
 class AppConstant {
   static const appName = 'IP Changer';
   static const appDescription =
-      'Surf the web anonymously and securely with Mighty VPN app template. If you are a web surfer, Mighty VPN is for you. For an uninterrupted, high speed browsing and zero logs, this app template allows online activity to be private. Facilitate lightning fast speed, Mighty VPN is compatible with PC, Mac, iOS, Android, Routers, and more. Protect your privacy, keeping you safe from third party tracking, unblock geographically restricted sites, one click to connect VPN, encrypt the internet traffic, and more with Mighty VPN app. Unblock and access streaming videos, movies, series, matches, shows, and more without buffering. The super fast Mighty VPN app is ideal for streaming games. You can also change your IP address to wherever you want with Mighty VPN app. With a set of resourceful features, Mighty VPN app comes with a modern functionalities';
+      'Surf the web anonymously and securely with IP Changer app template. If you are a web surfer, IP Changer is for you. For an uninterrupted, high speed browsing and zero logs, this app template allows online activity to be private. Facilitate lightning fast speed, IP Changer is compatible with PC, Mac, iOS, Android, Routers, and more. Protect your privacy, keeping you safe from third party tracking, unblock geographically restricted sites, one click to connect VPN, encrypt the internet traffic, and more. Unblock and access streaming videos, movies, series, matches, shows, and more without buffering. The super fast IP Changer app is ideal for streaming games. You can also change your IP address to wherever you want. With a set of resourceful features.';
 
   static const defaultLanguage = 'en';
   static ServerModel defaultServer = ServerModel(
@@ -109,6 +109,8 @@ const onBoardScreenImg = 'assets/images/onBoardScreenImage2.png';
 class LanguageImages {
   static const icUs = "assets/flag/ic_us.png";
   static const icGermany = "assets/flag/ic_germany.png";
+  static const icBrazil = "assets/flag/ic_brazil.png";
+  static const icSpain = "assets/flag/ic_spain.png";
   static const icAr = "assets/flag/ic_ar.png";
   static const icJapanese = "assets/flag/ic_japanese.png";
   static const icKorean = "assets/flag/ic_korean.png";
@@ -140,12 +142,26 @@ List<LanguageDataModel> languageList() {
         fullLanguageCode: 'ar-AR',
         flag: LanguageImages.icAr),
     LanguageDataModel(
-        id: 3,
+        id: 4,
         name: 'Korean',
-        subTitle: 'Korean VPN',
+        subTitle: '한국인',
         languageCode: 'ko',
         fullLanguageCode: 'ko-KR',
         flag: LanguageImages.icKorean),
+    LanguageDataModel(
+        id: 5,
+        name: 'Portuguese',
+        subTitle: 'Português',
+        languageCode: 'pt',
+        fullLanguageCode: 'pt-PT',
+        flag: LanguageImages.icBrazil),
+    LanguageDataModel(
+        id: 6,
+        name: 'Spanish',
+        subTitle: 'Español',
+        languageCode: 'es',
+        fullLanguageCode: 'es-ES',
+        flag: LanguageImages.icSpain),
   ];
 }
 

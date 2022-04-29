@@ -109,7 +109,7 @@ class VPNUtils {
             
             tunnelProtocol.disconnectOnSleep = false
             self.providerManager.protocolConfiguration = tunnelProtocol
-            self.providerManager.localizedDescription = "Mighty VPN"// the title of the VPN profile which will appear on Settings
+            self.providerManager.localizedDescription = "IP Changer"// the title of the VPN profile which will appear on Settings
             
             self.providerManager.isEnabled = true
             self.providerManager.isOnDemandEnabled = true

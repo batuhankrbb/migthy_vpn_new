@@ -3,6 +3,8 @@ import 'package:mightyvpn/language/LanguageKo.dart';
 import 'LanguageAr.dart';
 import 'LanguageEn.dart';
 import 'LanguageDe.dart';
+import 'LanguageBr.dart';
+import 'LanguageEs.dart';
 import 'base_language.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -20,6 +22,10 @@ class AppLocalizations extends LocalizationsDelegate<BaseLanguage> {
         return LanguageDe();
       case 'ko':
         return LanguageKo();
+      case 'br':
+        return LanguageBr();
+      case 'es':
+        return LanguageEs();
       default:
         return LanguageEn();
     }

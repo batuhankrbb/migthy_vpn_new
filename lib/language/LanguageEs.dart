@@ -1,6 +1,6 @@
 import 'base_language.dart';
 
-class LanguageEn extends BaseLanguage {
+class LanguageEs extends BaseLanguage {
   @override
   String get lblYouAreConnectedTo => "You are connected to";
 
