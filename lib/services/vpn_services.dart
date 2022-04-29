@@ -38,7 +38,6 @@ class VpnServicesMethods {
 
   Future<bool> startVpn({required ServerModel server}) async {
     File data = await _downloadFile(url: server.ovpn!, filename: server.country!);
-
     server.content = data.readAsStringSync();
     log(server.toJson());
     return await platform.invokeMethod(VpnConstants.startVpn, server.toJson()).then((value) {

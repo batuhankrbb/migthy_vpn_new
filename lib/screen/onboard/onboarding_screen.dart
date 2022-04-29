@@ -19,7 +19,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   //* All Pages to show in onboarding
  
-
   @override
   Widget build(BuildContext context) {
     return MainLayout(

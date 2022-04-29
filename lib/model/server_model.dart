@@ -88,6 +88,7 @@ class ServerModel {
   });
 
   factory ServerModel.fromJson(Map<String, dynamic> json) {
+    print("geldi veri ${json[serverKey.flag]}");
     return ServerModel(
       flagUrl: json[serverKey.flag],
       isActive: json[serverKey.isActive],

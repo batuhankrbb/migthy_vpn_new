@@ -44,7 +44,6 @@ Future<void> showInterstitialAd() async {
     },
     onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
       ad.dispose();
-      loadInterstitialAd();
     },
   );
   myInterstitial!.show();

@@ -38,7 +38,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
 
   @override
   void dispose() {
-    myBanner!.dispose();
+    myBanner?.dispose();
     super.dispose();
   }
 
@@ -99,17 +99,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
             )
           ],
         ),
-        bottomNavigationBar: AdWidget(
-          ad: BannerAd(
-            adUnitId:
-                kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
-            size: AdSize.banner,
-            listener: BannerAdListener(onAdLoaded: (ad) {
-              //
-            }),
-            request: const AdRequest(),
-          )..load(),
-        ),
+      
 
         // myBanner != null ? Container(height: AdSize.banner.height.toDouble(), child: AdWidget(ad: myBanner!), color: Colors.white):SizedBox(),
         body: Observer(
