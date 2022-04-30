@@ -46,7 +46,7 @@ Future<void> showInterstitialAd() async {
       ad.dispose();
     },
   );
-  myInterstitial!.show();
+  myInterstitial?.show();
   myInterstitial = null;
 }
 

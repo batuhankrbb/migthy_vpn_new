@@ -88,7 +88,44 @@ class _ServerListScreenState extends State<ServerListScreen> {
                               isSelected = index;
                               setState(() {});
                             } else {
-                              //TODO SHOW ALERT
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(21.0),
+                                        ),
+                                        backgroundColor: Colors.white,
+                                        elevation: 0,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(21.0),
+                                          ),
+                                          width: context.width() * 0.9,
+                                          height: context.height() * 0.5,
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    color: primaryColor,
+                                                    borderRadius: BorderRadius
+                                                        .only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    21.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    21.0))),
+                                                width: double.infinity,
+                                                height: 80,
+                                              )
+                                            ],
+                                          ),
+                                        ));
+                                  });
                             }
                           },
                           radius: radius(),
@@ -133,73 +170,29 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 
   Widget buildPremiumRow() {
-    //TODO RETURN KRAL TACI AND VIDEO ICON
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-          padding: const EdgeInsets.all(6),
-          child: const Icon(Icons.slideshow, size: 22, color: primaryColor),
+        Image.asset(
+          "assets/images/king.png",
+          width: MediaQuery.of(context).size.width * 0.063,
+          height: MediaQuery.of(context).size.width * 0.063,
+        ),
+        SizedBox(
+          width: 15,
+        ),
+        Column(
+          children: [
+            SizedBox(
+              height: 3,
+            ),
+            Image.asset("assets/images/watch_ads.png",
+                width: MediaQuery.of(context).size.width * 0.05,
+                height: MediaQuery.of(context).size.width * 0.05,
+                fit: BoxFit.fill),
+          ],
         )
       ],
-    );
-  }
-
-  Widget buildPremiumOverlay(
-      ServerModel data, BuildContext context, bool selected) {
-    if (globalStore.isPremium || !(data.isPremium ?? true)) {
-      return SizedBox();
-    }
-    return GestureDetector(
-      onTap: () {
-        showDialog(
-            context: context,
-            builder: (context) {
-              return Container(
-                color: Colors.white,
-                height: 200,
-                width: 200,
-              );
-            });
-        //TODO alert çıkart reklam mı izlemek istersin premium mu diye. Güzel alert olsun.
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.6), borderRadius: radius()),
-        child: Opacity(
-          opacity: 0,
-          child: SettingItemWidget(
-            title: data.country.validate(),
-            decoration:
-                BoxDecoration(color: context.cardColor, borderRadius: radius()),
-            leading: cachedImage(
-                data.flagUrl.validate(value: 'assets/images/vpn_logo.png'),
-                width: 34,
-                height: 34),
-            trailing: Row(
-              children: [
-                selected
-                    ? Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                            color: primaryColor.withOpacity(0.1),
-                            shape: BoxShape.circle,
-                            border: Border.all(color: primaryColor)),
-                        child: const Icon(Icons.done,
-                            size: 16, color: primaryColor),
-                      )
-                    : Container(
-                        padding: const EdgeInsets.all(14),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: primaryColor),
-                            shape: BoxShape.circle),
-                      ),
-              ],
-            ),
-            onTap: () {},
-            radius: radius(),
-          ),
-        ),
-      ),
     );
   }
 
