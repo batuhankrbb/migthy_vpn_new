@@ -435,8 +435,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
         "You can't unlock more than 3 servers by watching ads. Get premium to access to all servers forever.",
       );
       return;
-    } else if (vpnStore.serverList[index].country?.toLowerCase() ==
-        "x8 faster server") {
+    } else if (vpnStore.serverList[index].onlyPremium != null && vpnStore.serverList[index].onlyPremium == true) {
       Navigator.pop(context);
       showOtherAlert(
         context,

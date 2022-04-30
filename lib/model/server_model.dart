@@ -61,6 +61,7 @@ class ServerKey {
   String updatedAt = "updatedAt";
   String isPremium = "isPremium";
   String order = "order";
+  String onlyPremium = "onlyPremium";
 }
 
 ServerKey serverKey = ServerKey();
@@ -76,22 +77,22 @@ class ServerModel {
   String? content;
   bool? isPremium;
   int? order;
+  bool? onlyPremium;
 
-  ServerModel({
-    this.flagUrl,
-    this.isActive,
-    this.country,
-    this.ovpn,
-    this.ovpnUserName,
-    this.uid,
-    this.ovpnUserPassword,
-    this.content,
-    this.isPremium,
-    this.order,
-  });
+  ServerModel(
+      {this.flagUrl,
+      this.isActive,
+      this.country,
+      this.ovpn,
+      this.ovpnUserName,
+      this.uid,
+      this.ovpnUserPassword,
+      this.content,
+      this.isPremium,
+      this.order,
+      this.onlyPremium});
 
   factory ServerModel.fromJson(Map<String, dynamic> json) {
-    print("veri geldi}");
     return ServerModel(
       flagUrl: json[serverKey.flag],
       isActive: json[serverKey.isActive],
@@ -103,6 +104,7 @@ class ServerModel {
       content: json[serverKey.content],
       isPremium: json[serverKey.isPremium],
       order: json[serverKey.order],
+      onlyPremium: json[serverKey.onlyPremium] == null ? false : json[serverKey.onlyPremium],
     );
   }
 
@@ -118,6 +120,7 @@ class ServerModel {
     data[serverKey.content] = content;
     data[serverKey.isPremium] = isPremium;
     data[serverKey.order] = order;
+    data[serverKey.onlyPremium] = onlyPremium;
     return data;
   }
 }
