@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -13,6 +14,8 @@ import '../utils/cached_network_image.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../utils/constant.dart';
+
+List<String> unlockedUIds = [];
 
 class ServerListScreen extends StatefulWidget {
   const ServerListScreen({Key? key}) : super(key: key);
@@ -93,7 +96,8 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                 buildTrailing(data, context, selected, index),
                             onTap: () {
                               if (globalStore.isPremium ||
-                                  !(data.isPremium ?? true)) {
+                                  !(data.isPremium ?? true) ||
+                                  unlockedUIds.contains(data.uid)) {
                                 isSelected = index;
                                 setState(() {});
                               } else {
@@ -128,39 +132,113 @@ class _ServerListScreenState extends State<ServerListScreen> {
               backgroundColor: Colors.white,
               elevation: 0,
               child: Container(
+                padding: EdgeInsets.all(4),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(21.0),
                 ),
                 width: context.width() * 0.9,
-                height: context.height() * 0.5,
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
+                    SizedBox(
+                      height: 15,
+                    ),
                     Container(
-                      decoration: BoxDecoration(
-                          color: primaryColor,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(21.0),
-                              topRight: Radius.circular(21.0))),
-                      width: double.infinity,
-                      height: context.height() * 0.1,
                       alignment: Alignment.center,
-                      child: Text(
-                        "This is a premium server.",
-                        style: TextStyle(color: Colors.white),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "This is a premium server.",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: context.width() * 0.05,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Center(
+                            child: Text(
+                              "Get premium to unlock all servers forever and remove ads or watch ads to unlock once.",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
+                                fontSize: context.width() * 0.03,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    40.height,
-                    TextButton(
-                      onPressed: () {
-                        alertWatchAdClick(index);
-                      },
-                      child: Text("Watch Ad"),
-                    ),
                     20.height,
-                    TextButton(
-                      onPressed: alertPaywallClick,
-                      child: Text("Get Premium"),
+                    //    alertWatchAdClick(index); alertPaywallClick
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 70,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    gradient: LinearGradient(colors: [
+                                      Color.fromRGBO(116, 116, 191, 1.0),
+                                      Color.fromRGBO(52, 138, 199, 1.0)
+                                    ]),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: AutoSizeText(
+                                    "GET PREMIUM",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: context.width() * 0.05,
+                                    ),
+                                    maxLines: 1,
+                                  ),
+                                  height: context.height() * 0.08,
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Expanded(
+                            flex: 30,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    color: Color.fromRGBO(0, 179, 134, 1.0),
+                                  ),
+                                  height: context.height() * 0.08,
+                                ),
+                                Text(
+                                  "Watch ad to unlock once.",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -169,8 +247,14 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 
   void alertWatchAdClick(int index) {
+    if (unlockedUIds.length >= 3) {
+      //TODO
+      print("YOU CAN'T UNLOCK MORE THAN 3");
+      return;
+    }
     showRewardedAd(onWinReward: (() {
       isSelected = index;
+      unlockedUIds.add(vpnStore.serverList[index].uid ?? "");
       setState(() {});
     }));
     Navigator.pop(context);
@@ -187,7 +271,8 @@ class _ServerListScreenState extends State<ServerListScreen> {
       ServerModel data, BuildContext context, bool selected, int index) {
     if (globalStore.isPremium ||
         !(data.isPremium ?? true) ||
-        isSelected == index) {
+        isSelected == index ||
+        unlockedUIds.contains(data.uid)) {
       //* premium ise
       return Row(
         children: [
@@ -241,7 +326,6 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 
   void doneAction() {
-    print("TEST DONE ÇALIŞTI");
     if (vpnStore.serverList[isSelected].uid ==
         appStore.mSelectedServerModel.uid) {
       finish(context);

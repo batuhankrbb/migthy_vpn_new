@@ -105,6 +105,7 @@ const defaultPrimaryColor = primaryColor;
 const secondaryColor = Color(0xFF000000);
 const scaffoldColorDark = Color(0xFF090909);
 const appButtonColorDark = Color(0xFF282828);
+const premiumColor = Color(0xFFFFD200);
 
 const vpnLogo = 'assets/images/vpn_logo.png';
 const onBoardScreenImg = 'assets/images/onBoardScreenImage2.png';
