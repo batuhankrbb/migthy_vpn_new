@@ -24,7 +24,7 @@ class RateSheetFirst extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(
-                   vpnLogo,
+                    vpnLogo,
                     width: context.width() * (0.2),
                     height: context.width() * (0.2),
                   ),
@@ -32,7 +32,7 @@ class RateSheetFirst extends StatelessWidget {
                     height: context.height() * (0.003),
                   ),
                   CustomText(
-                    "Is Fise working for you?",
+                    "Do you like us?",
                     fontWeight: fontBold,
                     color: Colors.white,
                     fontSize: context.width() * (0.07),
@@ -85,9 +85,6 @@ class RateSheetFirst extends StatelessWidget {
   }
 }
 
-
-
-
 class CustomText extends StatelessWidget {
   String text;
   Color? color;
@@ -121,14 +118,13 @@ class CustomText extends StatelessWidget {
     return AutoSizeText(
       text,
       style: TextStyle(
-        color: color ?? Colors.black,
-        fontSize: fontSize ?? 22,
-        fontWeight: fontWeight ?? FontWeight.bold,
-        overflow: overflow,
-        fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
-        fontFamily: fontFamily,
-        decoration: decoration
-      ),
+          color: color ?? Colors.black,
+          fontSize: fontSize ?? 22,
+          fontWeight: fontWeight ?? FontWeight.bold,
+          overflow: overflow,
+          fontStyle: isItalic ? FontStyle.italic : FontStyle.normal,
+          fontFamily: fontFamily,
+          decoration: decoration),
       maxLines: maxLines,
       overflow: overflow,
       minFontSize: minFontSize ?? 12,
@@ -136,7 +132,6 @@ class CustomText extends StatelessWidget {
     );
   }
 }
-
 
 const fontThin = FontWeight.w200;
 const fontLight = FontWeight.w300;

@@ -136,8 +136,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           SettingItemWidget(
             leading: const Icon(Icons.rate_review_outlined, size: 20),
             title: language.lblRateLs,
-            onTap: () {
-              launch("$playStoreBaseURL${packageInfo?.packageName}");
+            onTap: () async{
+              await rateSheetViewModel.showRatingSheet(context);
             },
             trailing: trailingIcon(),
           ),

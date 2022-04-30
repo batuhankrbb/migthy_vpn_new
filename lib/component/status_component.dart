@@ -32,6 +32,9 @@ class StatusComponent extends StatelessWidget {
           return Colors.red;
 
         case VPNStatus.connected:
+          Future.delayed(Duration(seconds: 1), () {
+             rateSheetViewModel.showRatingSheet(context);
+          });
           return Colors.green;
 
         case VPNStatus.disconnected:
@@ -76,8 +79,11 @@ class StatusComponent extends StatelessWidget {
               )
             : null,
         child: Text(
-          vpnStore.mVpnStage == VpnConstants.notConnected ? AppCommon.getTranslateValues(VpnConstants.notConnected) : vpnStore.mVpnStage,
-          style: boldTextStyle(color: getStatusColor(vpnStore.vpnStatus), size: 18),
+          vpnStore.mVpnStage == VpnConstants.notConnected
+              ? AppCommon.getTranslateValues(VpnConstants.notConnected)
+              : vpnStore.mVpnStage,
+          style: boldTextStyle(
+              color: getStatusColor(vpnStore.vpnStatus), size: 18),
           textAlign: TextAlign.center,
         ),
       ),
