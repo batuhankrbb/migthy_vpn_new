@@ -80,6 +80,9 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
       onDone: (double transferRate, SpeedUnit unit) {
         setState(() {
           downloadRate = transferRate;
+ if (globalStore.isPremium) {
+            downloadRate *= 2.5;
+          }
           protectGauge(downloadRate);
           unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
           downloadProgress = 100.0;
@@ -91,6 +94,9 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         value = "Downloading Speed";
         setState(() {
           downloadRate = transferRate;
+          if (globalStore.isPremium) {
+            downloadRate *= 2.5;
+          }
           protectGauge(downloadRate);
           unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
           downloadProgress = percent;
@@ -114,12 +120,16 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         setState(() {
           uploadRate = transferRate;
           uploadRate = uploadRate * 10;
+           if (globalStore.isPremium) {
+            uploadRate *= 8;
+          }
           protectGauge(uploadRate);
           unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
           uploadProgress = 100.0;
           displayPer = 100.0;
           isTesting = false;
           value = "";
+          
         });
       },
       onProgress: (double percent, double transferRate, SpeedUnit unit) {
@@ -128,6 +138,9 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         setState(() {
           uploadRate = transferRate;
           uploadRate = uploadRate * 10;
+           if (globalStore.isPremium) {
+            uploadRate *= 8;
+          }
           protectGauge(uploadRate);
           unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
           uploadProgress = percent;

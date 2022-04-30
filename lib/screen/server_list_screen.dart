@@ -185,30 +185,69 @@ class _ServerListScreenState extends State<ServerListScreen> {
                         children: [
                           Expanded(
                             flex: 70,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(6),
-                                    gradient: LinearGradient(colors: [
-                                      Color.fromRGBO(116, 116, 191, 1.0),
-                                      Color.fromRGBO(52, 138, 199, 1.0)
-                                    ]),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: AutoSizeText(
-                                    "GET PREMIUM",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: context.width() * 0.05,
+                            child: GestureDetector(
+                              onTap: () {
+                                alertPaywallClick();
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color.fromRGBO(
+                                                    116, 116, 191, 1.0)
+                                                .withOpacity(0.5),
+                                            spreadRadius: 4,
+                                            blurRadius: 9)
+                                      ],
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromRGBO(116, 116, 191, 1.0),
+                                        Color.fromRGBO(52, 138, 199, 1.0)
+                                      ]),
                                     ),
-                                    maxLines: 1,
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(width: 10),
+                                        Image.asset(
+                                          "assets/images/king.png",
+                                          width: 35,
+                                          height: 35,
+                                        ),
+                                        SizedBox(width: 10),
+                                        AutoSizeText(
+                                          "GET PREMIUM",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: context.width() * 0.05,
+                                          ),
+                                          maxLines: 1,
+                                        ),
+                                      ],
+                                    ),
+                                    height: context.height() * 0.08,
                                   ),
-                                  height: context.height() * 0.08,
-                                ),
-                              ],
+                                  SizedBox(
+                                    height: 3,
+                                  ),
+                                  Center(
+                                    child: Text(
+                                      "Unlock Forever",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -216,25 +255,165 @@ class _ServerListScreenState extends State<ServerListScreen> {
                           ),
                           Expanded(
                             flex: 30,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(6),
-                                    color: Color.fromRGBO(0, 179, 134, 1.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                alertWatchAdClick(index);
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(6),
+                                        color: Colors.yellow),
+                                    padding: EdgeInsets.all(7),
+                                    height: context.height() * 0.08,
+                                    alignment: Alignment.center,
+                                    child: Image.asset(
+                                        "assets/images/watch_ads.png"),
                                   ),
-                                  height: context.height() * 0.08,
-                                ),
-                                Text(
-                                  "Watch ad to unlock once.",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 12),
-                                )
-                              ],
+                                  SizedBox(
+                                    height: 3,
+                                  ),
+                                  Text(
+                                    "Watch ad to unlock once.",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 12),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ));
+        });
+  }
+
+  Future<dynamic> showOtherAlert(
+      BuildContext context, int index, String message) {
+    return showDialog(
+        context: context,
+        barrierColor: Colors.black87,
+        builder: (context) {
+          return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(21.0),
+              ),
+              backgroundColor: Colors.white,
+              elevation: 0,
+              child: Container(
+                padding: EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(21.0),
+                ),
+                width: context.width() * 0.9,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Get Premium",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: context.width() * 0.05,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Center(
+                            child: Text(
+                              message,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
+                                fontSize: context.width() * 0.03,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    20.height,
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                alertPaywallClick();
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color.fromRGBO(
+                                                    116, 116, 191, 1.0)
+                                                .withOpacity(0.5),
+                                            spreadRadius: 4,
+                                            blurRadius: 9)
+                                      ],
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromRGBO(116, 116, 191, 1.0),
+                                        Color.fromRGBO(52, 138, 199, 1.0)
+                                      ]),
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(width: 10),
+                                        Image.asset(
+                                          "assets/images/king.png",
+                                          width: 35,
+                                          height: 35,
+                                        ),
+                                        Spacer(),
+                                        AutoSizeText(
+                                          "GET PREMIUM",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: context.width() * 0.05,
+                                          ),
+                                          maxLines: 1,
+                                        ),
+                                        Spacer(),
+                                      ],
+                                    ),
+                                    height: context.height() * 0.08,
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -247,9 +426,23 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 
   void alertWatchAdClick(int index) {
+    print("papurcu kafa ${vpnStore.serverList[index].country}");
     if (unlockedUIds.length >= 3) {
-      //TODO
-      print("YOU CAN'T UNLOCK MORE THAN 3");
+      Navigator.pop(context);
+      showOtherAlert(
+        context,
+        index,
+        "You can't unlock more than 3 servers by watching ads. Get premium to access to all servers forever.",
+      );
+      return;
+    } else if (vpnStore.serverList[index].country?.toLowerCase() ==
+        "x8 faster server") {
+      Navigator.pop(context);
+      showOtherAlert(
+        context,
+        index,
+        "This is our best server. It's only available for premium users.",
+      );
       return;
     }
     showRewardedAd(onWinReward: (() {
