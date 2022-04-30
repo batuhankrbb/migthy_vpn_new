@@ -93,6 +93,7 @@ class Urls {
 const AD_MOB_OPEN_AD_ID = "ca-app-pub-8037703403650159/1710755075";
 const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
 const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
+const AD_MOB_REWARDED_ID = "ca-app-pub-8037703403650159/6016175059";
 
 const primaryColor = Color(0xFF005AFF);
 const appButtonColor = Color(0xFFe3effe);

@@ -15,5 +15,5 @@ String getOpenAppAdUnitId() {
 }
 
 String getRewardedAdId() {
-    return AD_MOB_OPEN_AD_ID;
+    return AD_MOB_REWARDED_ID;
 }

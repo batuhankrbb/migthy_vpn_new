@@ -46,61 +46,67 @@ class _ServerListScreenState extends State<ServerListScreen> {
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
-      return Scaffold(
-        appBar: appBarWidget(
-          language.lblServerList,
-          backWidget: IconButton(
-            onPressed: () {
-              showInterstitialAd();
-              doneAction();
-            },
-            icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
+      return WillPopScope(
+        onWillPop: () async {
+          return false;
+        },
+        child: Scaffold(
+          appBar: appBarWidget(
+            language.lblServerList,
+            backWidget: IconButton(
+              onPressed: () {
+                showInterstitialAd();
+                doneAction();
+              },
+              icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
+            ),
+            showBack: true,
+            elevation: 0,
+            center: true,
           ),
-          showBack: true,
-          elevation: 0,
-          center: true,
-        ),
-        // myBanner != null ? Container(height: AdSize.banner.height.toDouble(), child: AdWidget(ad: myBanner!), color: Colors.white):SizedBox(),
-        body: Observer(
-          builder: (_) => Container(
-            padding: const EdgeInsets.all(16),
-            child: SingleChildScrollView(
-              child: Wrap(
-                spacing: 16,
-                runSpacing: 16,
-                children: List.generate(
-                  vpnStore.serverList.length,
-                  (index) {
-                    ServerModel data = vpnStore.serverList[index];
-                    bool selected = isSelected == index;
-                    return Stack(
-                      children: [
-                        SettingItemWidget(
-                          title: data.country.validate(),
-                          decoration: BoxDecoration(
-                              color: context.cardColor, borderRadius: radius()),
-                          leading: cachedImage(
-                              data.flagUrl.validate(
-                                  value: 'assets/images/vpn_logo.png'),
-                              width: 34,
-                              height: 34),
-                          trailing:
-                              buildTrailing(data, context, selected, index),
-                          onTap: () {
-                            if (globalStore.isPremium ||
-                                !(data.isPremium ?? true)) {
-                              isSelected = index;
-                              setState(() {});
-                            } else {
-                              selectedButNotPremium = index;
-                              showPremiumAlert(context, index);
-                            }
-                          },
-                          radius: radius(),
-                        ),
-                      ],
-                    );
-                  },
+          // myBanner != null ? Container(height: AdSize.banner.height.toDouble(), child: AdWidget(ad: myBanner!), color: Colors.white):SizedBox(),
+          body: Observer(
+            builder: (_) => Container(
+              padding: const EdgeInsets.all(16),
+              child: SingleChildScrollView(
+                child: Wrap(
+                  spacing: 16,
+                  runSpacing: 16,
+                  children: List.generate(
+                    vpnStore.serverList.length,
+                    (index) {
+                      ServerModel data = vpnStore.serverList[index];
+                      bool selected = isSelected == index;
+                      return Stack(
+                        children: [
+                          SettingItemWidget(
+                            title: data.country.validate(),
+                            decoration: BoxDecoration(
+                                color: context.cardColor,
+                                borderRadius: radius()),
+                            leading: cachedImage(
+                                data.flagUrl.validate(
+                                    value: 'assets/images/vpn_logo.png'),
+                                width: 34,
+                                height: 34),
+                            trailing:
+                                buildTrailing(data, context, selected, index),
+                            onTap: () {
+                              if (globalStore.isPremium ||
+                                  !(data.isPremium ?? true)) {
+                                isSelected = index;
+                                setState(() {});
+                              } else {
+                                selectedButNotPremium = index;
+                                showPremiumAlert(context, index);
+                              }
+                            },
+                            radius: radius(),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -235,6 +241,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 
   void doneAction() {
+    print("TEST DONE ÇALIŞTI");
     if (vpnStore.serverList[isSelected].uid ==
         appStore.mSelectedServerModel.uid) {
       finish(context);
