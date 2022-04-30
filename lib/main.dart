@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:mightyvpn/extra/rate/viewmodel/rate_sheet_viewmodel.dart';
 import 'package:mightyvpn/store/global_store.dart';
 import 'app_theme.dart';
 import 'language/base_language.dart';
@@ -24,6 +25,7 @@ import 'language/app_localizations.dart';
 AppStore appStore = AppStore();
 VpnStore vpnStore = VpnStore();
 GlobalStore globalStore = GlobalStore();
+RateSheetViewModel rateSheetViewModel = RateSheetViewModel();
 
 ServerService serverService = ServerService();
 
