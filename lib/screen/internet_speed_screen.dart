@@ -51,6 +51,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         // Called when an ad request failed.
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
           ad.dispose();
+          print('Ad failed to load: $error');
         },
       ),
       request: AdRequest(),
@@ -262,15 +263,16 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
                       .expand(),
                 ],
               ),
-              Spacer(),
+              2.height,
               isNativeAdLoaded
                   ? Container(
+                      color: Colors.red,
                       alignment: Alignment.center,
                       child: AdWidget(ad: speedNativeAd!),
-                      width: context.width() * 0.8,
-                      height: context.height() * 0.15,
+                      width: context.width() * 0.9,
+                      height: context.height() * 0.25,
                     )
-                  : SizedBox()
+                  : SizedBox(),
             ],
           ),
         ),

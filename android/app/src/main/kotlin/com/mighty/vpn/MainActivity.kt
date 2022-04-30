@@ -20,6 +20,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import org.json.JSONObject
 import java.io.IOException
+import io.flutter.plugins.googlemobileads.GoogleMobileAdsPlugin
 
 class MainActivity : FlutterActivity() {
     private val CHANNEL = "vpn_channel"
@@ -133,9 +134,14 @@ class MainActivity : FlutterActivity() {
         }
 
         super.configureFlutterEngine(flutterEngine)
-
+        GoogleMobileAdsPlugin.registerNativeAdFactory(
+                flutterEngine, "listTile", ListTileNativeAdFactory(context))
     }
 
+    override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {
+        super.cleanUpFlutterEngine(flutterEngine)
+        GoogleMobileAdsPlugin.unregisterNativeAdFactory(flutterEngine, "listTile")
+    }
 
     private fun prepareVpn() {
 
