@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../main.dart';
 import 'about_screen.dart';
 import 'language_screen.dart';
@@ -21,6 +22,9 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   PackageInfo? packageInfo;
+
+  late NativeAd ad;
+  bool isLoaded = false;
 
   @override
   void initState() {
@@ -58,24 +62,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           16.height,
           SettingItemWidget(
-            leading: Icon(FontAwesome.language, color: context.iconColor, size: 20),
+            leading:
+                Icon(FontAwesome.language, color: context.iconColor, size: 20),
             title: language.lblChangeLanguage,
             trailing: Row(
               children: [
                 8.width,
-                const Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 14),
+                const Icon(Icons.arrow_forward_ios,
+                    color: Colors.grey, size: 14),
               ],
             ),
             onTap: () {
-              push(LanguageScreen(), pageRouteAnimation: PageRouteAnimation.Slide);
+              push(LanguageScreen(),
+                  pageRouteAnimation: PageRouteAnimation.Slide);
             },
           ),
           Observer(
             builder: (_) => SettingItemWidget(
               title: language.lblTheme,
-              leading: Icon(!appStore.isDarkMode ? Icons.dark_mode_outlined : Icons.light_mode_outlined, size: 20),
+              leading: Icon(
+                  !appStore.isDarkMode
+                      ? Icons.dark_mode_outlined
+                      : Icons.light_mode_outlined,
+                  size: 20),
               onTap: () {
-                push(ThemeScreen(), pageRouteAnimation: PageRouteAnimation.Slide);
+                push(ThemeScreen(),
+                    pageRouteAnimation: PageRouteAnimation.Slide);
               },
               trailing: trailingIcon(),
             ),
@@ -127,7 +139,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: trailingIcon(),
           ),
           const Spacer(),
-          Text("V ${packageInfo?.version}", style: secondaryTextStyle(letterSpacing: 1.2, size: 16)).center(),
+          Text("V ${packageInfo?.version}",
+                  style: secondaryTextStyle(letterSpacing: 1.2, size: 16))
+              .center(),
           26.height,
         ],
       ),

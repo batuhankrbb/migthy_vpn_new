@@ -17,3 +17,12 @@ String getOpenAppAdUnitId() {
 String getRewardedAdId() {
     return AD_MOB_REWARDED_ID;
 }
+
+
+String getSpeedNativeUnitID() {
+    return AD_MOB_NATIVE_ID_SPEED;
+}
+
+String getSettingsNativeUnitID() {
+    return AD_MOB_NATIVE_ID_SETTINGS;
+}

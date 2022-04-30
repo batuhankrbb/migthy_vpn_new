@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:internet_speed_test/callbacks_enum.dart';
 import 'package:internet_speed_test/internet_speed_test.dart';
+import 'package:mightyvpn/utils/AdMobUtils.dart';
 import '../component/internet_component.dart';
 import '../main.dart';
 
@@ -32,6 +34,30 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
 
   String value = "";
 
+  bool isNativeAdLoaded = false;
+
+  NativeAd? speedNativeAd;
+
+  void setupNativeAd() {
+    speedNativeAd = NativeAd(
+      adUnitId: getSpeedNativeUnitID(),
+      factoryId: "listTile",
+      listener: NativeAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            isNativeAdLoaded = true;
+          });
+        },
+        // Called when an ad request failed.
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          ad.dispose();
+        },
+      ),
+      request: AdRequest(),
+    );
+    speedNativeAd?.load();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -39,7 +65,13 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
   }
 
   void init() async {
-    //
+    setupNativeAd();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    speedNativeAd?.dispose();
   }
 
   void startDownloading() {
@@ -230,6 +262,15 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
                       .expand(),
                 ],
               ),
+              Spacer(),
+              isNativeAdLoaded
+                  ? Container(
+                      alignment: Alignment.center,
+                      child: AdWidget(ad: speedNativeAd!),
+                      width: context.width() * 0.8,
+                      height: context.height() * 0.15,
+                    )
+                  : SizedBox()
             ],
           ),
         ),
