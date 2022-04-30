@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:mightyvpn/screen/paywall_screen.dart';
 import '../component/AdmobComponent.dart';
 import '../main.dart';
 import '../model/server_model.dart';
@@ -22,6 +23,7 @@ class ServerListScreen extends StatefulWidget {
 
 class _ServerListScreenState extends State<ServerListScreen> {
   int isSelected = -1;
+  int selectedButNotPremium = -1;
 
   @override
   void initState() {
@@ -33,6 +35,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
     isSelected = vpnStore.serverList.indexWhere(
         (element) => element.uid == appStore.mSelectedServerModel.uid);
     loadInterstitialAd();
+    loadRewardedAd();
   }
 
   @override
@@ -81,51 +84,16 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                   value: 'assets/images/vpn_logo.png'),
                               width: 34,
                               height: 34),
-                          trailing: buildTrailing(data, context, selected),
+                          trailing:
+                              buildTrailing(data, context, selected, index),
                           onTap: () {
                             if (globalStore.isPremium ||
                                 !(data.isPremium ?? true)) {
                               isSelected = index;
                               setState(() {});
                             } else {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return Dialog(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21.0),
-                                        ),
-                                        backgroundColor: Colors.white,
-                                        elevation: 0,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(21.0),
-                                          ),
-                                          width: context.width() * 0.9,
-                                          height: context.height() * 0.5,
-                                          child: Column(
-                                            children: [
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                    color: primaryColor,
-                                                    borderRadius: BorderRadius
-                                                        .only(
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    21.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    21.0))),
-                                                width: double.infinity,
-                                                height: 80,
-                                              )
-                                            ],
-                                          ),
-                                        ));
-                                  });
+                              selectedButNotPremium = index;
+                              showPremiumAlert(context, index);
                             }
                           },
                           radius: radius(),
@@ -142,8 +110,78 @@ class _ServerListScreenState extends State<ServerListScreen> {
     });
   }
 
-  Widget buildTrailing(ServerModel data, BuildContext context, bool selected) {
-    if (globalStore.isPremium || !(data.isPremium ?? true)) {
+  Future<dynamic> showPremiumAlert(BuildContext context, int index) {
+    return showDialog(
+        context: context,
+        barrierColor: Colors.black87,
+        builder: (context) {
+          return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(21.0),
+              ),
+              backgroundColor: Colors.white,
+              elevation: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(21.0),
+                ),
+                width: context.width() * 0.9,
+                height: context.height() * 0.5,
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(21.0),
+                              topRight: Radius.circular(21.0))),
+                      width: double.infinity,
+                      height: context.height() * 0.1,
+                      alignment: Alignment.center,
+                      child: Text(
+                        "This is a premium server.",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    40.height,
+                    TextButton(
+                      onPressed: () {
+                        alertWatchAdClick(index);
+                      },
+                      child: Text("Watch Ad"),
+                    ),
+                    20.height,
+                    TextButton(
+                      onPressed: alertPaywallClick,
+                      child: Text("Get Premium"),
+                    ),
+                  ],
+                ),
+              ));
+        });
+  }
+
+  void alertWatchAdClick(int index) {
+    showRewardedAd(onWinReward: (() {
+      isSelected = index;
+      setState(() {});
+    }));
+    Navigator.pop(context);
+  }
+
+  void alertPaywallClick() {
+    Navigator.pop(context);
+    push(const PaywallScreen(),
+        pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
+        duration: 250.milliseconds);
+  }
+
+  Widget buildTrailing(
+      ServerModel data, BuildContext context, bool selected, int index) {
+    if (globalStore.isPremium ||
+        !(data.isPremium ?? true) ||
+        isSelected == index) {
       //* premium ise
       return Row(
         children: [

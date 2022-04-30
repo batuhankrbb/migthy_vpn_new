@@ -13,3 +13,7 @@ String getInterstitialAdUnitId() {
 String getOpenAppAdUnitId() {
     return AD_MOB_OPEN_AD_ID;
 }
+
+String getRewardedAdId() {
+    return AD_MOB_OPEN_AD_ID;
+}

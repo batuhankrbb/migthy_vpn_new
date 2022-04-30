@@ -18,7 +18,8 @@ BannerAd buildBannerAd() {
 
 Future<void> loadInterstitialAd() async {
   InterstitialAd.load(
-    adUnitId: kReleaseMode ? getInterstitialAdUnitId() : InterstitialAd.testAdUnitId,
+    adUnitId:
+        kReleaseMode ? getInterstitialAdUnitId() : InterstitialAd.testAdUnitId,
     request: AdRequest(),
     adLoadCallback: InterstitialAdLoadCallback(
       onAdLoaded: (InterstitialAd ad) {
@@ -37,7 +38,8 @@ Future<void> showInterstitialAd() async {
     return;
   }
   myInterstitial!.fullScreenContentCallback = FullScreenContentCallback(
-    onAdShowedFullScreenContent: (InterstitialAd ad) => print('ad onAdShowedFullScreenContent.'),
+    onAdShowedFullScreenContent: (InterstitialAd ad) =>
+        print('ad onAdShowedFullScreenContent.'),
     onAdDismissedFullScreenContent: (InterstitialAd ad) {
       ad.dispose();
       loadInterstitialAd();
@@ -50,3 +52,42 @@ Future<void> showInterstitialAd() async {
   myInterstitial = null;
 }
 
+Future<void> loadRewardedAd() async {
+  await RewardedAd.load(
+      adUnitId: kReleaseMode ? getRewardedAdId() : RewardedAd.testAdUnitId,
+      request: AdRequest(),
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        onAdLoaded: (RewardedAd ad) {
+          rewardedAd = ad;
+        },
+        onAdFailedToLoad: (LoadAdError error) {
+          print('RewardedAd failed to load: $error');
+          rewardedAd = null;
+        },
+      ));
+}
+
+Future<void> showRewardedAd({required VoidCallback onWinReward}) async {
+  if (rewardedAd == null) {
+    print('Warning: attempt to show rewarded before loaded.');
+    return;
+  }
+  rewardedAd?.fullScreenContentCallback = FullScreenContentCallback(
+    onAdShowedFullScreenContent: (RewardedAd ad) =>
+        print('$ad onAdShowedFullScreenContent.'),
+    onAdDismissedFullScreenContent: (RewardedAd ad) {
+      ad.dispose();
+      loadRewardedAd();
+    },
+    onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
+      ad.dispose();
+    },
+    onAdImpression: (RewardedAd ad) => print('$ad impression occurred.'),
+  );
+
+  rewardedAd?.show(
+      onUserEarnedReward: (AdWithoutView ad, RewardItem rewardItem) {
+    onWinReward();
+  });
+  rewardedAd = null;
+}
