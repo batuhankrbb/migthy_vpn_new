@@ -2,207 +2,201 @@ import 'base_language.dart';
 
 class LanguageBr extends BaseLanguage {
   @override
-  String get lblYouAreConnectedTo => "You are connected to";
+  String get lblYouAreConnectedTo => "Você está conectado a";
 
   @override
-  String get lblGettingIP => "Getting IP...";
+  String get lblGettingIP => "Obtendo IP...";
 
   @override
-  String get lblConnect => "Connect";
+  String get lblConnect => "Conectar";
 
   @override
-  String get lblVersion => "Version";
+  String get lblVersion => "Versão";
 
   @override
-  String get lblVPNConnect => "VPN Connect";
+  String get lblVPNConnect => "Conexão VPN";
 
   @override
-  String get lblInternetSpeed => "Internet Speed";
+  String get lblInternetSpeed => "Velocidade da Internet";
 
   @override
-  String get lblSetting => "Setting";
+  String get lblSetting => "Contexto";
 
   @override
-  String get lblVpnStarted => "VPN Started";
+  String get lblVpnStarted => "VPN Iniciada";
 
   @override
-  String get lblDisconnect => "Disconnect";
+  String get lblDisconnect => "Desconectar";
 
   @override
   String get lblWouldYouLikeToCancelTheCurrentVPNConnection =>
-      "Would you like to cancel the current VPN Connection?";
+      "Deseja cancelar a conexão VPN atual?";
 
   @override
   String get lblYourVPNConnectionHasBeenDisconnected =>
-      "Your VPN Connection has been disconnected";
+      "Sua conexão VPN foi desconectada";
 
   @override
-  String get lblCurrentServer => "Current Server";
+  String get lblCurrentServer => "Servidor Atual";
 
   @override
-  String get lblInternetSpeedTest => "Internet Speed Test";
+  String get lblInternetSpeedTest => "Teste de velocidade da Internet";
 
   @override
   String get lblDownload => "Download";
 
   @override
-  String get lblStartDownload => "Start Download";
+  String get lblStartDownload => "Iniciar Download";
 
   @override
-  String get lblUpload => "Upload";
+  String get lblUpload => "Carregar";
 
   @override
-  String get lblStartUploading => "Start Uploading";
+  String get lblStartUploading => "Iniciar Upload";
 
   @override
-  String get lblServerList => "Server List";
+  String get lblServerList => "Lista de Servidores";
 
   @override
-  String get lblSameServerSelected => "Same server selected";
+  String get lblSameServerSelected => "Mesmo servidor selecionado";
 
   @override
-  String get lblServerChangedTo => "Server Changed to";
+  String get lblServerChangedTo => "Servidor alterado para";
 
   @override
-  String get lblPleaseWaitWhileReconnecting => "Please wait while reconnecting";
+  String get lblPleaseWaitWhileReconnecting => "Aguarde enquanto reconecta";
 
   @override
-  String get lblChangeLanguage => "Change language";
+  String get lblChangeLanguage => "Mudar idioma";
 
   @override
-  String get lblTheme => "Theme";
+  String get lblTheme => "Tema";
 
   @override
-  String get lblPrivacyLolicy => "Privacy Policy";
+  String get lblPrivacyLolicy => "Política de Privacidade";
 
   @override
-  String get lblRateLs => "Rate Us";
+  String get lblRateLs => "Nos avalie";
 
   @override
-  String get lblTermsAndConditions => "Terms & Conditions";
+  String get lblTermsAndConditions => "Termos e Condições";
 
   @override
-  String get lblShareApp => "Share App";
+  String get lblShareApp => "Compartilhe o Aplicativo";
 
   @override
-  String get lblShare => "Share";
+  String get lblShare => "Compartilhar";
 
   @override
-  String get lblAboutUs => "About Us";
+  String get lblAboutUs => "Sobre Nós";
 
   @override
-  String get lblLight => "Light";
+  String get lblLight => "Leve";
 
   @override
-  String get lblDark => "Dark";
+  String get lblDark => "Escuro";
 
   @override
-  String get lblSystemDefault => "System Default";
+  String get lblSystemDefault => "Sistema padrão";
 
   @override
-  String get lblSelectYourTheme => "Select Your Theme";
+  String get lblSelectYourTheme => "Selecione seu tema";
 
   @override
-  String get lblSettings => "Setting";
+  String get lblSettings => "Contexto";
 
   @override
-  String get lblPurchase => "Purchase";
+  String get lblPurchase => "Comprar";
 
   @override
-  String get lblDocument => "Documentation";
+  String get lblDocument => "Documentação";
 
   @override
-  String get lblConnecting => "Connecting";
+  String get lblConnecting => "Conectando";
 
   @override
-  String get lblWait => "Waiting for server reply";
+  String get lblWait => "Aguardando resposta do servidor";
 
   @override
-  String get lblAuth => "Authenticating";
+  String get lblAuth => "Autenticação";
 
   @override
-  String get lblGetConfig => "Getting client configuration";
+  String get lblGetConfig => "Obtendo a configuração do cliente";
 
   @override
-  String get lblAssignIp => "Assigning IP addresses";
+  String get lblAssignIp => "Atribuindo endereços IP";
 
   @override
-  String get lblAddRoutes => "Adding routes";
+  String get lblAddRoutes => "Adicionando rotas";
 
   @override
-  String get lblConnected => "Connected";
+  String get lblConnected => "Conectado";
 
   @override
-  String get lblDisconnected => "Disconnected";
+  String get lblDisconnected => "Desconectado";
 
   @override
-  String get lblReconnecting => "Reconnecting";
+  String get lblReconnecting => "Reconectando";
 
   @override
-  String get lblExiting => "Exiting";
+  String get lblExiting => "Saindo";
 
   @override
-  String get lblResolve => "Not running";
+  String get lblResolve => "Não está funcionando";
 
   @override
-  String get lblTcpConnect => "Resolving host names";
+  String get lblTcpConnect => "Resolvendo nomes de host";
 
   @override
-  String get lblNoNetwork => "Not Connected to network";
+  String get lblNoNetwork => "Não conectado à rede";
 
   @override
-  String get lblConnectRetry => "Retrying";
+  String get lblConnectRetry => "Tentando novamente";
 
   @override
-  String get lblAuthPending => "Connecting (TCP)";
+  String get lblAuthPending => "Conectando (TCP)";
 
   @override
-  String get lblUserPause => "Connection paused";
+  String get lblUserPause => "Conexão pausada";
 
   @override
-  String get lblNotConnected => "Not Connected";
+  String get lblNotConnected => "Não conectado";
 
   @override
-  String get lblStartTest => "Start Test";
+  String get lblStartTest => "Iniciar teste";
 
   @override
   String get lblDownloadTestFailed =>
-      "Download test failed! Please check your internet connection";
+      "Falha no teste de download! Por favor, verifique sua conexão à internet";
 
   @override
-  String get lblStartTestAgain => "Start Test Again";
+  String get lblStartTestAgain => "Iniciar teste novamente";
 
   @override
   String get lblUploadTestFailed =>
-      "Upload test failed! Please check your internet connection";
+      "Falha no teste de upload! Por favor, verifique sua conexão à internet";
 
   @override
-  String get lblCancelSubscription => "Cancel Subscription";
+  String get lblCancelSubscription => "Cancelar assinatura";
 
   @override
-  String get lblContinue => "Continue";
+  String get lblContinue => "Continuar";
 
   @override
-  String get lblMightyVPNPremium => "Premium";
+  String get lblMightyVPNPremium => "Prêmio";
 
   @override
-  String get lblPremiumServer => "Premium Servers";
+  String get lblPremiumServer => "Servidores Premium";
 
   @override
-  String get lblRemoveAds => "Remove Ads";
+  String get lblRemoveAds => "Remover propagandas";
 
   @override
-  String get lblSubscribePremium => "Subscribe \nVPN Premium";
-
-  @override
-  String get lblRestorePurchase => "Restore Purchase";
+  String get lblRestorePurchase => "Restaurar compra";
 
   @override
   String get lblCancelSubscriptionMsg =>
-      "You can cancel subscription from google play store";
-
-  @override
-  String get lblSuccessfullyPurchased => "Successfully Purchased";
+      "Você pode cancelar a assinatura da Google Play Store";
 
   @override
   String get lblValidTill => "Valid till:";
@@ -230,4 +224,13 @@ class LanguageBr extends BaseLanguage {
   @override
   // TODO: implement onboard3Title
   String get onboard3Title => throw UnimplementedError();
-}
+
+
+  @override
+  // TODO: implement lblSubscribePremium
+  String get lblSubscribePremium => throw UnimplementedError();
+
+  @override
+  // TODO: implement lblSuccessfullyPurchased
+  String get lblSuccessfullyPurchased => throw UnimplementedError();
+  }

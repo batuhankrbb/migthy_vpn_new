@@ -189,9 +189,6 @@ class LanguageKo extends BaseLanguage {
   String get lblRemoveAds => "광고를 제거하다";
 
   @override
-  String get lblSubscribePremium => "구독하다 \n VPN 프리미엄";
-
-  @override
   String get lblRestorePurchase => "구매 복원";
 
   @override
@@ -226,4 +223,8 @@ class LanguageKo extends BaseLanguage {
   @override
   // TODO: implement onboard3Title
   String get onboard3Title => throw UnimplementedError();
-}
+
+
+  @override
+  // TODO: implement lblSubscribePremium
+  String get lblSubscribePremium => throw UnimplementedError();}

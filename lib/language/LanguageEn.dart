@@ -67,7 +67,7 @@ class LanguageEn extends BaseLanguage {
   String get lblPleaseWaitWhileReconnecting => "Please wait while reconnecting";
 
   @override
-  String get lblChangeLanguage => "Change language";
+  String get lblChangeLanguage => "Change Language";
 
   @override
   String get lblTheme => "Theme";
@@ -192,9 +192,6 @@ class LanguageEn extends BaseLanguage {
   String get lblRemoveAds => "Remove Ads";
 
   @override
-  String get lblSubscribePremium => "Subscribe \nVPN Premium";
-
-  @override
   String get lblRestorePurchase => "Restore Purchase";
 
   @override
@@ -230,4 +227,8 @@ class LanguageEn extends BaseLanguage {
   @override
   // TODO: implement onboard3Title
   String get onboard3Title => throw UnimplementedError();
+
+  @override
+  // TODO: implement lblSubscribePremium
+  String get lblSubscribePremium => throw UnimplementedError();
 }

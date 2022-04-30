@@ -67,7 +67,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
             elevation: 0,
             center: true,
           ),
-          // myBanner != null ? Container(height: AdSize.banner.height.toDouble(), child: AdWidget(ad: myBanner!), color: Colors.white):SizedBox(),
+
           body: Observer(
             builder: (_) => Container(
               padding: const EdgeInsets.all(16),

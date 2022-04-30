@@ -148,7 +148,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         localizationsDelegates: const [
           AppLocalizations(),
           GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate, // Here !
         ],
         localeResolutionCallback: (locale, supportedLocales) => locale,
         locale: Locale(appStore.selectedLanguage

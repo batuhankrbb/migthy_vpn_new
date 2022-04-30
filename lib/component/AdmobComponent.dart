@@ -5,16 +5,6 @@ import '../utils/AdMobUtils.dart';
 RewardedAd? rewardedAd;
 InterstitialAd? myInterstitial;
 
-BannerAd buildBannerAd() {
-  return BannerAd(
-    adUnitId: kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
-    size: AdSize.banner,
-    listener: BannerAdListener(onAdLoaded: (ad) {
-      //
-    }),
-    request: AdRequest(),
-  );
-}
 
 Future<void> loadInterstitialAd() async {
   InterstitialAd.load(

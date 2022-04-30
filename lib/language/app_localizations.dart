@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mightyvpn/language/LanguageCn.dart';
+import 'package:mightyvpn/language/LanguageFr.dart';
+import 'package:mightyvpn/language/LanguageIs.dart';
 import 'package:mightyvpn/language/LanguageKo.dart';
+import 'package:mightyvpn/language/LanguagePh.dart';
 import 'LanguageAr.dart';
 import 'LanguageEn.dart';
 import 'LanguageDe.dart';
@@ -22,10 +26,18 @@ class AppLocalizations extends LocalizationsDelegate<BaseLanguage> {
         return LanguageDe();
       case 'ko':
         return LanguageKo();
-      case 'br':
+      case 'pt':
         return LanguageBr();
       case 'es':
         return LanguageEs();
+      case 'fr':
+        return LanguageFr();
+      case 'zh':
+        return LanguageCn();
+      case 'fil':
+        return LanguagePh();
+      case 'id':
+        return LanguageIs();
       default:
         return LanguageEn();
     }

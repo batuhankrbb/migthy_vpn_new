@@ -29,10 +29,12 @@ class LanguageAr extends BaseLanguage {
   String get lblDisconnect => "قطع الاتصال";
 
   @override
-  String get lblWouldYouLikeToCancelTheCurrentVPNConnection => "هل ترغب في إلغاء اتصال VPN الحالي؟";
+  String get lblWouldYouLikeToCancelTheCurrentVPNConnection =>
+      "هل ترغب في إلغاء اتصال VPN الحالي؟";
 
   @override
-  String get lblYourVPNConnectionHasBeenDisconnected => "تم قطع اتصال VPN الخاص بك";
+  String get lblYourVPNConnectionHasBeenDisconnected =>
+      "تم قطع اتصال VPN الخاص بك";
 
   @override
   String get lblCurrentServer => "الخادم الحالي";
@@ -62,7 +64,8 @@ class LanguageAr extends BaseLanguage {
   String get lblServerChangedTo => "تم تغيير الخادم إلى";
 
   @override
-  String get lblPleaseWaitWhileReconnecting => "يرجى الانتظار أثناء إعادة الاتصال";
+  String get lblPleaseWaitWhileReconnecting =>
+      "يرجى الانتظار أثناء إعادة الاتصال";
 
   @override
   String get lblChangeLanguage => "تغيير اللغة";
@@ -164,13 +167,15 @@ class LanguageAr extends BaseLanguage {
   String get lblStartTest => "بدء اختبار";
 
   @override
-  String get lblDownloadTestFailed => "فشل اختبار التنزيل! الرجاء التحقق من اتصال الانترنت الخاص بك";
+  String get lblDownloadTestFailed =>
+      "فشل اختبار التنزيل! الرجاء التحقق من اتصال الانترنت الخاص بك";
 
   @override
   String get lblStartTestAgain => "بدء اختبار مرة أخرى";
 
   @override
-  String get lblUploadTestFailed => "فشل اختبار التحميل! الرجاء التحقق من اتصال الانترنت الخاص بك";
+  String get lblUploadTestFailed =>
+      "فشل اختبار التحميل! الرجاء التحقق من اتصال الانترنت الخاص بك";
 
   @override
   String get lblCancelSubscription => "إلغاء الاشتراك";
@@ -188,13 +193,11 @@ class LanguageAr extends BaseLanguage {
   String get lblRemoveAds => "ازالة الاعلانات";
 
   @override
-  String get lblSubscribePremium => "اشترك قسط الأقوياء VPN";
-
-  @override
   String get lblRestorePurchase => "استعادة شراء";
 
   @override
-  String get lblCancelSubscriptionMsg => "يمكنك إلغاء الاشتراك من متجر Google Play";
+  String get lblCancelSubscriptionMsg =>
+      "يمكنك إلغاء الاشتراك من متجر Google Play";
 
   @override
   String get lblSuccessfullyPurchased => "تم شراؤها بنجاح";
@@ -225,4 +228,9 @@ class LanguageAr extends BaseLanguage {
   @override
   // TODO: implement onboard3Title
   String get onboard3Title => throw UnimplementedError();
-}
+
+
+  @override
+  // TODO: implement lblSubscribePremium
+  String get lblSubscribePremium => throw UnimplementedError();
+  }

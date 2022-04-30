@@ -116,6 +116,10 @@ class LanguageImages {
   static const icBrazil = "assets/flag/ic_brazil.png";
   static const icSpain = "assets/flag/ic_spain.png";
   static const icAr = "assets/flag/ic_ar.png";
+  static const icFrance = "assets/flag/ic_france.png";
+  static const icChina = "assets/flag/ic_china.png";
+  static const icPhilippines = "assets/flag/ic_philippines.png";
+  static const icIndonesia = "assets/flag/ic_indonesia.png";
   static const icJapanese = "assets/flag/ic_japanese.png";
   static const icKorean = "assets/flag/ic_korean.png";
   static const icThai = "assets/flag/ic_thai.png";
@@ -152,13 +156,14 @@ List<LanguageDataModel> languageList() {
         languageCode: 'ko',
         fullLanguageCode: 'ko-KR',
         flag: LanguageImages.icKorean),
-    LanguageDataModel(
+         LanguageDataModel(
         id: 5,
-        name: 'Portuguese',
-        subTitle: 'Português',
-        languageCode: 'pt',
-        fullLanguageCode: 'pt-PT',
-        flag: LanguageImages.icBrazil),
+        name: 'Indonesian',
+        subTitle: 'Bahasa Indonesia',
+        languageCode: 'id',
+        fullLanguageCode: 'id-ID',
+        flag: LanguageImages.icIndonesia),
+   
     LanguageDataModel(
         id: 6,
         name: 'Spanish',
@@ -166,6 +171,34 @@ List<LanguageDataModel> languageList() {
         languageCode: 'es',
         fullLanguageCode: 'es-ES',
         flag: LanguageImages.icSpain),
+    LanguageDataModel(
+        id: 7,
+        name: 'Chinese',
+        subTitle: '中国人',
+        languageCode: 'zh',
+        fullLanguageCode: 'zh-CN',
+        flag: LanguageImages.icChina),
+    LanguageDataModel(
+        id: 8,
+        name: 'French',
+        subTitle: 'Français',
+        languageCode: 'fr',
+        fullLanguageCode: 'fr-FR',
+        flag: LanguageImages.icFrance),
+    LanguageDataModel(
+        id: 9,
+        name: 'Portuguese',
+        subTitle: 'Português',
+        languageCode: 'pt',
+        fullLanguageCode: 'pt-PT',
+        flag: LanguageImages.icBrazil),
+    LanguageDataModel(
+        id: 10,
+        name: 'Filipino',
+        subTitle: 'Filipino',
+        languageCode: 'fil',
+        fullLanguageCode: 'en-PH',
+        flag: LanguageImages.icPhilippines),
   ];
 }
 

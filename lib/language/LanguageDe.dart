@@ -193,9 +193,6 @@ class LanguageDe extends BaseLanguage {
   String get lblRemoveAds => "Anzeigen Entfernen";
 
   @override
-  String get lblSubscribePremium => "Abonnieren \nPremium";
-
-  @override
   String get lblRestorePurchase => "Kauf Wiederherstellen";
 
   @override
@@ -231,4 +228,8 @@ class LanguageDe extends BaseLanguage {
   @override
   // TODO: implement onboard3Title
   String get onboard3Title => throw UnimplementedError();
-}
+
+
+  @override
+  // TODO: implement lblSubscribePremium
+  String get lblSubscribePremium => throw UnimplementedError();}
