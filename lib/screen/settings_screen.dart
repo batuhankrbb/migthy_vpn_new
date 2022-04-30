@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:mightyvpn/utils/AdMobUtils.dart';
 import '../main.dart';
 import 'about_screen.dart';
 import 'language_screen.dart';
@@ -37,6 +38,38 @@ class _SettingsScreenState extends State<SettingsScreen> {
       toast(e.toString());
     });
     setState(() {});
+    setupNativeAd();
+  }
+
+  bool isNativeAdLoaded = false;
+
+  NativeAd? settingsNativeAd;
+
+  void setupNativeAd() {
+    settingsNativeAd = NativeAd(
+      adUnitId: getSettingsNativeUnitID(),
+      factoryId: "listTile",
+      listener: NativeAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            isNativeAdLoaded = true;
+          });
+        },
+        // Called when an ad request failed.
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          ad.dispose();
+          print('Ad failed to load: $error');
+        },
+      ),
+      request: AdRequest(),
+    );
+    settingsNativeAd?.load();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    settingsNativeAd?.dispose();
   }
 
   @override
@@ -139,10 +172,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             trailing: trailingIcon(),
           ),
           const Spacer(),
-          Text("V ${packageInfo?.version}",
-                  style: secondaryTextStyle(letterSpacing: 1.2, size: 16))
-              .center(),
-          26.height,
+          isNativeAdLoaded
+              ? Container(
+                  alignment: Alignment.center,
+                  child: AdWidget(ad: settingsNativeAd!),
+                  width: context.width() * 0.9,
+                  height: context.height() * 0.23,
+                )
+              : SizedBox(),
         ],
       ),
     );

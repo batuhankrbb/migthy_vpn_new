@@ -60,6 +60,12 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    speedNativeAd?.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     init();
@@ -67,12 +73,6 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
 
   void init() async {
     setupNativeAd();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    speedNativeAd?.dispose();
   }
 
   void startDownloading() {
@@ -266,11 +266,10 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
               2.height,
               isNativeAdLoaded
                   ? Container(
-                      color: Colors.red,
                       alignment: Alignment.center,
                       child: AdWidget(ad: speedNativeAd!),
                       width: context.width() * 0.9,
-                      height: context.height() * 0.25,
+                      height: context.height() * 0.23,
                     )
                   : SizedBox(),
             ],
