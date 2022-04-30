@@ -187,7 +187,11 @@ class _ServerListScreenState extends State<ServerListScreen> {
                             flex: 70,
                             child: GestureDetector(
                               onTap: () {
-                                alertPaywallClick();
+                                Navigator.pop(context);
+                                push(const PaywallScreen(),
+                                    pageRouteAnimation:
+                                        PageRouteAnimation.SlideBottomTop,
+                                    duration: 250.milliseconds);
                               },
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -296,150 +300,20 @@ class _ServerListScreenState extends State<ServerListScreen> {
         });
   }
 
-  Future<dynamic> showOtherAlert(
-      BuildContext context, int index, String message) {
-    return showDialog(
-        context: context,
-        barrierColor: Colors.black87,
-        builder: (context) {
-          return Dialog(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(21.0),
-              ),
-              backgroundColor: Colors.white,
-              elevation: 0,
-              child: Container(
-                padding: EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(21.0),
-                ),
-                width: context.width() * 0.9,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Get Premium",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: context.width() * 0.05,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Center(
-                            child: Text(
-                              message,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w500,
-                                fontSize: context.width() * 0.03,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    20.height,
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: GestureDetector(
-                              onTap: () {
-                                alertPaywallClick();
-                              },
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(6),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color.fromRGBO(
-                                                    116, 116, 191, 1.0)
-                                                .withOpacity(0.5),
-                                            spreadRadius: 4,
-                                            blurRadius: 9)
-                                      ],
-                                      gradient: LinearGradient(colors: [
-                                        Color.fromRGBO(116, 116, 191, 1.0),
-                                        Color.fromRGBO(52, 138, 199, 1.0)
-                                      ]),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(width: 10),
-                                        Image.asset(
-                                          "assets/images/king.png",
-                                          width: 35,
-                                          height: 35,
-                                        ),
-                                        Spacer(),
-                                        AutoSizeText(
-                                          "GET PREMIUM",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: context.width() * 0.05,
-                                          ),
-                                          maxLines: 1,
-                                        ),
-                                        Spacer(),
-                                      ],
-                                    ),
-                                    height: context.height() * 0.08,
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ));
-        });
-  }
-
   void alertWatchAdClick(int index) {
     print("papurcu kafa ${vpnStore.serverList[index].country}");
     if (unlockedUIds.length >= 3) {
       Navigator.pop(context);
       showOtherAlert(
         context,
-        index,
         "You can't unlock more than 3 servers by watching ads. Get premium to access to all servers forever.",
       );
       return;
-    } else if (vpnStore.serverList[index].onlyPremium != null && vpnStore.serverList[index].onlyPremium == true) {
+    } else if (vpnStore.serverList[index].onlyPremium != null &&
+        vpnStore.serverList[index].onlyPremium == true) {
       Navigator.pop(context);
       showOtherAlert(
         context,
-        index,
         "This is our best server. It's only available for premium users.",
       );
       return;
@@ -450,13 +324,6 @@ class _ServerListScreenState extends State<ServerListScreen> {
       setState(() {});
     }));
     Navigator.pop(context);
-  }
-
-  void alertPaywallClick() {
-    Navigator.pop(context);
-    push(const PaywallScreen(),
-        pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
-        duration: 250.milliseconds);
   }
 
   Widget buildTrailing(
@@ -537,4 +404,136 @@ class _ServerListScreenState extends State<ServerListScreen> {
 
     finish(context);
   }
+}
+
+Future<dynamic> showOtherAlert(BuildContext context, String message) {
+  return showDialog(
+      context: context,
+      barrierColor: Colors.black87,
+      builder: (context) {
+        return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(21.0),
+            ),
+            backgroundColor: Colors.white,
+            elevation: 0,
+            child: Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(21.0),
+              ),
+              width: context.width() * 0.9,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Get Premium",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: context.width() * 0.05,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Center(
+                          child: Text(
+                            message,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                              fontSize: context.width() * 0.03,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  20.height,
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                              push(const PaywallScreen(),
+                                  pageRouteAnimation:
+                                      PageRouteAnimation.SlideBottomTop,
+                                  duration: 250.milliseconds);
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color:
+                                              Color.fromRGBO(116, 116, 191, 1.0)
+                                                  .withOpacity(0.5),
+                                          spreadRadius: 4,
+                                          blurRadius: 9)
+                                    ],
+                                    gradient: LinearGradient(colors: [
+                                      Color.fromRGBO(116, 116, 191, 1.0),
+                                      Color.fromRGBO(52, 138, 199, 1.0)
+                                    ]),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(width: 10),
+                                      Image.asset(
+                                        "assets/images/king.png",
+                                        width: 35,
+                                        height: 35,
+                                      ),
+                                      Spacer(),
+                                      AutoSizeText(
+                                        "GET PREMIUM",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: context.width() * 0.05,
+                                        ),
+                                        maxLines: 1,
+                                      ),
+                                      Spacer(),
+                                    ],
+                                  ),
+                                  height: context.height() * 0.08,
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ));
+      });
 }

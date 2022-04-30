@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mightyvpn/screen/server_list_screen.dart';
 import '../component/AdmobComponent.dart';
 import '../main.dart';
 import '../utils/AdMobUtils.dart';
@@ -69,28 +70,48 @@ class _ThemeScreenState extends State<ThemeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBarWidget(
-          language.lblSelectYourTheme,
-          backWidget: IconButton(
-            onPressed: () {
-              showInterstitialAd();
-              finish(context);
-            },
-            icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
-          ),
-          showBack: true,
-          elevation: 0,
-          color: context.scaffoldBackgroundColor,
+      appBar: appBarWidget(
+        language.lblSelectYourTheme,
+        backWidget: IconButton(
+          onPressed: () {
+            showInterstitialAd();
+            finish(context);
+          },
+          icon: Icon(Icons.arrow_back_outlined, color: context.iconColor),
         ),
-        body: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Wrap(
-            spacing: 16,
-            runSpacing: 16,
-            children: List.generate(
-              ThemeModes.values.length,
-              (index) {
-                return Container(
+        showBack: true,
+        elevation: 0,
+        color: context.scaffoldBackgroundColor,
+      ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Wrap(
+          spacing: 16,
+          runSpacing: 16,
+          children: List.generate(
+            ThemeModes.values.length,
+            (index) {
+              return GestureDetector(
+                onTap: () async {
+                  if (!globalStore.isPremium) {
+                    showOtherAlert(
+                        context, "Theme is only available for premium users.");
+                    return;
+                  }
+                  currentIndex = index;
+                  if (index == AppThemeMode.themeModeSystem) {
+                    appStore.setDarkMode(
+                        MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark);
+                  } else if (index == AppThemeMode.themeModeLight) {
+                    appStore.setDarkMode(false);
+                  } else if (index == AppThemeMode.themeModeDark) {
+                    appStore.setDarkMode(true);
+                  }
+                  setValue(THEME_MODE_INDEX, index);
+                  setState(() {});
+                },
+                child: Container(
                   decoration: BoxDecoration(
                     borderRadius: radius(),
                     color: getSelectedColor(index),
@@ -106,34 +127,12 @@ class _ThemeScreenState extends State<ThemeScreen> {
                       _getIcons(context, ThemeModes.values[index]),
                     ],
                   ),
-                ).onTap(() async {
-                  currentIndex = index;
-                  if (index == AppThemeMode.themeModeSystem) {
-                    appStore.setDarkMode(
-                        MediaQuery.of(context).platformBrightness ==
-                            Brightness.dark);
-                  } else if (index == AppThemeMode.themeModeLight) {
-                    appStore.setDarkMode(false);
-                  } else if (index == AppThemeMode.themeModeDark) {
-                    appStore.setDarkMode(true);
-                  }
-                  setValue(THEME_MODE_INDEX, index);
-                  setState(() {});
-                }, borderRadius: radius());
-              },
-            ),
+                ),
+              );
+            },
           ),
         ),
-        bottomNavigationBar: AdWidget(
-          ad: BannerAd(
-            adUnitId:
-                kReleaseMode ? getBannerAdUnitId() : BannerAd.testAdUnitId,
-            size: AdSize.banner,
-            listener: BannerAdListener(onAdLoaded: (ad) {
-              //
-            }),
-            request: const AdRequest(),
-          )..load(),
-        ));
+      ),
+    );
   }
 }
