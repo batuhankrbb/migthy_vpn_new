@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:lottie/lottie.dart';
+import 'package:mightyvpn/screen/paywall_screen.dart';
 import 'package:mightyvpn/screen/settings_screen.dart';
 import '../component/AdmobComponent.dart';
 import '../component/bandwidth_component.dart';
@@ -118,10 +120,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 return VpnComponent(
                   vpnStatus: vpnStore.vpnStatus == VPNStatus.connected,
                   onStartTapped: () async {
+                    showPaywallDashboardAlert(context); //TODO SİL BUNU SONRA
                     HapticFeedback.heavyImpact();
                     if (!globalStore.hasPaywallAlertShowed &&
                         !globalStore.isPremium) {
                       globalStore.hasPaywallAlertShowed = true;
+                      showPaywallDashboardAlert(context);
                       //TODO showalert
                       //TODO NO BASARSA AŞAĞIYA İN
                       //TODO YES BASARSA PAYWALL ÇIKART
@@ -164,7 +168,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             60.height,
             Align(
               alignment: Alignment.bottomLeft,
-              child: AutoSizeText(language.lblCurrentServer, style: boldTextStyle()),
+              child: AutoSizeText(language.lblCurrentServer,
+                  style: boldTextStyle()),
             ).paddingSymmetric(horizontal: 26),
             8.height,
             Observer(
@@ -199,4 +204,157 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
     );
   }
+}
+
+///*********** */
+///
+///
+
+Future<dynamic> showPaywallDashboardAlert(BuildContext context) {
+  return showDialog(
+      context: context,
+      barrierColor: Colors.black87,
+      builder: (context) {
+        return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(21.0),
+            ),
+            backgroundColor: Colors.white,
+            elevation: 0,
+            child: Container(
+              padding: EdgeInsets.only(bottom: 4),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(21.0),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color.fromRGBO(116, 116, 191, 1.0)
+                            .withOpacity(0.55),
+                        spreadRadius: 20,
+                        blurRadius: 35),
+                  ]),
+              width: context.width() * 0.95,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: context.height() * 0.07,
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [
+                          Color.fromRGBO(116, 116, 191, 1.0),
+                          Color.fromRGBO(52, 138, 199, 1.0)
+                        ]),
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(21.0),
+                            topLeft: Radius.circular(21.0))),
+                    alignment: Alignment.center,
+                    child: AutoSizeText(
+                      "SALE! %80 Off!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: context.width() * 0.10,
+                      ),
+                      maxLines: 1,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                              push(const PaywallScreen(),
+                                  pageRouteAnimation:
+                                      PageRouteAnimation.SlideBottomTop,
+                                  duration: 250.milliseconds);
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Center(
+                                  child: LottieBuilder.asset(
+                                      "assets/images/premium_lottie.json",
+                                      height: context.height() * 0.25,
+                                      fit: BoxFit.fitHeight),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color:
+                                              Color.fromRGBO(116, 116, 191, 1.0)
+                                                  .withOpacity(0.5),
+                                          spreadRadius: 4,
+                                          blurRadius: 9)
+                                    ],
+                                    gradient: LinearGradient(colors: [
+                                      Color.fromRGBO(116, 116, 191, 1.0),
+                                      Color.fromRGBO(52, 138, 199, 1.0)
+                                    ]),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(width: 10),
+                                      Image.asset(
+                                        "assets/images/king.png",
+                                        width: 35,
+                                        height: 35,
+                                      ),
+                                      Spacer(),
+                                      AutoSizeText(
+                                        language.getPremiumText,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: context.width() * 0.05,
+                                        ),
+                                        maxLines: 1,
+                                      ),
+                                      Spacer(),
+                                    ],
+                                  ),
+                                  height: context.height() * 0.08,
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Center(
+                                  child: Text(
+                                      "Only available today. \$23.99 per year"),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Center(
+                                  child: Text(
+                                    "\$49.99 per year",
+                                    style: TextStyle(
+                                        decoration: TextDecoration.lineThrough),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ));
+      });
 }
