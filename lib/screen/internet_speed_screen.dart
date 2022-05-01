@@ -80,7 +80,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
       onDone: (double transferRate, SpeedUnit unit) {
         setState(() {
           downloadRate = transferRate;
- if (globalStore.isPremium) {
+          if (globalStore.isPremium) {
             downloadRate *= 2.5;
           }
           protectGauge(downloadRate);
@@ -120,7 +120,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         setState(() {
           uploadRate = transferRate;
           uploadRate = uploadRate * 10;
-           if (globalStore.isPremium) {
+          if (globalStore.isPremium) {
             uploadRate *= 8;
           }
           protectGauge(uploadRate);
@@ -129,7 +129,6 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
           displayPer = 100.0;
           isTesting = false;
           value = "";
-          
         });
       },
       onProgress: (double percent, double transferRate, SpeedUnit unit) {
@@ -138,7 +137,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         setState(() {
           uploadRate = transferRate;
           uploadRate = uploadRate * 10;
-           if (globalStore.isPremium) {
+          if (globalStore.isPremium) {
             uploadRate *= 8;
           }
           protectGauge(uploadRate);
@@ -277,7 +276,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
                 ],
               ),
               2.height,
-              isNativeAdLoaded
+              isNativeAdLoaded && !globalStore.isPremium
                   ? Container(
                       alignment: Alignment.center,
                       child: AdWidget(ad: speedNativeAd!),

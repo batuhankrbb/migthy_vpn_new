@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:mightyvpn/screen/settings_screen.dart';
 import '../component/AdmobComponent.dart';
 import '../component/bandwidth_component.dart';
 import '../component/duration_component.dart';
@@ -96,7 +97,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: appBarWidget(
         AppConstant.appName,
@@ -111,7 +111,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           children: [
             16.height,
             const IpComponent(),
-            66.height,
+            40.height,
             Observer(
               builder: (_) {
                 return VpnComponent(
@@ -181,6 +181,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 },
               ).paddingSymmetric(horizontal: 26),
             ),
+            16.height,
+            PremiumButton(),
             16.height,
           ],
         ),
