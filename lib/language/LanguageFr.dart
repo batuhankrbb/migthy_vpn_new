@@ -235,4 +235,12 @@ class LanguageFr extends BaseLanguage {
   @override
   String get watchAdUnlockOnceText =>
       "Regardez l'annonce pour déverrouiller une fois.";
+
+  @override
+  // TODO: implement onlyAvailableTodayText
+  String get onlyAvailableTodayText => throw UnimplementedError();
+
+  @override
+  // TODO: implement saleText
+  String get saleText => throw UnimplementedError();
 }

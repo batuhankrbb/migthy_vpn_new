@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import 'bottom_nav_bar.dart';
@@ -14,13 +16,25 @@ class _PaywallScreenState extends State<PaywallScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: TextButton(
-        child: Text("Skip PAYWALL"),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      )),
+      backgroundColor: onboardBackgroundColor,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: LottieBuilder.asset(
+              "assets/images/paywall_lottie.json",
+              height: context.height() * 0.3,
+              fit: BoxFit.fitHeight,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+
+/*
+ onPressed: () {
+          Navigator.pop(context);
+        },
+*/

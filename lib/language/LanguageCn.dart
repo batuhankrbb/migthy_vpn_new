@@ -225,4 +225,12 @@ class LanguageCn extends BaseLanguage {
 
   @override
   String get watchAdUnlockOnceText => "观看广告解锁一次。";
+
+  @override
+  // TODO: implement onlyAvailableTodayText
+  String get onlyAvailableTodayText => throw UnimplementedError();
+
+  @override
+  // TODO: implement saleText
+  String get saleText => throw UnimplementedError();
 }

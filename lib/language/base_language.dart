@@ -139,4 +139,8 @@ abstract class BaseLanguage {
   String get getPremiumUnlockLongText;
   String get buyAndContinueText;
   String get perYearText;
+
+  String get saleText;
+
+  String get onlyAvailableTodayText;
 }

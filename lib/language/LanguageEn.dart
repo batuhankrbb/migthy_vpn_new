@@ -232,4 +232,10 @@ class LanguageEn extends BaseLanguage {
 
   @override
   String get watchAdUnlockOnceText => "Watch ad to unlock once.";
+
+  @override
+  String get saleText => "SALE! %80 Off!";
+
+  @override
+  String get onlyAvailableTodayText =>  "Only available today.";
 }

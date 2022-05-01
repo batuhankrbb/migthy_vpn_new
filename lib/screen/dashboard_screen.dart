@@ -248,7 +248,7 @@ Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
                             topLeft: Radius.circular(21.0))),
                     alignment: Alignment.center,
                     child: AutoSizeText(
-                      "SALE! %80 Off!",
+                      language.saleText,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -328,14 +328,14 @@ Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
                                 ),
                                 Center(
                                   child: Text(
-                                      "Only available today. \$23.99 per year"),
+                                      language.onlyAvailableTodayText + " \$23.99 " + language.perYearText),
                                 ),
                                 SizedBox(
                                   height: 5,
                                 ),
                                 Center(
                                   child: Text(
-                                    "\$49.99 per year",
+                                    "\$49.99 " + language.perYearText,
                                     style: TextStyle(
                                         decoration: TextDecoration.lineThrough),
                                   ),
