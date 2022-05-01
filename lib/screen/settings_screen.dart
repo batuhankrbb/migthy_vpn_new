@@ -4,6 +4,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/screen/paywall_screen.dart';
+import 'package:mightyvpn/screen/server_list_screen.dart';
 import 'package:mightyvpn/utils/AdMobUtils.dart';
 import '../main.dart';
 import 'about_screen.dart';
@@ -99,6 +100,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             buildPremium(),
             16.height,
+            SettingItemWidget(
+              leading:
+                  Icon(FontAwesome.globe, color: context.iconColor, size: 20),
+              title: "Select Server",
+              trailing: Row(
+                children: [
+                  8.width,
+                  const Icon(Icons.arrow_forward_ios,
+                      color: Colors.grey, size: 14),
+                ],
+              ),
+              onTap: () {
+                push(const ServerListScreen(),
+                    pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
+                    duration: 250.milliseconds);
+              },
+            ),
             SettingItemWidget(
               leading: Icon(FontAwesome.language,
                   color: context.iconColor, size: 20),

@@ -109,9 +109,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            16.height,
-            const IpComponent(),
-            40.height,
+            SizedBox(
+              height: context.height() * 0.06,
+            ),
             Observer(
               builder: (_) {
                 return VpnComponent(
