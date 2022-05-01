@@ -33,6 +33,7 @@ class SplashScreenState extends State<SplashScreen>
       () async {
         setStatusBarColor(context.scaffoldBackgroundColor);
         String defaultLocale = Platform.localeName;
+        print("nihat = ${defaultLocale}");
         late LanguageDataModel data;
         var changeLanguageBefore =
             getBoolAsync("changeLanguageBefore", defaultValue: false);
@@ -55,10 +56,17 @@ class SplashScreenState extends State<SplashScreen>
           selectedLanguageDataModel = data;
           await appStore.setLanguage(data.languageCode!, context: context);
         } else {
-          appStore.setLanguage(
-              getStringAsync(SharedPrefKeys.language,
-                  defaultValue: AppConstant.defaultLanguage),
-              context: context);
+          try {
+            await appStore.setLanguage(
+                getStringAsync(SharedPrefKeys.language,
+                    defaultValue: AppConstant.defaultLanguage),
+                context: context);
+          } catch (e) {
+            await appStore.setLanguage(
+                getStringAsync(AppConstant.defaultLanguage,
+                    defaultValue: AppConstant.defaultLanguage),
+                context: context);
+          }
         }
       },
     );
@@ -86,7 +94,7 @@ class SplashScreenState extends State<SplashScreen>
       2.seconds.delay.then((value) => push(const OnboardingScreen(),
           isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade));
     } else {
-      2.seconds.delay.then((value) => push(const PaywallScreen(),
+      2.seconds.delay.then((value) => push(const BottomNavBar(),
           isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade));
     }
   }
