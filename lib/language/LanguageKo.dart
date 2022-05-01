@@ -192,9 +192,6 @@ class LanguageKo extends BaseLanguage {
   String get onboard3Title => throw UnimplementedError();
 
   @override
-  String get lblSubscribePremium => throw UnimplementedError();
-
-  @override
   String get bestServerText => throw UnimplementedError();
 
   @override

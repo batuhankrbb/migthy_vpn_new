@@ -194,10 +194,6 @@ class LanguageEs extends BaseLanguage {
 
   @override
   String get onboard3Title => throw UnimplementedError();
-  String get lblSuccessfullyPurchased => "Comprado con éxito";
-
-  @override
-  String get lblSubscribePremium => throw UnimplementedError();
 
   @override
   String get bestServerText => throw UnimplementedError();
