@@ -9,6 +9,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/extra/rate/viewmodel/rate_sheet_viewmodel.dart';
 import 'package:mightyvpn/store/global_store.dart';
+import 'package:mightyvpn/utils/purchase_helper.dart';
 import 'app_theme.dart';
 import 'component/AdmobComponent.dart';
 import 'language/base_language.dart';
@@ -52,6 +53,8 @@ void main() async {
 
   await Firebase.initializeApp();
   MobileAds.instance.initialize();
+  await PurchaseHelper.shared.initPurchase();
+  PurchaseHelper.shared.loadProducts();
   await loadOpenAd();
   vpnStore.setIsPrepared(getBoolAsync(SharedPrefKeys.isPrepared));
   // appStore.setSelectedServerModel(ServerModel.fromJson(jsonDecode(getStringAsync(SharedPrefKeys.selectedServer))));
@@ -144,7 +147,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Observer(
       builder: (_) => MaterialApp(
-        title: 'IP Changer',
+        title: 'GPS Spoofer',
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
         theme: AppTheme.lightTheme,

@@ -11,10 +11,10 @@ const appName = 'Anonymous VPN';
 const iconSize = 26.0;
 const textSize = 16.0;
 
-const mRevenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
+const revenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
 
 class AppConstant {
-  static const appName = 'IP Changer';
+  static const appName = 'GPS Spoofer';
   static const appDescription =
       'Surf the web anonymously and securely with IP Changer app template. If you are a web surfer, IP Changer is for you. For an uninterrupted, high speed browsing and zero logs, this app template allows online activity to be private. Facilitate lightning fast speed, IP Changer is compatible with PC, Mac, iOS, Android, Routers, and more. Protect your privacy, keeping you safe from third party tracking, unblock geographically restricted sites, one click to connect VPN, encrypt the internet traffic, and more. Unblock and access streaming videos, movies, series, matches, shows, and more without buffering. The super fast IP Changer app is ideal for streaming games. You can also change your IP address to wherever you want. With a set of resourceful features.';
 
