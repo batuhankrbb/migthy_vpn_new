@@ -118,6 +118,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   vpnStatus: vpnStore.vpnStatus == VPNStatus.connected,
                   onStartTapped: () async {
                     HapticFeedback.heavyImpact();
+                    if (!globalStore.hasPaywallAlertShowed &&
+                        !globalStore.isPremium) {
+                      globalStore.hasPaywallAlertShowed = true;
+                      //TODO showalert
+                      //TODO NO BASARSA AŞAĞIYA İN
+                      //TODO YES BASARSA PAYWALL ÇIKART
+                    }
                     if (vpnStore.vpnStatus == VPNStatus.disconnected) {
                       if (!vpnStore.mIsPrepared) {
                         prepareVPN();
@@ -182,7 +189,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ).paddingSymmetric(horizontal: 26),
             ),
             16.height,
-            PremiumButton(),
+            PremiumButton(
+              popFirst: false,
+            ),
             16.height,
           ],
         ),

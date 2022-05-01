@@ -7,4 +7,6 @@ abstract class _GlobalStoreBase with Store {
   @observable
   var isPremium = false;
 
+  @observable
+  var hasPaywallAlertShowed = false;
 }
