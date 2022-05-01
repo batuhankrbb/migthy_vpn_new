@@ -230,10 +230,8 @@ class LanguageKo extends BaseLanguage {
   String get watchAdUnlockOnceText => "한 번 잠금을 해제하려면 광고를 시청하세요.";
 
   @override
-  // TODO: implement onlyAvailableTodayText
-  String get onlyAvailableTodayText => throw UnimplementedError();
+  String get saleText => "판매! %80 해제!";
 
   @override
-  // TODO: implement saleText
-  String get saleText => throw UnimplementedError();
+  String get onlyAvailableTodayText => "오늘만 가능합니다.";
 }

@@ -238,10 +238,8 @@ class LanguagePh extends BaseLanguage {
       "Manood ng ad upang ma-unlock nang isang beses.";
 
   @override
-  // TODO: implement onlyAvailableTodayText
-  String get onlyAvailableTodayText => throw UnimplementedError();
+  String get saleText => "PAGBEBENTA! %80 OFF!";
 
   @override
-  // TODO: implement saleText
-  String get saleText => throw UnimplementedError();
+  String get onlyAvailableTodayText => "Available lang ngayong araw.";
 }

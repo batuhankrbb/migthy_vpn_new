@@ -235,10 +235,8 @@ class LanguageAr extends BaseLanguage {
   String get watchAdUnlockOnceText => "مشاهدة الإعلان لفتح مرة واحدة.";
 
   @override
-  // TODO: implement onlyAvailableTodayText
-  String get onlyAvailableTodayText => throw UnimplementedError();
+  String get saleText => "تخفيض السعر! ٪ 80 خصم!";
 
   @override
-  // TODO: implement saleText
-  String get saleText => throw UnimplementedError();
+  String get onlyAvailableTodayText => "متاح اليوم فقط.";
 }
