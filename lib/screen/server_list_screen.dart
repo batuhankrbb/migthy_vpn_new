@@ -223,14 +223,15 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                           height: 35,
                                         ),
                                         SizedBox(width: 10),
-                                        AutoSizeText(
-                                          language.getPremiumText,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: context.width() * 0.05,
+                                        Flexible(
+                                          child: AutoSizeText(
+                                            language.getPremiumText,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: context.width() * 0.05,
+                                            ),
                                           ),
-                                          maxLines: 1,
                                         ),
                                       ],
                                     ),
