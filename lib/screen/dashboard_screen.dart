@@ -52,7 +52,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void dispose() {
     stageStream?.cancel();
     myInterstitial?.dispose();
-    dataStream.cancel();
+    dataStream?.cancel();
     super.dispose();
   }
 

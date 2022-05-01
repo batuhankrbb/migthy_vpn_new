@@ -10,6 +10,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/extra/rate/viewmodel/rate_sheet_viewmodel.dart';
 import 'package:mightyvpn/store/global_store.dart';
 import 'app_theme.dart';
+import 'component/AdmobComponent.dart';
 import 'language/base_language.dart';
 import 'screen/splash_screen.dart';
 import 'services/server_services.dart';
@@ -37,7 +38,7 @@ FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
 VpnServicesMethods vpnServicesMethods = VpnServicesMethods();
 StreamSubscription? stageStream;
-late StreamSubscription dataStream;
+StreamSubscription? dataStream;
 
 late BaseLanguage language;
 
@@ -51,7 +52,7 @@ void main() async {
 
   await Firebase.initializeApp();
   MobileAds.instance.initialize();
-
+  await loadOpenAd();
   vpnStore.setIsPrepared(getBoolAsync(SharedPrefKeys.isPrepared));
   // appStore.setSelectedServerModel(ServerModel.fromJson(jsonDecode(getStringAsync(SharedPrefKeys.selectedServer))));
   vpnStore.setVPNStatus();
@@ -83,6 +84,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     init();
+    AppStateEventNotifier.startListening();
+    AppStateEventNotifier.appStateStream.forEach((state) {
+      if (state == AppState.foreground) {
+        loadOpenAd();
+      }
+    });
   }
 
   void init() async {
@@ -109,7 +116,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       if (stageStream != null) {
         stageStream?.cancel();
       }
-      dataStream.cancel();
+      dataStream?.cancel();
     }
 
     if (appLifecycleState == AppLifecycleState.resumed) {
@@ -117,7 +124,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       if (stageStream != null) {
         stageStream?.resume();
       }
-      dataStream.resume();
+      dataStream?.resume();
     }
   }
 

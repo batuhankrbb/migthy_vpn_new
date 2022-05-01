@@ -88,10 +88,6 @@ Future<void> showRewardedAd({required VoidCallback onWinReward}) async {
 AppOpenAd? openAd;
 
 Future<void> loadOpenAd() async {
-  if (globalStore.openAdShowed) {
-    return;
-  }
-  globalStore.openAdShowed = true;
   await AppOpenAd.load(
       adUnitId: AD_MOB_OPEN_AD_ID,
       request: AdRequest(),

@@ -233,7 +233,7 @@ class PremiumButton extends StatelessWidget {
       return SizedBox();
     }
     return Container(
-      width: context.width() * 0.8,
+      width: context.width() * 0.91,
       padding: EdgeInsets.symmetric(horizontal: 8),
       child: GestureDetector(
           onTap: () {
