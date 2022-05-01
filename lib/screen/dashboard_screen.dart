@@ -120,15 +120,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 return VpnComponent(
                   vpnStatus: vpnStore.vpnStatus == VPNStatus.connected,
                   onStartTapped: () async {
-                    showPaywallDashboardAlert(context); //TODO SİL BUNU SONRA
                     HapticFeedback.heavyImpact();
                     if (!globalStore.hasPaywallAlertShowed &&
                         !globalStore.isPremium) {
                       globalStore.hasPaywallAlertShowed = true;
                       showPaywallDashboardAlert(context);
-                      //TODO showalert
-                      //TODO NO BASARSA AŞAĞIYA İN
-                      //TODO YES BASARSA PAYWALL ÇIKART
+                      return;
                     }
                     if (vpnStore.vpnStatus == VPNStatus.disconnected) {
                       if (!vpnStore.mIsPrepared) {
@@ -210,8 +207,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
 ///
 ///
 
-Future<dynamic> showPaywallDashboardAlert(BuildContext context) {
-  return showDialog(
+Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
+  return await showDialog(
       context: context,
       barrierColor: Colors.black87,
       builder: (context) {
