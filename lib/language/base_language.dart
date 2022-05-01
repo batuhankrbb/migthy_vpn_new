@@ -118,10 +118,6 @@ abstract class BaseLanguage {
 
   String get lblUploadTestFailed;
 
-  String get lblCancelSubscription;
-
-  String get lblContinue;
-
   String get onboard1Title;
   String get onboard1Description;
   String get onboard2Title;

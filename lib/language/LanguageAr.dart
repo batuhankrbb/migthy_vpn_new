@@ -178,12 +178,6 @@ class LanguageAr extends BaseLanguage {
       "فشل اختبار التحميل! الرجاء التحقق من اتصال الانترنت الخاص بك";
 
   @override
-  String get lblCancelSubscription => "إلغاء الاشتراك";
-
-  @override
-  String get lblContinue => "يكمل";
-
-  @override
   String get onboard1Description => "throw UnimplementedError();";
 
   @override
@@ -202,48 +196,35 @@ class LanguageAr extends BaseLanguage {
   String get onboard3Title => "throw UnimplementedError()";
 
   @override
-  String get lblSubscribePremium => "throw UnimplementedError()";
-
-  @override
   String get bestServerText => throw UnimplementedError();
 
   @override
-  // TODO: implement buyAndContinueText
   String get buyAndContinueText => throw UnimplementedError();
 
   @override
-  // TODO: implement getPremiumText
   String get getPremiumText => throw UnimplementedError();
 
   @override
-  // TODO: implement getPremiumUnlockLongText
   String get getPremiumUnlockLongText => throw UnimplementedError();
 
   @override
-  // TODO: implement moreThan3ErrorText
   String get moreThan3ErrorText => throw UnimplementedError();
 
   @override
-  // TODO: implement perYearText
   String get perYearText => throw UnimplementedError();
 
   @override
-  // TODO: implement selectServerText
   String get selectServerText => throw UnimplementedError();
 
   @override
-  // TODO: implement themePremiumText
   String get themePremiumText => throw UnimplementedError();
 
   @override
-  // TODO: implement thisIsPremiumServerText
   String get thisIsPremiumServerText => throw UnimplementedError();
 
   @override
-  // TODO: implement unlockForeverText
   String get unlockForeverText => throw UnimplementedError();
 
   @override
-  // TODO: implement watchAdUnlockOnceText
   String get watchAdUnlockOnceText => throw UnimplementedError();
 }

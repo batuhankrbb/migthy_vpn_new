@@ -177,34 +177,6 @@ class LanguageEn extends BaseLanguage {
       "Upload test failed! Please check your internet connection";
 
   @override
-  String get lblCancelSubscription => "Cancel Subscription";
-
-  @override
-  String get lblContinue => "Continue";
-
-  @override
-  String get lblMightyVPNPremium => "Premium";
-
-  @override
-  String get lblPremiumServer => "Premium Servers";
-
-  @override
-  String get lblRemoveAds => "Remove Ads";
-
-  @override
-  String get lblRestorePurchase => "Restore Purchase";
-
-  @override
-  String get lblCancelSubscriptionMsg =>
-      "You can cancel subscription from google play store";
-
-  @override
-  String get lblSuccessfullyPurchased => "Successfully Purchased";
-
-  @override
-  String get lblValidTill => "Valid till:";
-
-  @override
   String get onboard1Description =>
       "1,000+ high-quality servers in about 80 countries. All of them provided by us. %99.99 uptime. Get the best VPN server around the world with a click.";
 

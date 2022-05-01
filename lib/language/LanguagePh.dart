@@ -178,103 +178,53 @@ class LanguagePh extends BaseLanguage {
       "Nabigo ang pagsubok sa pag-upload! Pakisuri ang iyong koneksyon sa internet";
 
   @override
-  String get lblCancelSubscription => "Ikansela ang subskripsyon";
-
-  @override
-  String get lblContinue => "Magpatuloy";
-
-  @override
-  String get lblMightyVPNPremium => "Premium";
-
-  @override
-  String get lblPremiumServer => "Mga Premium na Server";
-
-  @override
-  String get lblRemoveAds => "Alisin ang Mga Ad";
-
-  @override
-  String get lblRestorePurchase => "Ibalik ang Pagbili";
-
-  @override
-  String get lblCancelSubscriptionMsg =>
-      "Maaari mong kanselahin ang subscription mula sa google play store";
-
-  @override
-  String get lblSuccessfullyPurchased => "Matagumpay na Nabili";
-
-  @override
-  // TODO: implement lblSubscribePremium
-  String get lblSubscribePremium => throw UnimplementedError();
-
-  @override
-  // TODO: implement lblValidTill
-  String get lblValidTill => throw UnimplementedError();
-
-  @override
-  // TODO: implement onboard1Description
   String get onboard1Description => throw UnimplementedError();
 
   @override
-  // TODO: implement onboard1Title
   String get onboard1Title => throw UnimplementedError();
 
   @override
-  // TODO: implement onboard2Description
   String get onboard2Description => throw UnimplementedError();
 
   @override
-  // TODO: implement onboard2Title
   String get onboard2Title => throw UnimplementedError();
 
   @override
-  // TODO: implement onboard3Description
   String get onboard3Description => throw UnimplementedError();
 
   @override
-  // TODO: implement onboard3Title
   String get onboard3Title => throw UnimplementedError();
 
   @override
-  // TODO: implement bestServerText
   String get bestServerText => throw UnimplementedError();
 
   @override
-  // TODO: implement buyAndContinueText
   String get buyAndContinueText => throw UnimplementedError();
 
   @override
-  // TODO: implement getPremiumText
   String get getPremiumText => throw UnimplementedError();
 
   @override
-  // TODO: implement getPremiumUnlockLongText
   String get getPremiumUnlockLongText => throw UnimplementedError();
 
   @override
-  // TODO: implement moreThan3ErrorText
   String get moreThan3ErrorText => throw UnimplementedError();
 
   @override
-  // TODO: implement perYearText
   String get perYearText => throw UnimplementedError();
 
   @override
-  // TODO: implement selectServerText
   String get selectServerText => throw UnimplementedError();
 
   @override
-  // TODO: implement themePremiumText
   String get themePremiumText => throw UnimplementedError();
 
   @override
-  // TODO: implement thisIsPremiumServerText
   String get thisIsPremiumServerText => throw UnimplementedError();
 
   @override
-  // TODO: implement unlockForeverText
   String get unlockForeverText => throw UnimplementedError();
 
   @override
-  // TODO: implement watchAdUnlockOnceText
   String get watchAdUnlockOnceText => throw UnimplementedError();
 }
