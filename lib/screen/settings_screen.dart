@@ -242,6 +242,7 @@ class PremiumButton extends StatelessWidget {
                 duration: 250.milliseconds);
           },
           child: Container(
+            padding: EdgeInsets.symmetric(vertical: 6),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
               boxShadow: [
