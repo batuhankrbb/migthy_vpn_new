@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -43,7 +44,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
                       height: 20,
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         //TODO
                       },
                       child: Container(
@@ -59,10 +60,10 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
             ],
           ),
           Center(
-            child: Image(
-              image: AssetImage(widget.image),
-              height: context.width() * 0.4,
-              fit: BoxFit.cover,
+            child: Lottie.asset(
+              widget.image,
+              height: context.width() * 0.6,
+              fit: BoxFit.fitHeight,
             ),
           ),
           SizedBox(

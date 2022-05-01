@@ -203,24 +203,24 @@ List<LanguageDataModel> languageList() {
 
 final List<Widget> introWidgetsList = [
   const OnboardPageWidget(
-    image: LanguageImages.icGermany,
-    title: "Learn faster, than ever!",
+    image: "assets/images/globe_lottie.json",
+    title: "Over 120 Locations",
     description:
-        "Thanks to 123 Spanish’s visually supported flashcards, you’ll learn and memorise faster. ",
+        "1,000+ high-quality servers in about 80 countries. All of them provided by us. %99.99 uptime. Get the best VPN server around the world with a click.",
     index: 0,
   ),
   const OnboardPageWidget(
-    image: LanguageImages.icJapanese,
-    title: "Regularly Updated Decks",
+    image: "assets/images/unlock_lottie.json",
+    title: "Unblock Everything Without Limits",
     description:
-        "123 Spanish's content team studies regularly and creates and shares the most successful decks with you.",
+        "Get access to all blocked sites and enjoy unlimited bandwidth. Access to your favorite sites and apps worldwide with fast speeds.",
     index: 1,
   ),
   const OnboardPageWidget(
-    image: LanguageImages.icKorean,
-    title: "Study More Efficiently",
+    image: "assets/images/rocket_lottie.json",
+    title: "8x Faster Internet Connection",
     description:
-        "Maybe you only need some basic words for your Spain holiday. So, why do you start from the beginning? 123 Spanish gives you exactly what you need.",
+        "Sick of other slow VPNs out there? Try our enhanced x8 Faster Server. You will never have problems about internet speed again.",
     index: 2,
   ),
 ];
