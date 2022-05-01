@@ -76,6 +76,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
 
                 return GestureDetector(
                     onTap: () async {
+                      await setValue("changeLanguageBefore", true);
                       print(data.languageCode);
                       await setValue(SELECTED_LANGUAGE_CODE, data.languageCode);
                       selectedLanguageDataModel = data;

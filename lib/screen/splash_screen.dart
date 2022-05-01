@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/screen/onboard/onboarding_screen.dart';
@@ -29,13 +30,36 @@ class SplashScreenState extends State<SplashScreen>
 
   init() async {
     afterBuildCreated(
-      () {
+      () async {
         setStatusBarColor(context.scaffoldBackgroundColor);
-
-        appStore.setLanguage(
-            getStringAsync(SharedPrefKeys.language,
-                defaultValue: AppConstant.defaultLanguage),
-            context: context);
+        String defaultLocale = Platform.localeName;
+        late LanguageDataModel data;
+        var changeLanguageBefore =
+            getBoolAsync("changeLanguageBefore", defaultValue: false);
+        if (!changeLanguageBefore) {
+          try {
+            data = languageList().firstWhere(((element) {
+              return element.languageCode ==
+                  defaultLocale[0] + defaultLocale[1];
+            }));
+          } catch (e) {
+            data = LanguageDataModel(
+                id: 1,
+                name: 'English',
+                subTitle: 'English',
+                languageCode: 'en',
+                fullLanguageCode: 'en-US',
+                flag: LanguageImages.icUs);
+          }
+          await setValue(SELECTED_LANGUAGE_CODE, data.languageCode);
+          selectedLanguageDataModel = data;
+          await appStore.setLanguage(data.languageCode!, context: context);
+        } else {
+          appStore.setLanguage(
+              getStringAsync(SharedPrefKeys.language,
+                  defaultValue: AppConstant.defaultLanguage),
+              context: context);
+        }
       },
     );
     animationController = AnimationController(vsync: this, duration: 1.seconds);
@@ -57,7 +81,7 @@ class SplashScreenState extends State<SplashScreen>
             jsonDecode(getStringAsync(SharedPrefKeys.selectedServer))));
       }
     });
-    var showOnboard = getBoolAsync("showOnboard",defaultValue: true);
+    var showOnboard = getBoolAsync("showOnboard", defaultValue: true);
     if (showOnboard) {
       2.seconds.delay.then((value) => push(const OnboardingScreen(),
           isNewTask: true, pageRouteAnimation: PageRouteAnimation.Fade));
