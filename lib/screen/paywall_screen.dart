@@ -14,15 +14,11 @@ class _PaywallScreenState extends State<PaywallScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Paywall"),
-      ),
       body: Center(
           child: TextButton(
         child: Text("Skip PAYWALL"),
         onPressed: () {
-          push(const BottomNavBar(),
-              pageRouteAnimation: PageRouteAnimation.Fade);
+          Navigator.pop(context);
         },
       )),
     );
