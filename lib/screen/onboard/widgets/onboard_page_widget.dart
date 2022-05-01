@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -73,7 +74,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
           SizedBox(
             height: 55,
           ),
-          Text(
+          AutoSizeText(
             widget.title,
             textAlign: TextAlign.start,
             style: AppTextStyle.headline(
@@ -84,7 +85,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
           SizedBox(
             height: 45,
           ),
-          Text(
+          AutoSizeText(
             widget.description,
             textAlign: TextAlign.start,
             style: AppTextStyle.paragraph(
