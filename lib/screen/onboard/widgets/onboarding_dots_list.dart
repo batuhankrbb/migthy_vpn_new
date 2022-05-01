@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/screen/paywall_screen.dart';
 import 'package:nb_utils/nb_utils.dart';
+import '../../../main.dart';
 import '../../bottom_nav_bar.dart';
 import 'custom_text_button.dart';
 import 'onboard_dot_widget.dart';
@@ -30,11 +31,11 @@ class OnboardingDotsList extends StatelessWidget {
                   push(const PaywallScreen(),
                       pageRouteAnimation: PageRouteAnimation.Fade);
                 },
-                text: "Buy and continue"),
+                text: language.buyAndContinueText),
             SizedBox(
               height: 10,
             ),
-            Text("\$49.00 per year."),
+            Text("\$49.00 ." + language.perYearText),
           ],
         ),
       );

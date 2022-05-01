@@ -205,74 +205,59 @@ class LanguageEn extends BaseLanguage {
   String get lblValidTill => "Valid till:";
 
   @override
-  // TODO: implement onboard1Description
-  String get onboard1Description => throw UnimplementedError();
+  String get onboard1Description =>
+      "1,000+ high-quality servers in about 80 countries. All of them provided by us. %99.99 uptime. Get the best VPN server around the world with a click.";
 
   @override
-  // TODO: implement onboard1Title
-  String get onboard1Title => throw UnimplementedError();
+  String get onboard1Title => "Over 120 Locations";
 
   @override
-  // TODO: implement onboard2Description
-  String get onboard2Description => throw UnimplementedError();
+  String get onboard2Description =>
+      "Get access to all blocked sites and enjoy unlimited bandwidth. Access to your favorite sites and apps worldwide with fast speeds.";
 
   @override
-  // TODO: implement onboard2Title
-  String get onboard2Title => throw UnimplementedError();
+  String get onboard2Title => "Unblock Everything Without Limits";
 
   @override
-  // TODO: implement onboard3Description
-  String get onboard3Description => throw UnimplementedError();
+  String get onboard3Description =>
+      "Sick of other slow VPNs out there? Try our enhanced x8 Faster Server. You will never have problems about internet speed again.";
 
   @override
-  // TODO: implement onboard3Title
-  String get onboard3Title => throw UnimplementedError();
+  String get onboard3Title => "8x Faster Internet Connection";
 
   @override
-  // TODO: implement lblSubscribePremium
-  String get lblSubscribePremium => throw UnimplementedError();
+  String get bestServerText =>
+      "This is our best server. It's only available for premium users.";
 
   @override
-  // TODO: implement bestServerText
-  String get bestServerText => throw UnimplementedError();
+  String get buyAndContinueText => "Buy and continue";
 
   @override
-  // TODO: implement buyAndContinueText
-  String get buyAndContinueText => throw UnimplementedError();
+  String get getPremiumText => "Get Premium";
 
   @override
-  // TODO: implement getPremiumText
-  String get getPremiumText => throw UnimplementedError();
+  String get getPremiumUnlockLongText =>
+      "Get premium to unlock all servers forever and remove ads or watch ads to unlock once.";
 
   @override
-  // TODO: implement getPremiumUnlockLongText
-  String get getPremiumUnlockLongText => throw UnimplementedError();
+  String get moreThan3ErrorText =>
+      "You can't unlock more than 3 servers by watching ads. Get premium to access to all servers forever.";
 
   @override
-  // TODO: implement moreThan3ErrorText
-  String get moreThan3ErrorText => throw UnimplementedError();
+  String get perYearText => "per year";
 
   @override
-  // TODO: implement perYearText
-  String get perYearText => throw UnimplementedError();
+  String get selectServerText => "Select Server";
 
   @override
-  // TODO: implement selectServerText
-  String get selectServerText => throw UnimplementedError();
+  String get themePremiumText => "Theme is only available for premium users.";
 
   @override
-  // TODO: implement themePremiumText
-  String get themePremiumText => throw UnimplementedError();
+  String get thisIsPremiumServerText => "This is a premium server.";
 
   @override
-  // TODO: implement thisIsPremiumServerText
-  String get thisIsPremiumServerText => throw UnimplementedError();
+  String get unlockForeverText => "Unlock Forever";
 
   @override
-  // TODO: implement unlockForeverText
-  String get unlockForeverText => throw UnimplementedError();
-
-  @override
-  // TODO: implement watchAdUnlockOnceText
-  String get watchAdUnlockOnceText => throw UnimplementedError();
+  String get watchAdUnlockOnceText => "Watch ad to unlock once.";
 }

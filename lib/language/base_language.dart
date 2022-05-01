@@ -122,7 +122,6 @@ abstract class BaseLanguage {
 
   String get lblContinue;
 
-  String get lblSubscribePremium;
 
   String get lblPremiumServer;
 
