@@ -103,7 +103,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SettingItemWidget(
               leading:
                   Icon(FontAwesome.globe, color: context.iconColor, size: 20),
-              title: "Select Server",
+              title: language.selectServerText,
               trailing: Row(
                 children: [
                   8.width,
@@ -268,7 +268,7 @@ class PremiumButton extends StatelessWidget {
                 ),
                 Spacer(),
                 AutoSizeText(
-                  "GET PREMIUM",
+                  language.getPremiumText,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

@@ -151,7 +151,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "This is a premium server.",
+                          language.thisIsPremiumServerText,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -163,7 +163,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                           ),
                           Center(
                             child: Text(
-                              "Get premium to unlock all servers forever and remove ads or watch ads to unlock once.",
+                              language.getPremiumUnlockLongText,
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w500,
@@ -225,7 +225,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                         ),
                                         SizedBox(width: 10),
                                         AutoSizeText(
-                                          "GET PREMIUM",
+                                          language.getPremiumText,
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
@@ -242,7 +242,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                   ),
                                   Center(
                                     child: Text(
-                                      "Unlock Forever",
+                                   language.unlockForeverText,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black,
@@ -280,7 +280,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                     height: 3,
                                   ),
                                   Text(
-                                    "Watch ad to unlock once.",
+                                    language.watchAdUnlockOnceText,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.black,
@@ -301,12 +301,11 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 
   void alertWatchAdClick(int index) {
-    print("papurcu kafa ${vpnStore.serverList[index].country}");
     if (unlockedUIds.length >= 3) {
       Navigator.pop(context);
       showOtherAlert(
         context,
-        "You can't unlock more than 3 servers by watching ads. Get premium to access to all servers forever.",
+     language.moreThan3ErrorText,
       );
       return;
     } else if (vpnStore.serverList[index].onlyPremium != null &&
@@ -314,7 +313,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
       Navigator.pop(context);
       showOtherAlert(
         context,
-        "This is our best server. It's only available for premium users.",
+        language.bestServerText
       );
       return;
     }
@@ -437,7 +436,7 @@ Future<dynamic> showOtherAlert(BuildContext context, String message) {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Get Premium",
+                          language.getPremiumText,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -509,7 +508,7 @@ Future<dynamic> showOtherAlert(BuildContext context, String message) {
                                       ),
                                       Spacer(),
                                       AutoSizeText(
-                                        "GET PREMIUM",
+                                     language.getPremiumText,
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,

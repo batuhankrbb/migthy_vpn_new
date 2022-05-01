@@ -144,4 +144,19 @@ abstract class BaseLanguage {
   String get onboard2Description;
   String get onboard3Title;
   String get onboard3Description;
+  String get bestServerText;
+  String get moreThan3ErrorText;
+  String get getPremiumText;
+
+  String get selectServerText;
+
+  String get themePremiumText;
+  String get watchAdUnlockOnceText;
+
+  String get unlockForeverText;
+
+  String get thisIsPremiumServerText;
+  String get getPremiumUnlockLongText;
+  String get buyAndContinueText;
+  String get perYearText;
 }

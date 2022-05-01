@@ -95,7 +95,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                 onTap: () async {
                   if (!globalStore.isPremium) {
                     showOtherAlert(
-                        context, "Theme is only available for premium users.");
+                        context, language.themePremiumText);
                     return;
                   }
                   currentIndex = index;

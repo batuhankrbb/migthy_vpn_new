@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import '../model/server_model.dart';
 import '../screen/onboard/widgets/onboard_page_widget.dart';
 import 'images.dart';
@@ -202,25 +203,25 @@ List<LanguageDataModel> languageList() {
 }
 
 final List<Widget> introWidgetsList = [
-  const OnboardPageWidget(
+   OnboardPageWidget(
     image: "assets/images/globe_lottie.json",
-    title: "Over 120 Locations",
+    title: language.onboard1Title,
     description:
-        "1,000+ high-quality servers in about 80 countries. All of them provided by us. %99.99 uptime. Get the best VPN server around the world with a click.",
+      language.onboard2Description,
     index: 0,
   ),
-  const OnboardPageWidget(
+   OnboardPageWidget(
     image: "assets/images/unlock_lottie.json",
-    title: "Unblock Everything Without Limits",
+    title: language.onboard2Title,
     description:
-        "Get access to all blocked sites and enjoy unlimited bandwidth. Access to your favorite sites and apps worldwide with fast speeds.",
+        language.onboard2Description,
     index: 1,
   ),
-  const OnboardPageWidget(
+   OnboardPageWidget(
     image: "assets/images/rocket_lottie.json",
-    title: "8x Faster Internet Connection",
+    title: language.onboard3Title,
     description:
-        "Sick of other slow VPNs out there? Try our enhanced x8 Faster Server. You will never have problems about internet speed again.",
+       language.onboard3Description,
     index: 2,
   ),
 ];
