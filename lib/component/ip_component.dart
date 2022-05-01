@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_ip_address/get_ip_address.dart';
@@ -19,10 +20,10 @@ class IpComponent extends StatelessWidget {
           builder: (context, snap) {
             return Column(
               children: [
-                Text(language.lblYouAreConnectedTo,
+                AutoSizeText(language.lblYouAreConnectedTo,
                     style: secondaryTextStyle(size: 14)),
                 8.height,
-                Text(
+                AutoSizeText(
                   snap.hasData
                       ? snap.data
                           .toString()

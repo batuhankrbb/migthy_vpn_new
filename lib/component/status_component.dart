@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../main.dart';
@@ -78,7 +79,7 @@ class StatusComponent extends StatelessWidget {
                 color: context.scaffoldBackgroundColor,
               )
             : null,
-        child: Text(
+        child: AutoSizeText(
           vpnStore.mVpnStage == VpnConstants.notConnected
               ? AppCommon.getTranslateValues(VpnConstants.notConnected)
               : vpnStore.mVpnStage,

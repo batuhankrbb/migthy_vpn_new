@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../utils/constant.dart';
 import 'circle_painter.dart';
@@ -130,7 +131,7 @@ class _VpnComponentState extends State<VpnComponent>
               children: [
                 const Icon(Icons.power_settings_new,
                     size: 86, color: primaryColor),
-                Text(getStatus(vpnStore.vpnStatus != VPNStatus.disconnected),
+                AutoSizeText(getStatus(vpnStore.vpnStatus != VPNStatus.disconnected),
                     style: boldTextStyle(color: primaryColor, size: 18)),
               ],
             ),

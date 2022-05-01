@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import '../main.dart';
@@ -34,7 +35,7 @@ class _AboutScreenState extends State<AboutScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(AppConstant.appName, style: boldTextStyle(size: 25)),
+                  AutoSizeText(AppConstant.appName, style: boldTextStyle(size: 25)),
                   16.height,
                   const Divider(
                       height: 16,
@@ -42,10 +43,10 @@ class _AboutScreenState extends State<AboutScreen> {
                       color: primaryColor,
                       endIndent: 250),
                   16.height,
-                  Text(language.lblVersion, style: boldTextStyle()),
-                  Text(data.version, style: primaryTextStyle()),
+                  AutoSizeText(language.lblVersion, style: boldTextStyle()),
+                  AutoSizeText(data.version, style: primaryTextStyle()),
                   8.height,
-                  Text(AppConstant.appDescription, style: secondaryTextStyle()),
+                  AutoSizeText(AppConstant.appDescription, style: secondaryTextStyle()),
                   16.height,
                   AppButton(
                     padding: const EdgeInsets.all(16),
@@ -60,7 +61,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         const Icon(MaterialCommunityIcons.shopping_outline,
                             color: primaryColor),
                         4.width,
-                        Text(language.lblPurchase,
+                        AutoSizeText(language.lblPurchase,
                             style: boldTextStyle(color: primaryColor)),
                       ],
                     ),
@@ -80,7 +81,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         const Icon(Icons.contact_page_outlined,
                             color: primaryColor),
                         4.width,
-                        Text(language.lblDocument,
+                        AutoSizeText(language.lblDocument,
                             style: boldTextStyle(color: primaryColor)),
                       ],
                     ),

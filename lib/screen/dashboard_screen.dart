@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -163,7 +164,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             60.height,
             Align(
               alignment: Alignment.bottomLeft,
-              child: Text(language.lblCurrentServer, style: boldTextStyle()),
+              child: AutoSizeText(language.lblCurrentServer, style: boldTextStyle()),
             ).paddingSymmetric(horizontal: 26),
             8.height,
             Observer(

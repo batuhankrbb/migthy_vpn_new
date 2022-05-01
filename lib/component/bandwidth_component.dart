@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mightyvpn/utils/constant.dart';
@@ -28,8 +29,8 @@ class BandwidthComponent extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: boldTextStyle(), textAlign: TextAlign.center),
-            Text(value,
+            AutoSizeText(title, style: boldTextStyle(), textAlign: TextAlign.center),
+            AutoSizeText(value,
                 style: secondaryTextStyle(), textAlign: TextAlign.center),
           ],
         ).flexible()

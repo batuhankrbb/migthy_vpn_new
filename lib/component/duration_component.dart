@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../main.dart';
@@ -12,7 +13,7 @@ class DurationComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Observer(
-      builder: (_) => Text(
+      builder: (_) => AutoSizeText(
         vpnStore.mDuration.validate(value: '00:00:00'),
         style: boldTextStyle(size: 24, color: primaryColor),
         textAlign: TextAlign.center,

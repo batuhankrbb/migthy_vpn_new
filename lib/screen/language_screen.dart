@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -96,10 +97,10 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(data.name.validate(),
+                              AutoSizeText(data.name.validate(),
                                   style: boldTextStyle()),
                               8.height,
-                              Text(data.subTitle.validate(),
+                              AutoSizeText(data.subTitle.validate(),
                                   style: secondaryTextStyle()),
                             ],
                           ).expand(),

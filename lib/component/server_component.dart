@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import '../model/server_model.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -22,7 +23,7 @@ class ServerComponent extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(data.flagUrl.validate(value: 'assets/images/vpn_logo.png'), width: 34, height: 34),
-          Text(data.country.validate(), style: boldTextStyle()).expand(),
+          AutoSizeText(data.country.validate(), style: boldTextStyle()).expand(),
         ],
       ),
     ).onTap(() {
