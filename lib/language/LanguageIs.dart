@@ -236,10 +236,8 @@ class LanguageIs extends BaseLanguage {
       "Tonton iklan untuk membuka kunci sekali.";
 
   @override
-  // TODO: implement onlyAvailableTodayText
-  String get onlyAvailableTodayText => throw UnimplementedError();
+  String get saleText => "PENJUALAN! DISKON %80!!";
 
   @override
-  // TODO: implement saleText
-  String get saleText => throw UnimplementedError();
+  String get onlyAvailableTodayText => "Hanya tersedia hari ini.";
 }

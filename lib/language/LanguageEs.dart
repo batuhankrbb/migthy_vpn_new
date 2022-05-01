@@ -236,10 +236,8 @@ class LanguageEs extends BaseLanguage {
   String get watchAdUnlockOnceText => "Ver anuncio para desbloquear una vez.";
 
   @override
-  // TODO: implement onlyAvailableTodayText
-  String get onlyAvailableTodayText => throw UnimplementedError();
+  String get saleText => "¡REBAJA! %80 DE DESCUENTO!";
 
   @override
-  // TODO: implement saleText
-  String get saleText => throw UnimplementedError();
+  String get onlyAvailableTodayText => "Solo disponible hoy.";
 }

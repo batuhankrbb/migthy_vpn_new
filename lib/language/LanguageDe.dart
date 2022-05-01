@@ -237,10 +237,8 @@ class LanguageDe extends BaseLanguage {
       "Sehen Sie sich die Anzeige an, um sie einmal zu entsperren.";
 
   @override
-  // TODO: implement onlyAvailableTodayText
-  String get onlyAvailableTodayText => throw UnimplementedError();
+  String get saleText => "VERKAUF! %80 RABATT!";
 
   @override
-  // TODO: implement saleText
-  String get saleText => throw UnimplementedError();
+  String get onlyAvailableTodayText => "Nur heute verfügbar.";
 }

@@ -237,10 +237,8 @@ class LanguageFr extends BaseLanguage {
       "Regardez l'annonce pour déverrouiller une fois.";
 
   @override
-  // TODO: implement onlyAvailableTodayText
-  String get onlyAvailableTodayText => throw UnimplementedError();
+  String get saleText => "VENDRE! %80 DE RÉDUCTION!";
 
   @override
-  // TODO: implement saleText
-  String get saleText => throw UnimplementedError();
+  String get onlyAvailableTodayText => "Uniquement disponible aujourd'hui.";
 }

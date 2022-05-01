@@ -234,8 +234,8 @@ class LanguageEn extends BaseLanguage {
   String get watchAdUnlockOnceText => "Watch ad to unlock once.";
 
   @override
-  String get saleText => "SALE! %80 Off!";
+  String get saleText => "SALE! %80 OFF!";
 
   @override
-  String get onlyAvailableTodayText =>  "Only available today.";
+  String get onlyAvailableTodayText => "Only available today.";
 }
