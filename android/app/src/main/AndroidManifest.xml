@@ -13,7 +13,7 @@
         android:allowBackup="true"
         android:extractNativeLibs="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="IP Changer"
+        android:label="GPS Spoofer"
         android:supportsRtl="true"
         tools:replace="android:extractNativeLibs"
         tools:ignore="UnusedAttribute">

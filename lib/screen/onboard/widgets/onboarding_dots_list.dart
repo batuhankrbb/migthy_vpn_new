@@ -33,6 +33,7 @@ class OnboardingDotsList extends StatelessWidget {
                       isNewTask: true,
                       pageRouteAnimation: PageRouteAnimation.Fade);
                   //TODO PURCHASE
+                  mixpanel?.track('Onboard expensive purchase clicked');
                 },
                 text: language.buyAndContinueText),
             SizedBox(
