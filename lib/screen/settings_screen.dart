@@ -284,7 +284,7 @@ class PremiumButton extends StatelessWidget {
                         ),
                         maxLines: 1,
                       ),
-                      Text(
+                      AutoSizeText(
                         "Get access to all servers, no ads, 8x faster, all features.",
                         textAlign: TextAlign.start,
                         style: TextStyle(

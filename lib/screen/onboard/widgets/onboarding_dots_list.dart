@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/screen/paywall_screen.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -37,7 +38,7 @@ class OnboardingDotsList extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Text("\$49.00 ." + language.perYearText),
+            AutoSizeText("\$49.00 ." + language.perYearText),
           ],
         ),
       );

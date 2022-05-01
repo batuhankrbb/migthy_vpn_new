@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_button.dart';
@@ -41,7 +42,7 @@ class CustomTextButton extends StatelessWidget {
       onTap: onTap,
       padding: padding,
       borderRadius: borderRadius,
-      child: Text(
+      child: AutoSizeText(
         text,
         style: textStyle ??
             AppTextStyle.buttonText(

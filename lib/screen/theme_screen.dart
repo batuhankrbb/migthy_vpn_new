@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/screen/server_list_screen.dart';
 import '../component/AdmobComponent.dart';
@@ -121,7 +122,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Row(
                     children: [
-                      Text(_getName(ThemeModes.values[index]),
+                      AutoSizeText(_getName(ThemeModes.values[index]),
                               style: boldTextStyle())
                           .expand(),
                       _getIcons(context, ThemeModes.values[index]),

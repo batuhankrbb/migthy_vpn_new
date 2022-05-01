@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/screen/onboard/onboarding_screen.dart';
 import 'package:mightyvpn/screen/paywall_screen.dart';
@@ -124,7 +125,7 @@ class SplashScreenState extends State<SplashScreen>
                   child: commonCacheImageWidget(vpnLogo, 120,
                       width: 120, fit: BoxFit.cover)),
               16.height,
-              Text(AppConstant.appName,
+              AutoSizeText(AppConstant.appName,
                   style: primaryTextStyle(size: 24, weight: FontWeight.bold)),
             ],
           ),
