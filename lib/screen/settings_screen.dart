@@ -186,14 +186,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 );
               },
             ),
-            SettingItemWidget(
-              title: language.lblAboutUs,
-              leading: const Icon(Icons.perm_device_info, size: 20),
-              onTap: () {
-                AboutScreen().launch(context);
-              },
-              trailing: trailingIcon(),
-            ),
             isNativeAdLoaded && !globalStore.isPremium
                 ? Container(
                     alignment: Alignment.center,
