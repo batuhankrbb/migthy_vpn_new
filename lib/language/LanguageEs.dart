@@ -23,7 +23,7 @@ class LanguageEs extends BaseLanguage {
   String get lblSetting => "Entorno";
 
   @override
-  String get lblVpnStarted => "VPN iniciada";
+  String get lblVpnStarted => "VPN Iniciada";
 
   @override
   String get lblDisconnect => "Desconectar";
