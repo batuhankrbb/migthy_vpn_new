@@ -67,7 +67,6 @@ class _ServerListScreenState extends State<ServerListScreen> {
             elevation: 0,
             center: true,
           ),
-
           body: Observer(
             builder: (_) => Container(
               padding: const EdgeInsets.all(16),
@@ -151,7 +150,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                          language.thisIsPremiumServerText,
+                            language.thisIsPremiumServerText,
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -191,7 +190,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                 push(const PaywallScreen(),
                                     pageRouteAnimation:
                                         PageRouteAnimation.SlideBottomTop,
-                                    duration: 250.milliseconds);
+                                    duration: 150.milliseconds);
                               },
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -242,7 +241,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                   ),
                                   Center(
                                     child: Text(
-                                   language.unlockForeverText,
+                                      language.unlockForeverText,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.black,
@@ -305,16 +304,13 @@ class _ServerListScreenState extends State<ServerListScreen> {
       Navigator.pop(context);
       showOtherAlert(
         context,
-     language.moreThan3ErrorText,
+        language.moreThan3ErrorText,
       );
       return;
     } else if (vpnStore.serverList[index].onlyPremium != null &&
         vpnStore.serverList[index].onlyPremium == true) {
       Navigator.pop(context);
-      showOtherAlert(
-        context,
-        language.bestServerText
-      );
+      showOtherAlert(context, language.bestServerText);
       return;
     }
     showRewardedAd(onWinReward: (() {
@@ -508,7 +504,7 @@ Future<dynamic> showOtherAlert(BuildContext context, String message) {
                                       ),
                                       Spacer(),
                                       AutoSizeText(
-                                     language.getPremiumText,
+                                        language.getPremiumText,
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,

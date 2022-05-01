@@ -215,17 +215,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Column(
       children: [
         20.height,
-        PremiumButton(),
+        PremiumButton(
+          popFirst: false,
+        ),
       ],
     );
   }
 }
 
 class PremiumButton extends StatelessWidget {
-  const PremiumButton({
-    Key? key,
-  }) : super(key: key);
+  const PremiumButton({Key? key, required this.popFirst}) : super(key: key);
 
+  final bool popFirst;
   @override
   Widget build(BuildContext context) {
     if (globalStore.isPremium) {
@@ -236,10 +237,12 @@ class PremiumButton extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8),
       child: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            if (popFirst) {
+              Navigator.pop(context);
+            }
             push(const PaywallScreen(),
                 pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
-                duration: 250.milliseconds);
+                duration: 150.milliseconds);
           },
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 6),

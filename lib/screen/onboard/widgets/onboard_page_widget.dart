@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../bottom_nav_bar.dart';
 import 'custom_text_button.dart';
 
 class OnboardPageWidget extends StatefulWidget {
@@ -44,8 +45,11 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
                       height: 20,
                     ),
                     GestureDetector(
-                      onTap: () {
-                        //TODO
+                      onTap: () async {
+                        await setValue("showOnboard", false);
+                        push(const BottomNavBar(),
+                            isNewTask: true,
+                            pageRouteAnimation: PageRouteAnimation.Fade);
                       },
                       child: Container(
                         alignment: Alignment.centerRight,

@@ -28,8 +28,10 @@ class OnboardingDotsList extends StatelessWidget {
                 width: 325,
                 onTap: () async {
                   await setValue("showOnboard", false);
-                  push(const PaywallScreen(),
+                  push(const BottomNavBar(),
+                      isNewTask: true,
                       pageRouteAnimation: PageRouteAnimation.Fade);
+                  //TODO PURCHASE
                 },
                 text: language.buyAndContinueText),
             SizedBox(
