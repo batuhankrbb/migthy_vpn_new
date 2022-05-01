@@ -161,6 +161,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: language.lblRateLs,
               onTap: () async {
                 await rateSheetViewModel.showRatingSheet(context);
+                 mixpanel?.track('Settings rate us clicked');
               },
               trailing: trailingIcon(),
             ),
@@ -208,6 +209,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       children: [
         20.height,
         PremiumButton(
+          fromText: "Settings Screen",
           popFirst: false,
         ),
       ],
@@ -216,9 +218,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 }
 
 class PremiumButton extends StatelessWidget {
-  const PremiumButton({Key? key, required this.popFirst}) : super(key: key);
+  const PremiumButton(
+      {Key? key, required this.popFirst, required this.fromText})
+      : super(key: key);
 
   final bool popFirst;
+  final String fromText;
   @override
   Widget build(BuildContext context) {
     if (globalStore.isPremium) {
@@ -235,6 +240,7 @@ class PremiumButton extends StatelessWidget {
             push(const PaywallScreen(),
                 pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
                 duration: 150.milliseconds);
+                mixpanel?.track('Clicked Premium Button via $fromText');
           },
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 6),

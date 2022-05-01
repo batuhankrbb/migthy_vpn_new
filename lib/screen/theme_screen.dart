@@ -94,9 +94,10 @@ class _ThemeScreenState extends State<ThemeScreen> {
             (index) {
               return GestureDetector(
                 onTap: () async {
+                  mixpanel?.track('Theme Change Clicked');
                   if (!globalStore.isPremium) {
-                    showOtherAlert(
-                        context, language.themePremiumText);
+                    showOtherAlert(context, language.themePremiumText,
+                        "Theme Click Alert");
                     return;
                   }
                   currentIndex = index;

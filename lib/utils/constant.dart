@@ -12,6 +12,7 @@ const iconSize = 26.0;
 const textSize = 16.0;
 
 const revenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
+const mixpanelKey = '1d81f3fb8497319e960929e845d790e2';
 
 class AppConstant {
   static const appName = 'GPS Spoofer';

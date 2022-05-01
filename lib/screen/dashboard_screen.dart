@@ -120,6 +120,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 return VpnComponent(
                   vpnStatus: vpnStore.vpnStatus == VPNStatus.connected,
                   onStartTapped: () async {
+                      mixpanel?.track('VPN Start Clicked');
                     HapticFeedback.heavyImpact();
                     if (!globalStore.hasPaywallAlertShowed &&
                         !globalStore.isPremium) {
@@ -132,6 +133,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         prepareVPN();
                       } else {
                         startVPN();
+                      
                       }
                     } else {
                       stopVpn();
@@ -148,6 +150,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       onAccept: (c) async {
                         HapticFeedback.heavyImpact();
                         await stopVpn();
+                        mixpanel?.track('VPN Stopped');
                       },
                     );
                   },
@@ -193,6 +196,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             16.height,
             PremiumButton(
+              fromText: "Dashboard Screen",
               popFirst: false,
             ),
             16.height,
@@ -271,6 +275,7 @@ Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
                                   pageRouteAnimation:
                                       PageRouteAnimation.SlideBottomTop,
                                   duration: 250.milliseconds);
+                              mixpanel?.track('SALE! Alert Premium Clicked');
                             },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -327,8 +332,9 @@ Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
                                   height: 5,
                                 ),
                                 Center(
-                                  child: Text(
-                                      language.onlyAvailableTodayText + " \$23.99 " + language.perYearText),
+                                  child: Text(language.onlyAvailableTodayText +
+                                      " \$23.99 " +
+                                      language.perYearText),
                                 ),
                                 SizedBox(
                                   height: 5,

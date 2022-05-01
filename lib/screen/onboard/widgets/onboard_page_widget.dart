@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+import '../../../main.dart';
 import '../../bottom_nav_bar.dart';
 import 'custom_text_button.dart';
 
@@ -51,6 +52,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
                         push(const BottomNavBar(),
                             isNewTask: true,
                             pageRouteAnimation: PageRouteAnimation.Fade);
+                        mixpanel?.track('Onboard skip button clicked');
                       },
                       child: Container(
                         alignment: Alignment.centerRight,

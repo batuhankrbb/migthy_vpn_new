@@ -84,7 +84,6 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
             if ((downloadRate *= 2.5) > 62.53) {
               uploadRate = 62.53;
             }
-            
           }
           protectGauge(downloadRate);
           unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
@@ -98,10 +97,9 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         setState(() {
           downloadRate = transferRate;
           if (globalStore.isPremium) {
-              if ((downloadRate *= 2.5) > 62.53) {
+            if ((downloadRate *= 2.5) > 62.53) {
               uploadRate = 62.53;
             }
-            
           }
           protectGauge(downloadRate);
           unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
@@ -269,6 +267,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
                     setState(() {});
                     startDownloading();
                   }
+                  mixpanel?.track('Start speed test clicked');
                 },
               ),
               32.height,

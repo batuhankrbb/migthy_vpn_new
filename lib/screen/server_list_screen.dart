@@ -103,6 +103,7 @@ class _ServerListScreenState extends State<ServerListScreen> {
                                 selectedButNotPremium = index;
                                 showPremiumAlert(context, index);
                               }
+                              mixpanel?.track('Clicked server ${data.uid}');
                             },
                             radius: radius(),
                           ),
@@ -187,10 +188,13 @@ class _ServerListScreenState extends State<ServerListScreen> {
                             child: GestureDetector(
                               onTap: () {
                                 Navigator.pop(context);
+
                                 push(const PaywallScreen(),
                                     pageRouteAnimation:
                                         PageRouteAnimation.SlideBottomTop,
                                     duration: 150.milliseconds);
+                                mixpanel?.track(
+                                    'Opened paywall via server list premium alert');
                               },
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -304,20 +308,20 @@ class _ServerListScreenState extends State<ServerListScreen> {
     if (unlockedUIds.length >= 3) {
       Navigator.pop(context);
       showOtherAlert(
-        context,
-        language.moreThan3ErrorText,
-      );
+          context, language.moreThan3ErrorText, "More than 3 ads error alert");
       return;
     } else if (vpnStore.serverList[index].onlyPremium != null &&
         vpnStore.serverList[index].onlyPremium == true) {
       Navigator.pop(context);
-      showOtherAlert(context, language.bestServerText);
+      showOtherAlert(context, language.bestServerText, "Best Server");
       return;
     }
     showRewardedAd(onWinReward: (() {
       isSelected = index;
       unlockedUIds.add(vpnStore.serverList[index].uid ?? "");
       setState(() {});
+      mixpanel?.track(
+          "Rewarded ad watched and server unlocked ${vpnStore.serverList[index].uid}");
     }));
     Navigator.pop(context);
   }
@@ -402,7 +406,8 @@ class _ServerListScreenState extends State<ServerListScreen> {
   }
 }
 
-Future<dynamic> showOtherAlert(BuildContext context, String message) {
+Future<dynamic> showOtherAlert(
+    BuildContext context, String message, String fromText) {
   return showDialog(
       context: context,
       barrierColor: Colors.black87,
@@ -472,6 +477,8 @@ Future<dynamic> showOtherAlert(BuildContext context, String message) {
                                   pageRouteAnimation:
                                       PageRouteAnimation.SlideBottomTop,
                                   duration: 250.milliseconds);
+                              mixpanel?.track(
+                                  'Opened paywall via server list premium alert from $fromText');
                             },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

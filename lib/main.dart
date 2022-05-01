@@ -10,6 +10,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/extra/rate/viewmodel/rate_sheet_viewmodel.dart';
 import 'package:mightyvpn/store/global_store.dart';
 import 'package:mightyvpn/utils/purchase_helper.dart';
+import 'package:mixpanel_flutter/mixpanel_flutter.dart';
 import 'app_theme.dart';
 import 'component/AdmobComponent.dart';
 import 'language/base_language.dart';
@@ -40,6 +41,8 @@ FirebaseFirestore fireStore = FirebaseFirestore.instance;
 VpnServicesMethods vpnServicesMethods = VpnServicesMethods();
 StreamSubscription? stageStream;
 StreamSubscription? dataStream;
+Mixpanel? mixpanel;
+
 
 late BaseLanguage language;
 
@@ -55,6 +58,7 @@ void main() async {
   MobileAds.instance.initialize();
   await PurchaseHelper.shared.initPurchase();
   PurchaseHelper.shared.loadProducts();
+   mixpanel = await Mixpanel.init(mixpanelKey, optOutTrackingDefault: false);
   await loadOpenAd();
   vpnStore.setIsPrepared(getBoolAsync(SharedPrefKeys.isPrepared));
   // appStore.setSelectedServerModel(ServerModel.fromJson(jsonDecode(getStringAsync(SharedPrefKeys.selectedServer))));
