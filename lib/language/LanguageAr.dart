@@ -184,57 +184,27 @@ class LanguageAr extends BaseLanguage {
   String get lblContinue => "يكمل";
 
   @override
-  String get lblMightyVPNPremium => "الأقوياء VPN قسط";
-
-  @override
-  String get lblPremiumServer => "خادم بريميوم";
-
-  @override
-  String get lblRemoveAds => "ازالة الاعلانات";
-
-  @override
-  String get lblRestorePurchase => "استعادة شراء";
-
-  @override
-  String get lblCancelSubscriptionMsg =>
-      "يمكنك إلغاء الاشتراك من متجر Google Play";
-
-  @override
-  String get lblSuccessfullyPurchased => "تم شراؤها بنجاح";
-
-  @override
-  String get lblValidTill => "صالح حتى:";
-
-  @override
-  // TODO: implement onboard1Description
   String get onboard1Description => "throw UnimplementedError();";
 
   @override
-  // TODO: implement onboard1Title
   String get onboard1Title => "throw UnimplementedError();";
 
   @override
-  // TODO: implement onboard2Description
   String get onboard2Description => "throw UnimplementedError();";
 
   @override
-  // TODO: implement onboard2Title
   String get onboard2Title => "throw UnimplementedError();";
 
   @override
-  // TODO: implement onboard3Description
-  String get onboard3Description =>" throw UnimplementedError()";
+  String get onboard3Description => " throw UnimplementedError()";
 
   @override
-  // TODO: implement onboard3Title
   String get onboard3Title => "throw UnimplementedError()";
 
   @override
-  // TODO: implement lblSubscribePremium
   String get lblSubscribePremium => "throw UnimplementedError()";
 
   @override
-  // TODO: implement bestServerText
   String get bestServerText => throw UnimplementedError();
 
   @override

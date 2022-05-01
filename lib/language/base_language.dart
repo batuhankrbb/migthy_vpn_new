@@ -122,21 +122,6 @@ abstract class BaseLanguage {
 
   String get lblContinue;
 
-
-  String get lblPremiumServer;
-
-  String get lblRemoveAds;
-
-  String get lblMightyVPNPremium;
-
-  String get lblRestorePurchase;
-
-  String get lblCancelSubscriptionMsg;
-
-  String get lblSuccessfullyPurchased;
-
-  String get lblValidTill;
-
   String get onboard1Title;
   String get onboard1Description;
   String get onboard2Title;
