@@ -242,6 +242,7 @@ class PremiumButton extends StatelessWidget {
                 duration: 250.milliseconds);
           },
           child: Container(
+            padding: EdgeInsets.symmetric(vertical: 6),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
               boxShadow: [
@@ -257,30 +258,43 @@ class PremiumButton extends StatelessWidget {
             ),
             alignment: Alignment.center,
             child: Row(
-              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(width: 30),
                 Image.asset(
                   "assets/images/king.png",
-                  width: 35,
-                  height: 35,
+                  width: 50,
+                  height: 50,
                 ),
                 Spacer(),
-                AutoSizeText(
-                  language.getPremiumText,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: context.width() * 0.05,
+                Container(
+                  width: context.width() * 0.45,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AutoSizeText(
+                        language.getPremiumText,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: context.width() * 0.05,
+                        ),
+                        maxLines: 1,
+                      ),
+                      Text(
+                        "Get access to all servers, no ads, 8x faster, all features.",
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(0.85),
+                            fontWeight: FontWeight.w300,
+                            fontSize: 12),
+                      )
+                    ],
                   ),
-                  maxLines: 1,
                 ),
                 Spacer(),
-                SizedBox(width: 50),
               ],
             ),
-            height: context.height() * 0.08,
           )),
     );
   }
