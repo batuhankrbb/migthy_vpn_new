@@ -20,29 +20,47 @@ class OnboardingDotsList extends StatelessWidget {
       return Container(
         alignment: Alignment.bottomCenter,
         padding: EdgeInsets.only(bottom: 25),
-        child: CustomTextButton(
-            width: 325,
-            onTap: () async{
-            await setValue("showOnboard", false);
-              push(const PaywallScreen(),
-                  pageRouteAnimation: PageRouteAnimation.Fade);
-            },
-            text: "Get Started"),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CustomTextButton(
+                width: 325,
+                onTap: () async {
+                  await setValue("showOnboard", false);
+                  push(const PaywallScreen(),
+                      pageRouteAnimation: PageRouteAnimation.Fade);
+                },
+                text: "Buy and continue"),
+            SizedBox(
+              height: 10,
+            ),
+            Text("\$49.00 per year."),
+          ],
+        ),
       );
     }
-    return Container(
-      alignment: Alignment.bottomCenter,
-      padding: EdgeInsets.only(bottom: 25),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (int i = 0; i < introWidgetsList.length; i++) ...[
-            OnboardDotWidget(
-              isActive: selectedIndex == i,
-            )
-          ]
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Spacer(),
+        Container(
+          alignment: Alignment.bottomCenter,
+          padding: EdgeInsets.only(bottom: 25),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (int i = 0; i < introWidgetsList.length; i++) ...[
+                OnboardDotWidget(
+                  isActive: selectedIndex == i,
+                )
+              ]
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 50,
+        ),
+      ],
     );
   }
 }

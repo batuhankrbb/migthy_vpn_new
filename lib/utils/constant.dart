@@ -156,14 +156,13 @@ List<LanguageDataModel> languageList() {
         languageCode: 'ko',
         fullLanguageCode: 'ko-KR',
         flag: LanguageImages.icKorean),
-         LanguageDataModel(
+    LanguageDataModel(
         id: 5,
         name: 'Indonesian',
         subTitle: 'Bahasa Indonesia',
         languageCode: 'id',
         fullLanguageCode: 'id-ID',
         flag: LanguageImages.icIndonesia),
-   
     LanguageDataModel(
         id: 6,
         name: 'Spanish',
@@ -208,17 +207,20 @@ final List<Widget> introWidgetsList = [
     title: "Learn faster, than ever!",
     description:
         "Thanks to 123 Spanish’s visually supported flashcards, you’ll learn and memorise faster. ",
+    index: 0,
   ),
   const OnboardPageWidget(
     image: LanguageImages.icJapanese,
     title: "Regularly Updated Decks",
     description:
         "123 Spanish's content team studies regularly and creates and shares the most successful decks with you.",
+    index: 1,
   ),
   const OnboardPageWidget(
     image: LanguageImages.icKorean,
     title: "Study More Efficiently",
     description:
         "Maybe you only need some basic words for your Spain holiday. So, why do you start from the beginning? 123 Spanish gives you exactly what you need.",
+    index: 2,
   ),
 ];

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -8,13 +9,15 @@ class OnboardPageWidget extends StatefulWidget {
   final String title;
   final String description;
   final String image;
+  final int index;
 
-  const OnboardPageWidget({
-    Key? key,
-    required this.title,
-    required this.description,
-    required this.image,
-  }) : super(key: key);
+  const OnboardPageWidget(
+      {Key? key,
+      required this.title,
+      required this.description,
+      required this.image,
+      required this.index})
+      : super(key: key);
 
   @override
   _OnboardPageWidgetState createState() => _OnboardPageWidgetState();
@@ -24,12 +27,36 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
-            height: 60,
+          Stack(
+            children: [
+              SizedBox(
+                height: 60,
+              ),
+              if (widget.index == 2)
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        //TODO
+                      },
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        child: Icon(
+                          CupertinoIcons.xmark_octagon_fill,
+                          size: 40,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ],
           ),
           Center(
             child: Image(
@@ -44,8 +71,10 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
           Text(
             widget.title,
             textAlign: TextAlign.start,
-            style:
-                AppTextStyle.headline(overflow: TextOverflow.visible, size: 24,color: onboardTextColor),
+            style: AppTextStyle.headline(
+                overflow: TextOverflow.visible,
+                size: 24,
+                color: onboardTextColor),
           ),
           SizedBox(
             height: 45,
@@ -56,7 +85,6 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
             style: AppTextStyle.paragraph(
               color: onboardTextColor,
               overflow: TextOverflow.visible,
-              
               size: 16,
             ),
           )
