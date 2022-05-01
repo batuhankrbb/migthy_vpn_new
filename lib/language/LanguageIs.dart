@@ -178,53 +178,60 @@ class LanguageIs extends BaseLanguage {
       "Uji coba unggah gagal! Harap periksa koneksi internet Anda";
 
   @override
-  String get onboard1Description => throw UnimplementedError();
+  String get onboard1Description =>
+      "1,000+ server berkualitas tinggi di sekitar 80 negara. Semuanya disediakan oleh kami. %99.99 waktu aktif. Dapatkan server VPN terbaik di seluruh dunia dengan sekali klik.";
 
   @override
-  String get onboard1Title => throw UnimplementedError();
+  String get onboard1Title => "Lebih dari 120 Lokasi";
 
   @override
-  String get onboard2Description => throw UnimplementedError();
+  String get onboard2Description =>
+      "Dapatkan akses ke semua situs yang diblokir dan nikmati bandwidth tak terbatas. Akses ke situs dan aplikasi favorit Anda di seluruh dunia dengan kecepatan cepat.";
 
   @override
-  String get onboard2Title => throw UnimplementedError();
+  String get onboard2Title => "Buka Blokir Semuanya Tanpa Batas";
 
   @override
-  String get onboard3Description => throw UnimplementedError();
+  String get onboard3Description =>
+      "Muak dengan VPN lambat lainnya di luar sana? Coba Server x8 Faster kami yang ditingkatkan. Anda tidak akan pernah memiliki masalah tentang kecepatan internet lagi.";
 
   @override
-  String get onboard3Title => throw UnimplementedError();
+  String get onboard3Title => "Koneksi Internet 8x Lebih Cepat";
 
   @override
-  String get bestServerText => throw UnimplementedError();
+  String get bestServerText =>
+      "Ini adalah server terbaik kami. Ini hanya tersedia untuk pengguna premium.";
 
   @override
-  String get buyAndContinueText => throw UnimplementedError();
+  String get buyAndContinueText => "Beli dan Lanjutkan";
 
   @override
-  String get getPremiumText => throw UnimplementedError();
+  String get getPremiumText => "Dapatkan Premium";
 
   @override
-  String get getPremiumUnlockLongText => throw UnimplementedError();
+  String get getPremiumUnlockLongText =>
+      "Dapatkan premium untuk membuka kunci semua server selamanya dan menghapus iklan atau menonton iklan untuk membuka kunci sekali.";
 
   @override
-  String get moreThan3ErrorText => throw UnimplementedError();
+  String get moreThan3ErrorText =>
+      "Anda tidak dapat membuka lebih dari 3 server dengan menonton iklan. Dapatkan premium untuk mengakses semua server selamanya.";
 
   @override
-  String get perYearText => throw UnimplementedError();
+  String get perYearText => "per tahun";
 
   @override
-  String get selectServerText => throw UnimplementedError();
+  String get selectServerText => "Pilih Server";
 
   @override
-  String get themePremiumText => throw UnimplementedError();
+  String get themePremiumText => "Tema hanya tersedia untuk pengguna premium.";
 
   @override
-  String get thisIsPremiumServerText => throw UnimplementedError();
+  String get thisIsPremiumServerText => "Ini adalah server premium.";
 
   @override
-  String get unlockForeverText => throw UnimplementedError();
+  String get unlockForeverText => "Buka Kunci Selamanya";
 
   @override
-  String get watchAdUnlockOnceText => throw UnimplementedError();
+  String get watchAdUnlockOnceText =>
+      "Tonton iklan untuk membuka kunci sekali.";
 }

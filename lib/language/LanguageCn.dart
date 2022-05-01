@@ -174,53 +174,55 @@ class LanguageCn extends BaseLanguage {
   String get lblUploadTestFailed => "上传测试失败！ 请检查您的互联网连接";
 
   @override
-  String get onboard1Description => throw UnimplementedError();
+  String get onboard1Description =>
+      "在大约 80 个国家/地区拥有 1,000 多台优质服务器。 都是我们提供的。 %99.99 正常运行时间。 一键获取全球最佳 VPN 服务器。";
 
   @override
-  String get onboard1Title => throw UnimplementedError();
+  String get onboard1Title => "超过 120 个地点";
 
   @override
-  String get onboard2Description => throw UnimplementedError();
+  String get onboard2Description => "访问所有被阻止的站点并享受无限带宽。 以极快的速度访问您喜爱的全球网站和应用程序";
 
   @override
-  String get onboard2Title => throw UnimplementedError();
+  String get onboard2Title => "无限畅通无阻";
 
   @override
-  String get onboard3Description => throw UnimplementedError();
+  String get onboard3Description =>
+      "厌倦了其他慢速 VPN？ 试试我们增强的 x8 Faster Server。 您将永远不会再遇到互联网速度问题";
 
   @override
-  String get onboard3Title => throw UnimplementedError();
+  String get onboard3Title => "8 倍更快的互联网连接";
 
   @override
-  String get bestServerText => throw UnimplementedError();
+  String get bestServerText => "这是我们最好的服务器。 它仅适用于高级用户。";
 
   @override
-  String get buyAndContinueText => throw UnimplementedError();
+  String get buyAndContinueText => "购买并继续";
 
   @override
-  String get getPremiumText => throw UnimplementedError();
+  String get getPremiumText => "获得保费";
 
   @override
-  String get getPremiumUnlockLongText => throw UnimplementedError();
+  String get getPremiumUnlockLongText => "获得高级版以永久解锁所有服务器并删除广告或观看广告以解锁一次。";
 
   @override
-  String get moreThan3ErrorText => throw UnimplementedError();
+  String get moreThan3ErrorText => "您不能通过观看广告解锁超过 3 台服务器。 获得永久访问所有服务器的高级权限。";
 
   @override
-  String get perYearText => throw UnimplementedError();
+  String get perYearText => "每年";
 
   @override
-  String get selectServerText => throw UnimplementedError();
+  String get selectServerText => "选择服务器";
 
   @override
-  String get themePremiumText => throw UnimplementedError();
+  String get themePremiumText => "主题仅适用于高级用户。";
 
   @override
-  String get thisIsPremiumServerText => throw UnimplementedError();
+  String get thisIsPremiumServerText => "这是一个高级服务器。";
 
   @override
-  String get unlockForeverText => throw UnimplementedError();
+  String get unlockForeverText => "永远解锁";
 
   @override
-  String get watchAdUnlockOnceText => throw UnimplementedError();
+  String get watchAdUnlockOnceText => "观看广告解锁一次。";
 }

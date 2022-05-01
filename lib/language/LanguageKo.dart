@@ -174,53 +174,58 @@ class LanguageKo extends BaseLanguage {
   String get lblUploadTestFailed => "업로드 테스트 실패! 인터넷 연결을 확인하세요";
 
   @override
-  String get onboard1Description => throw UnimplementedError();
+  String get onboard1Description =>
+      "약 80개국에 1,000개 이상의 고품질 서버. 모두 저희가 제공한 것입니다. %99.99 가동 시간. 클릭 한 번으로 전 세계 최고의 VPN 서버를 얻으십시오.";
 
   @override
-  String get onboard1Title => throw UnimplementedError();
+  String get onboard1Title => "120개 이상의 위치";
 
   @override
-  String get onboard2Description => throw UnimplementedError();
+  String get onboard2Description =>
+      "차단된 모든 사이트에 액세스하고 무제한 대역폭을 즐기십시오. 빠른 속도로 전 세계에서 즐겨 찾는 사이트와 앱에 액세스하십시오.";
 
   @override
-  String get onboard2Title => throw UnimplementedError();
+  String get onboard2Title => "제한 없이 모든 것을 차단 해제";
 
   @override
-  String get onboard3Description => throw UnimplementedError();
+  String get onboard3Description =>
+      "다른 느린 VPN이 지겹습니까? 8배 빠른 서버를 사용해 보십시오. 다시는 인터넷 속도에 문제가 없을 것입니다.";
 
   @override
-  String get onboard3Title => throw UnimplementedError();
+  String get onboard3Title => "8배 더 빠른 인터넷 연결";
 
   @override
-  String get bestServerText => throw UnimplementedError();
+  String get bestServerText => "이것은 우리의 최고의 서버입니다. 프리미엄 사용자에게만 제공됩니다.";
 
   @override
-  String get buyAndContinueText => throw UnimplementedError();
+  String get buyAndContinueText => "구매하고 계속하기";
 
   @override
-  String get getPremiumText => throw UnimplementedError();
+  String get getPremiumText => "프리미엄 받기";
 
   @override
-  String get getPremiumUnlockLongText => throw UnimplementedError();
+  String get getPremiumUnlockLongText =>
+      "모든 서버를 영구적으로 잠금 해제하고 광고를 제거하거나 광고를 보고 한 번 잠금 해제하려면 프리미엄을 받으세요.";
 
   @override
-  String get moreThan3ErrorText => throw UnimplementedError();
+  String get moreThan3ErrorText =>
+      "광고를 보고 3개 이상의 서버를 잠금 해제할 수 없습니다. 모든 서버에 영구적으로 액세스하려면 프리미엄을 받으세요.";
 
   @override
-  String get perYearText => throw UnimplementedError();
+  String get perYearText => "연간";
 
   @override
-  String get selectServerText => throw UnimplementedError();
+  String get selectServerText => "서버 선택";
 
   @override
-  String get themePremiumText => throw UnimplementedError();
+  String get themePremiumText => "테마는 프리미엄 사용자만 사용할 수 있습니다.";
 
   @override
-  String get thisIsPremiumServerText => throw UnimplementedError();
+  String get thisIsPremiumServerText => "프리미엄 서버입니다.";
 
   @override
-  String get unlockForeverText => throw UnimplementedError();
+  String get unlockForeverText => "영원히 잠금 해제";
 
   @override
-  String get watchAdUnlockOnceText => throw UnimplementedError();
+  String get watchAdUnlockOnceText => "한 번 잠금을 해제하려면 광고를 시청하세요.";
 }

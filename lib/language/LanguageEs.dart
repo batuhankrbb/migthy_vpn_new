@@ -178,53 +178,60 @@ class LanguageEs extends BaseLanguage {
       "¡Error en la prueba de carga! Verifique su conexión a Internet";
 
   @override
-  String get onboard1Description => throw UnimplementedError();
+  String get onboard1Description =>
+      "Más de 1000 servidores de alta calidad en unos 80 países. Todos ellos proporcionados por nosotros. %99,99 de tiempo de actividad. Obtenga el mejor servidor VPN del mundo con un clic.";
 
   @override
-  String get onboard1Title => throw UnimplementedError();
+  String get onboard1Title => "Más de 120 Ubicaciones";
 
   @override
-  String get onboard2Description => throw UnimplementedError();
+  String get onboard2Description =>
+      "Obtenga acceso a todos los sitios bloqueados y disfrute de un ancho de banda ilimitado. Acceda a sus sitios y aplicaciones favoritos en todo el mundo con velocidades rápidas.";
 
   @override
-  String get onboard2Title => throw UnimplementedError();
+  String get onboard2Title => "Desbloquea Todo Sin Límites";
 
   @override
-  String get onboard3Description => throw UnimplementedError();
+  String get onboard3Description =>
+      "¿Cansado de otras VPN lentas por ahí? Pruebe nuestro servidor mejorado x8 más rápido. Nunca más tendrás problemas con la velocidad de Internet.";
 
   @override
-  String get onboard3Title => throw UnimplementedError();
+  String get onboard3Title => "Conexión a Internet 8 veces más rápida";
 
   @override
-  String get bestServerText => throw UnimplementedError();
+  String get bestServerText =>
+      "Este es nuestro mejor servidor. Solo está disponible para usuarios premium.";
 
   @override
-  String get buyAndContinueText => throw UnimplementedError();
+  String get buyAndContinueText => "Comprar y Continuar";
 
   @override
-  String get getPremiumText => throw UnimplementedError();
+  String get getPremiumText => "Hazte Premium";
 
   @override
-  String get getPremiumUnlockLongText => throw UnimplementedError();
+  String get getPremiumUnlockLongText =>
+      "Obtenga premium para desbloquear todos los servidores para siempre y elimine anuncios o vea anuncios para desbloquear una vez.";
 
   @override
-  String get moreThan3ErrorText => throw UnimplementedError();
+  String get moreThan3ErrorText =>
+      "No puede desbloquear más de 3 servidores viendo anuncios. Obtenga premium para acceder a todos los servidores para siempre.";
 
   @override
-  String get perYearText => throw UnimplementedError();
+  String get perYearText => "por año";
 
   @override
-  String get selectServerText => throw UnimplementedError();
+  String get selectServerText => "Seleccionar Servidor";
 
   @override
-  String get themePremiumText => throw UnimplementedError();
+  String get themePremiumText =>
+      "El tema solo está disponible para usuarios premium.";
 
   @override
-  String get thisIsPremiumServerText => throw UnimplementedError();
+  String get thisIsPremiumServerText => "Este es un servidor premium.";
 
   @override
-  String get unlockForeverText => throw UnimplementedError();
+  String get unlockForeverText => "Desbloquear para siempre";
 
   @override
-  String get watchAdUnlockOnceText => throw UnimplementedError();
+  String get watchAdUnlockOnceText => "Ver anuncio para desbloquear una vez.";
 }
