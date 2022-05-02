@@ -199,8 +199,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
     try {
       return PurchaseHelper.shared.get12MonthsMonthly();
     } catch (e) {
-      var prefix = "\$";
-      return prefix + (annualPriceConstant / 12).toStringAsFixed(2);
+      var sale = (annualPriceConstant / 12).toStringAsFixed(2);
+      return "\$$sale";
     }
   }
 }
