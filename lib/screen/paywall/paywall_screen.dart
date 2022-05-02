@@ -108,7 +108,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
                           package: PurchaseHelper.shared.packageList[1],
                           context: context);
                       mixpanel?.track("Click Annual Purchase");
-                    } catch (e) {}
+                    } catch (e) {
+                      globalStore.isLoading = false;
+                    }
                   },
                   title: "${getYearlyPrice()} / Year",
                   subtitle: "${getYearlyMonthlyPrice()} / Month",
@@ -125,7 +127,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
                           package: PurchaseHelper.shared.packageList[0],
                           context: context);
                       mixpanel?.track("Click Monthly Purchase");
-                    } catch (e) {}
+                    } catch (e) {
+                      globalStore.isLoading = false;
+                    }
                   },
                   title: "${getMonthlyPrice()} / Month",
                   subtitle: "Billed Monthly",
@@ -163,14 +167,16 @@ class _PaywallScreenState extends State<PaywallScreen> {
 
   Future<void> purchase(
       {required Package package, required BuildContext context}) async {
-   try{
- globalStore.isLoading = true;
-    var isPurchased = await PurchaseHelper.shared.purchase(package);
-    globalStore.isLoading = false;
-    if (isPurchased) {
-      Navigator.pop(context);
+    try {
+      globalStore.isLoading = true;
+      var isPurchased = await PurchaseHelper.shared.purchase(package);
+      globalStore.isLoading = false;
+      if (isPurchased) {
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      globalStore.isLoading = false;
     }
-   }catch(e){}
   }
 
   String getMonthlyPrice() {

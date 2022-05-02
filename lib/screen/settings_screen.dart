@@ -152,8 +152,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SettingItemWidget(
               leading: const Icon(Icons.restore, size: 20),
               title: "Restore Purchases",
-              onTap: () {
-                PurchaseHelper.shared.restorePurchase();
+              onTap: () async {
+                try {
+                  await PurchaseHelper.shared.restorePurchase();
+                } catch (e) {
+                  globalStore.isLoading = false;
+                }
               },
               trailing: trailingIcon(),
             ),

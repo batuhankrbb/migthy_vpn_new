@@ -47,7 +47,9 @@ class PurchaseHelper {
       await Purchases.setDebugLogsEnabled(true);
       await Purchases.setup(revenueCatKey);
       await checkIsPremium();
-    } catch (e) {}
+    } catch (e) {
+      globalStore.isLoading = false;
+    }
   }
 
 //* DONE

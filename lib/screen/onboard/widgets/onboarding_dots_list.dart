@@ -43,7 +43,9 @@ class OnboardingDotsList extends StatelessWidget {
                           pageRouteAnimation: PageRouteAnimation.Fade);
                     }
                     mixpanel?.track('Onboard expensive purchase clicked');
-                  } catch (e) {}
+                  } catch (e) {
+                         globalStore.isLoading = false;
+                  }
                 },
                 text: language.buyAndContinueText),
             SizedBox(
