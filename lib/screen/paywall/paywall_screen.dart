@@ -61,7 +61,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   height: 40.h,
                 ),
                 Text(
-                  "Get Premium",
+                 language.paywallTitleText,
                   style: AppTextStyle.headline1(
                       weight: fontBold, size: 40.sp, color: AppColors.white),
                 ),
@@ -69,7 +69,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   height: 15.h,
                 ),
                 Text(
-                  "Unlimited access to all features",
+                  language.paywallSubTitleText,
                   style: AppTextStyle.headline1(
                       weight: fontSemibold,
                       size: 26.sp,
@@ -80,24 +80,24 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 ),
                 const PaywallFeatureCell(
                     icon: "assets/images/icon_rating_star.svg",
-                    text: "Get all high-quality servers in 80 countries"),
+                    text: language.paywallCountriesText),
                 SizedBox(
                   height: 25.h,
                 ),
                 const PaywallFeatureCell(
                     icon: "assets/images/icon_rating_star.svg",
-                    text: "8x Faster Servers"),
+                    text: language.paywallFastServersText),
                 SizedBox(
                   height: 25.h,
                 ),
                 const PaywallFeatureCell(
                     icon: "assets/images/icon_rating_star.svg",
-                    text: "Enjoy Unlimited Bandwidth"),
+                    text: language.paywallBandwithText),
                 SizedBox(
                   height: 25.h,
                 ),
                 const PaywallFeatureCell(
-                    icon: "assets/images/icon_rating_star.svg", text: "No ads"),
+                    icon: "assets/images/icon_rating_star.svg", text: language.paywallNoAds),
                 SizedBox(
                   height: 60.h,
                 ),
@@ -112,8 +112,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
                       globalStore.isLoading = false;
                     }
                   },
-                  title: "${getYearlyPrice()} / Year",
-                  subtitle: "${getYearlyMonthlyPrice()} / Month",
+                  title: "${getYearlyPrice()} / ${language.yearText}",
+                  subtitle: "${getYearlyMonthlyPrice()} / ${language.monthOrWeekText}",
                   icon: "assets/images/crown.fill.svg",
                   isColored: true,
                 ),
@@ -131,15 +131,15 @@ class _PaywallScreenState extends State<PaywallScreen> {
                       globalStore.isLoading = false;
                     }
                   },
-                  title: "${getMonthlyPrice()} / Month",
-                  subtitle: "Billed Monthly",
+                  title: "${getMonthlyPrice()} / ${language.monthOrWeekText}",
+                  subtitle: language.billedMonthlyOrWeeklyText,
                   icon: "assets/images/icon_rating_star.svg",
                 ),
                 SizedBox(
                   height: 20.h,
                 ),
                 AutoSizeText(
-                  "Recurring subscription. Cancel anytime on Google Play Store",
+                  language.recurringText,
                   style: TextStyle(
                       color: AppColors.grey,
                       fontWeight: FontWeight.w100,
@@ -209,3 +209,21 @@ const fontRegular = FontWeight.w400;
 const fontMedium = FontWeight.w500;
 const fontSemibold = FontWeight.w600;
 const fontBold = FontWeight.w700;
+
+
+
+  String getHighYearlyPriceForAlert() {
+    try {
+      return PurchaseHelper.shared.packageList[2].product.priceString;
+    } catch (e) {
+      return "\$$annualPriceHighConstant";
+    }
+  }
+
+    String getLowYearlyPriceForAlert() {
+    try {
+      return PurchaseHelper.shared.packageList[2].product.priceString;
+    } catch (e) {
+      return "\$$annualPriceConstant";
+    }
+  }

@@ -33,7 +33,6 @@ class SplashScreenState extends State<SplashScreen>
       () async {
         setStatusBarColor(context.scaffoldBackgroundColor);
         String defaultLocale = Platform.localeName;
-        print("nihat = ${defaultLocale}");
         late LanguageDataModel data;
         var changeLanguageBefore =
             getBoolAsync("changeLanguageBefore", defaultValue: false);

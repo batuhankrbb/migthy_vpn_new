@@ -39,8 +39,8 @@ class RateSheetSecond extends StatelessWidget {
           Observer(builder: (_) {
             return CustomText(
               rateSheetViewModel.rating >= 4
-                  ? "You are amazing!"
-                  : "Oh! That is sad.",
+                  ? language.youAreAmazing
+                  : language.thatIsSad,
               fontWeight: fontBold,
               color: Colors.white,
               fontSize: context.width() * (0.08),
@@ -56,8 +56,8 @@ class RateSheetSecond extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: context.width() * (0.02)),
               child: CustomText(
                 rateSheetViewModel.rating >= 3
-                    ? "Would you mind rating us?"
-                    : "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.",
+                    ? language.mindRatingUs,
+                    : language.tellUsProblemNew,
                 fontWeight: fontLight,
                 color: Colors.white,
                 textAlign: TextAlign.center,
@@ -74,7 +74,7 @@ class RateSheetSecond extends StatelessWidget {
             child: Row(
               children: [
                 RoundedCustomButton(
-                  text: "NO, THANKS",
+                  text: language.noThanks,
                   onTap: () async {
                     await rateSheetViewModel.noAction(context);
                   },
@@ -87,7 +87,7 @@ class RateSheetSecond extends StatelessWidget {
                 ),
                 Spacer(),
                 RoundedCustomButton(
-                  text: "SURE",
+                  text: language.sureText,
                   onTap: () async {
                     if (rateSheetViewModel.rating >= 3) {
                       await rateSheetViewModel.sureAction(context);

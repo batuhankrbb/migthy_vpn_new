@@ -72,10 +72,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       (value) {
         log(value);
         if (value == "0") {
-          toast("VPN Permission Denied");
+          toast(language.vpnPermissionDenied);
           vpnStore.setIsPrepared(false, initialize: true);
         } else if (value == "-1") {
-          toast("VPN Permission Granted");
+          toast(language.vpnPermissionGranted);
           vpnStore.setIsPrepared(true, initialize: true);
         } else if (value == "1") {
           vpnStore.setIsPrepared(true, initialize: true);
@@ -330,7 +330,7 @@ Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
                               ),
                               Center(
                                 child: Text(language.onlyAvailableTodayText +
-                                    " \$23.99 " +
+                                   getLowYearlyPriceForAlert()  + " " +
                                     language.perYearText),
                               ),
                               SizedBox(
@@ -338,7 +338,7 @@ Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
                               ),
                               Center(
                                 child: Text(
-                                  "\$49.99 " + language.perYearText,
+                                  getHighYearlyPriceForAlert() + " " + language.perYearText,
                                   style: TextStyle(
                                       decoration: TextDecoration.lineThrough),
                                 ),

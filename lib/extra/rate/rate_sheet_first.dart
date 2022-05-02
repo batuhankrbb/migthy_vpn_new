@@ -32,7 +32,7 @@ class RateSheetFirst extends StatelessWidget {
                     height: context.height() * (0.003),
                   ),
                   CustomText(
-                    "Do you like us?",
+                    language.doYouLikeUs,
                     fontWeight: fontBold,
                     color: Colors.white,
                     fontSize: context.width() * (0.07),
@@ -42,7 +42,7 @@ class RateSheetFirst extends StatelessWidget {
                     height: context.height() * (0.005),
                   ),
                   CustomText(
-                    "Let us know what you think",
+                   language.letUsKnowWhat,
                     fontWeight: fontLight,
                     color: Colors.white,
                     fontSize: context.width() * (0.04),

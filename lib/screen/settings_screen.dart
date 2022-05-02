@@ -151,7 +151,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SettingItemWidget(
               leading: const Icon(Icons.restore, size: 20),
-              title: "Restore Purchases",
+              title: language.restorePurchase,
               onTap: () async {
                 try {
                   await PurchaseHelper.shared.restorePurchase();
@@ -300,7 +300,7 @@ class PremiumButton extends StatelessWidget {
                           maxLines: 1,
                         ),
                         AutoSizeText(
-                          "Get access to all servers, no ads, 8x faster, all features.",
+                          language.premiumSmallText,
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               color: Colors.white.withOpacity(0.85),

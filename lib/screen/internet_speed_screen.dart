@@ -94,7 +94,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         startUploading();
       },
       onProgress: (double percent, double transferRate, SpeedUnit unit) {
-        value = "Downloading Speed";
+        value = language.downloadingSpeed;
         setState(() {
           downloadRate = transferRate;
           if (globalStore.isPremium) {
@@ -139,7 +139,7 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
         });
       },
       onProgress: (double percent, double transferRate, SpeedUnit unit) {
-        value = "Uploading Speed";
+        value = language.uploadingSpeed;
 
         setState(() {
           uploadRate = transferRate;

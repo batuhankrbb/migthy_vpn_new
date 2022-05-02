@@ -56,7 +56,7 @@ class OnboardingDotsList extends StatelessWidget {
               height: 5,
             ),
             AutoSizeText(
-              "Recurring subscription. Cancel anytime on Google Play Store",
+             language.recurringText,
               style: TextStyle(
                   color: AppColors.darkGrey,
                   fontWeight: FontWeight.w100,
