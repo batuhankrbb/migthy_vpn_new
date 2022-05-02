@@ -61,7 +61,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   height: 40.h,
                 ),
                 Text(
-                 language.paywallTitleText,
+                  language.paywallTitleText,
                   style: AppTextStyle.headline1(
                       weight: fontBold, size: 40.sp, color: AppColors.white),
                 ),
@@ -79,25 +79,27 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   height: 29.h,
                 ),
                 const PaywallFeatureCell(
-                    icon: "assets/images/icon_rating_star.svg",
+                    icon: "assets/images/world.svg",
                     text: language.paywallCountriesText),
                 SizedBox(
                   height: 25.h,
                 ),
                 const PaywallFeatureCell(
-                    icon: "assets/images/icon_rating_star.svg",
+                    icon: "assets/images/fast.svg",
                     text: language.paywallFastServersText),
                 SizedBox(
                   height: 25.h,
                 ),
                 const PaywallFeatureCell(
-                    icon: "assets/images/icon_rating_star.svg",
+                    icon: "assets/images/bandwith.svg",
                     text: language.paywallBandwithText),
                 SizedBox(
                   height: 25.h,
                 ),
                 const PaywallFeatureCell(
-                    icon: "assets/images/icon_rating_star.svg", text: language.paywallNoAds),
+                  icon: "assets/images/no_ads.svg",
+                  text: language.paywallNoAds,
+                ),
                 SizedBox(
                   height: 60.h,
                 ),
@@ -113,7 +115,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
                     }
                   },
                   title: "${getYearlyPrice()} / ${language.yearText}",
-                  subtitle: "${getYearlyMonthlyPrice()} / ${language.monthOrWeekText}",
+                  subtitle:
+                      "${getYearlyMonthlyPrice()} / ${language.monthOrWeekText}",
                   icon: "assets/images/crown.fill.svg",
                   isColored: true,
                 ),
@@ -210,20 +213,18 @@ const fontMedium = FontWeight.w500;
 const fontSemibold = FontWeight.w600;
 const fontBold = FontWeight.w700;
 
-
-
-  String getHighYearlyPriceForAlert() {
-    try {
-      return PurchaseHelper.shared.packageList[2].product.priceString;
-    } catch (e) {
-      return "\$$annualPriceHighConstant";
-    }
+String getHighYearlyPriceForAlert() {
+  try {
+    return PurchaseHelper.shared.packageList[2].product.priceString;
+  } catch (e) {
+    return "\$$annualPriceHighConstant";
   }
+}
 
-    String getLowYearlyPriceForAlert() {
-    try {
-      return PurchaseHelper.shared.packageList[2].product.priceString;
-    } catch (e) {
-      return "\$$annualPriceConstant";
-    }
+String getLowYearlyPriceForAlert() {
+  try {
+    return PurchaseHelper.shared.packageList[2].product.priceString;
+  } catch (e) {
+    return "\$$annualPriceConstant";
   }
+}
