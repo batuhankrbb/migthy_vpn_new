@@ -6,6 +6,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/screen/paywall/paywall_screen.dart';
 import 'package:mightyvpn/screen/server_list_screen.dart';
 import 'package:mightyvpn/utils/AdMobUtils.dart';
+import 'package:mightyvpn/utils/purchase_helper.dart';
 import '../main.dart';
 import 'about_screen.dart';
 import 'language_screen.dart';
@@ -149,6 +150,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             SettingItemWidget(
+              leading: const Icon(Icons.restore, size: 20),
+              title: "Restore Purchases",
+              onTap: () {
+                PurchaseHelper.shared.restorePurchase();
+              },
+              trailing: trailingIcon(),
+            ),
+            SettingItemWidget(
               title: language.lblPrivacyLolicy,
               leading: const Icon(Icons.privacy_tip_outlined, size: 20),
               trailing: trailingIcon(),
@@ -161,7 +170,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: language.lblRateLs,
               onTap: () async {
                 await rateSheetViewModel.showRatingSheet(context);
-                 mixpanel?.track('Settings rate us clicked');
+                mixpanel?.track('Settings rate us clicked');
               },
               trailing: trailingIcon(),
             ),
@@ -240,7 +249,7 @@ class PremiumButton extends StatelessWidget {
             push(const PaywallScreen(),
                 pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
                 duration: 150.milliseconds);
-                mixpanel?.track('Clicked Premium Button via $fromText');
+            mixpanel?.track('Clicked Premium Button via $fromText');
           },
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 6),
