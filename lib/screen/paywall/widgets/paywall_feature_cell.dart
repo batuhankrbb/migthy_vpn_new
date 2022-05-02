@@ -18,13 +18,11 @@ class PaywallFeatureCell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        GradientSvgPicture(
-          gradient: cardGradient,
-          svgPicture: SvgPicture.asset(
-            icon,
-            width: 24.w,
-            height: 24.w,
-          ),
+        SvgPicture.asset(
+          icon,
+          color: Color(0xFFB3DAF4),
+          width: 24.w,
+          height: 24.w,
         ),
         SizedBox(
           width: 10.w,
@@ -68,8 +66,6 @@ const cardGradient = LinearGradient(colors: [
   Color(0xFFD8D3FD),
   Color(0xFFB3DAF4),
 ]);
-
-
 
 const fontRegular = FontWeight.w400;
 const fontMedium = FontWeight.w500;
