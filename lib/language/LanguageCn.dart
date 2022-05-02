@@ -233,79 +233,74 @@ class LanguageCn extends BaseLanguage {
   String get onlyAvailableTodayText => "仅在今天可用。";
 
   @override
-  String get billedMonthlyOrWeeklyText => "Billed Monthly";
+  String get billedMonthlyOrWeeklyText => "按月计费";
 
   @override
-  String get doYouLikeUs => "Do you like us?";
+  String get doYouLikeUs => "你喜欢我们吗？";
 
   @override
-  String get letUsKnowWhat =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+  String get letUsKnowWhat => "您想告诉我们您的问题吗？ 我们承诺我们会尽快回复您并解决您的问题。";
 
   @override
-  String get monthOrWeekText => "Month";
+  String get monthOrWeekText => "月";
 
   @override
-  String get noThanks => "NO, THANKS";
+  String get noThanks => "不，谢谢";
 
   @override
-  String get paywallBandwithText => "Enjoy Unlimited Bandwidth";
+  String get paywallBandwithText => "享受无限带宽";
 
   @override
-  String get paywallCountriesText =>
-      "Get all high-quality servers in 80 countries";
+  String get paywallCountriesText => "获取80个国家的所有优质服务器";
 
   @override
-  String get paywallFastServersText => "8x Faster Servers";
+  String get paywallFastServersText => "8 倍更快的服务器";
 
   @override
-  String get paywallNoAds => "No ads";
+  String get paywallNoAds => "无广告";
 
   @override
-  String get paywallSubTitleText => "Unlimited access to all features";
+  String get paywallSubTitleText => "无限制访问所有功能";
 
   @override
-  String get paywallTitleText => "Get Premium";
+  String get paywallTitleText => "获得溢价";
 
   @override
-  String get premiumSmallText =>
-      "Get access to all servers, no ads, 8x faster, all features.";
+  String get premiumSmallText => "访问所有服务器，无广告，速度提高 8 倍，所有功能。";
 
   @override
-  String get recurringText =>
-      "Recurring subscription. Cancel anytime on Google Play Store";
+  String get recurringText => "可更新订阅，随时在 Google Play 商店取消。";
 
   @override
-  String get restorePurchase => "Restore Purchases";
+  String get restorePurchase => "恢复购买";
 
   @override
-  String get sureText => "SURE";
+  String get sureText => "当然";
 
   @override
-  String get tellUsProblemNew =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+  String get tellUsProblemNew => "您想告诉我们您的问题吗？ 我们承诺我们会尽快回复您并解决您的问题。";
 
   @override
-  String get thatIsSad => "Oh! That is sad.";
+  String get thatIsSad => "哦！ 那是可悲的。";
 
   @override
-  String get uploadingSpeed => "Uploading: Speed";
+  String get uploadingSpeed => "上传：速度";
 
   @override
-  String get vpnPermissionDenied => "VPN Permission Denied";
+  String get vpnPermissionDenied => "VPN 权限被拒绝";
 
   @override
-  String get vpnPermissionGranted => "VPN Permission Granted";
+  String get vpnPermissionGranted => "已授予 VPN 权限";
 
   @override
-  String get yearText => "Year";
+  String get yearText => "年";
 
   @override
-  String get youAreAmazing => "You are amazing!";
+  String get youAreAmazing => "你太棒了！";
 
   @override
-  String get downloadingSpeed => "Downloading: Speed";
+  String get downloadingSpeed => "下载：速度";
 
   @override
-  String get mindRatingUs => "Would you mind rating us?";
+  String get mindRatingUs => "你介意给我们打分吗？";
 }
