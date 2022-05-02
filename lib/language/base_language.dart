@@ -143,4 +143,28 @@ abstract class BaseLanguage {
   String get saleText;
 
   String get onlyAvailableTodayText;
+
+  String get recurringText;
+  String get billedMonthlyOrWeeklyText;
+  String get monthOrWeekText;
+  String get yearText;
+  String get paywallBandwithText;
+  String get paywallFastServersText;
+  String get paywallCountriesText;
+  String get paywallSubTitleText;
+  String get paywallTitleText;
+  String get premiumSmallText;
+  String get restorePurchase;
+  String get uploadingSpeed;
+  String get downloadingSpeed;
+  String get vpnPermissionGranted;
+  String get vpnPermissionDenied;
+  String get sureText;
+  String get noThanks;
+  String get tellUsProblemNew;
+  String get thatIsSad;
+  String get youAreAmazing;
+  String get letUsKnowWhat;
+  String get doYouLikeUs;
+  String get paywallNoAds;
 }

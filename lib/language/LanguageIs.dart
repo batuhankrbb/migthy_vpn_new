@@ -240,4 +240,78 @@ class LanguageIs extends BaseLanguage {
 
   @override
   String get onlyAvailableTodayText => "Hanya tersedia hari ini.";
+
+  @override
+  String get billedMonthlyOrWeeklyText => "Billed Monthly";
+
+  @override
+  String get doYouLikeUs => "Do you like us?";
+
+  @override
+  String get letUsKnowWhat =>
+      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+
+  @override
+  String get monthOrWeekText => "Month";
+
+  @override
+  String get noThanks => "NO, THANKS";
+
+  @override
+  String get paywallBandwithText => "Enjoy Unlimited Bandwidth";
+
+  @override
+  String get paywallCountriesText =>
+      "Get all high-quality servers in 80 countries";
+
+  @override
+  String get paywallFastServersText => "8x Faster Servers";
+
+  @override
+  String get paywallNoAds => "No ads";
+
+  @override
+  String get paywallSubTitleText => "Unlimited access to all features";
+
+  @override
+  String get paywallTitleText => "Get Premium";
+
+  @override
+  String get premiumSmallText =>
+      "Get access to all servers, no ads, 8x faster, all features.";
+
+  @override
+  String get recurringText =>
+      "Recurring subscription. Cancel anytime on Google Play Store";
+
+  @override
+  String get restorePurchase => "Restore Purchases";
+
+  @override
+  String get sureText => "SURE";
+
+  @override
+  String get tellUsProblemNew =>
+      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+
+  @override
+  String get thatIsSad => "Oh! That is sad.";
+
+  @override
+  String get uploadingSpeed => "Uploading: Speed";
+
+  @override
+  String get vpnPermissionDenied => "VPN Permission Denied";
+
+  @override
+  String get vpnPermissionGranted => "VPN Permission Granted";
+
+  @override
+  String get yearText => "Year";
+
+  @override
+  String get youAreAmazing => "You are amazing!";
+
+  @override
+  String get downloadingSpeed => "Downloading: Speed";
 }
