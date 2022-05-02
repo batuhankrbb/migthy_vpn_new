@@ -8,10 +8,41 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 
 import '../main.dart';
 
+
+var testPackageMonthly = Package(
+  "monthly_package_offer",
+  PackageType.annual,
+  Product(
+      "monthly_product", "description", "Monthly Product", 12.99, "\$12.99", "usd"),
+  "monthly_offering",
+);
+
+var testPackageAnnualNormal = Package(
+  "yearly_package_offer",
+  PackageType.annual,
+  Product(
+      "yearly_product", "description", "Yearly Product", 38.99, "\$38.99", "usd"),
+  "yearly_offering",
+);
+
+var testPackageAnnualHigh = Package(
+  "yearly_package_high_offer",
+  PackageType.annual,
+  Product(
+      "yearly_product_high", "description", "Yearly Product High", 58.99, "\$58.99", "usd"),
+  "yearly_offering_high",
+);
+
+//* [0] -> Monthly
+//* [1] -> Annual Normal
+//* [2] -> Annual High
+
 class PurchaseHelper {
   static var shared = PurchaseHelper();
   var isPremium = false;
-  List<Package> packageList = [];
+  List<Package> packageList = [
+  testPackageMonthly,testPackageAnnualNormal,testPackageAnnualHigh
+  ];
 
   //*DONE
   Future<void> initPurchase() async {
@@ -98,8 +129,6 @@ class PurchaseHelper {
     }
   }
 
-
-
   String get12MonthsMonthly() {
     try {
       var month12Product = packageList[1].product;
@@ -110,7 +139,7 @@ class PurchaseHelper {
     }
   }
 
-    String get12MonthsDiscountForWeek() {
+  String get12MonthsDiscountForWeek() {
     try {
       var month1Product = packageList[0].product;
       var month12Product = packageList[1].product;
@@ -124,7 +153,7 @@ class PurchaseHelper {
     }
   }
 
-    String get12MonthsMonthlyForWeek() {
+  String get12MonthsMonthlyForWeek() {
     try {
       var month12Product = packageList[1].product;
       var prefix = packageList[1].product.priceString[0];

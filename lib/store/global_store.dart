@@ -9,4 +9,7 @@ abstract class _GlobalStoreBase with Store {
 
   @observable
   var hasPaywallAlertShowed = false;
+
+  @observable
+  var isLoading = false;
 }

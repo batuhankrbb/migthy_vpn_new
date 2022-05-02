@@ -9,10 +9,11 @@ class PaywallOptionCell extends StatelessWidget {
   const PaywallOptionCell(
       {Key? key,
       required this.title,
-       this.subtitle,
+      this.subtitle,
       required this.icon,
       this.tag,
-      this.isColored = false})
+      this.isColored = false,
+      required this.onTap})
       : super(key: key);
 
   final String title;
@@ -20,60 +21,64 @@ class PaywallOptionCell extends StatelessWidget {
   final String icon;
   final String? tag;
   final bool isColored;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.loose,
-      children: [
-        Container(
-          height: 80.h,
-          decoration: BoxDecoration(
-              gradient: isColored ? cardGradient : null,
-              borderRadius: BorderRadius.circular(
-                15.r,
-              ),
-              border: Border.all(color: Color(0xFFF6F3FF), width: 3),
-              color: isColored ? null : AppColors.background),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 13.w,
+    return GestureDetector(
+      onTap: onTap,
+      child: Stack(
+        fit: StackFit.loose,
+        children: [
+          Container(
+            height: 80.h,
+            decoration: BoxDecoration(
+                gradient: isColored ? cardGradient : null,
+                borderRadius: BorderRadius.circular(
+                  15.r,
                 ),
-                SvgPicture.asset(
-                  icon,
-                  width: 30.w,
-                  height: 30.w,
-                  color: isColored ? AppColors.purple : AppColors.grey,
-                ),
-                SizedBox(
-                  width: 20.w,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      title,
-                      style: AppTextStyle.headline2(
-                          color: isColored ? darkGrey : AppColors.white),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Text(
-                      subtitle!,
-                      style: AppTextStyle.button(
-                          color: isColored ? darkGrey : AppColors.white),
-                    ),
-                  ],
-                ),
-              ]),
-        ),
-        buildTagText()
-      ],
+                border: Border.all(color: Color(0xFFF6F3FF), width: 3),
+                color: isColored ? null : AppColors.background),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 13.w,
+                  ),
+                  SvgPicture.asset(
+                    icon,
+                    width: 30.w,
+                    height: 30.w,
+                    color: isColored ? AppColors.purple : AppColors.grey,
+                  ),
+                  SizedBox(
+                    width: 20.w,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        title,
+                        style: AppTextStyle.headline2(
+                            color: isColored ? darkGrey : AppColors.white),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Text(
+                        subtitle!,
+                        style: AppTextStyle.button(
+                            color: isColored ? darkGrey : AppColors.white),
+                      ),
+                    ],
+                  ),
+                ]),
+          ),
+          buildTagText()
+        ],
+      ),
     );
   }
 

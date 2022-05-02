@@ -2,7 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:mightyvpn/extra/rate/rate_sheet_first.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
 import '../../../main.dart';
+import '../../../utils/purchase_helper.dart';
 import '../../bottom_nav_bar.dart';
 import 'custom_text_button.dart';
 import 'onboard_dot_widget.dart';
@@ -29,17 +31,24 @@ class OnboardingDotsList extends StatelessWidget {
                 width: 325,
                 onTap: () async {
                   await setValue("showOnboard", false);
-                  push(const BottomNavBar(),
-                      isNewTask: true,
-                      pageRouteAnimation: PageRouteAnimation.Fade);
-                  //TODO PURCHASE
+                  globalStore.isLoading = true;
+                  var isPurchased = await PurchaseHelper.shared
+                      .purchase(PurchaseHelper.shared.packageList[2]);
+                  globalStore.isLoading = false;
+                  if (isPurchased) {
+                    push(const BottomNavBar(),
+                        isNewTask: true,
+                        pageRouteAnimation: PageRouteAnimation.Fade);
+                  }
                   mixpanel?.track('Onboard expensive purchase clicked');
                 },
                 text: language.buyAndContinueText),
             SizedBox(
               height: 10,
             ),
-            AutoSizeText("\$49.00 ." + language.perYearText),
+            AutoSizeText(
+                PurchaseHelper.shared.packageList[2].product.priceString + " ." +
+                    language.perYearText),
             SizedBox(
               height: 5,
             ),
@@ -49,7 +58,6 @@ class OnboardingDotsList extends StatelessWidget {
                   color: AppColors.darkGrey,
                   fontWeight: FontWeight.w100,
                   fontSize: 8),
-
             ),
           ],
         ),
