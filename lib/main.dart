@@ -62,7 +62,6 @@ void main() async {
    mixpanel = await Mixpanel.init(mixpanelKey, optOutTrackingDefault: false);
   await loadOpenAd();
   vpnStore.setIsPrepared(getBoolAsync(SharedPrefKeys.isPrepared));
-  // appStore.setSelectedServerModel(ServerModel.fromJson(jsonDecode(getStringAsync(SharedPrefKeys.selectedServer))));
   vpnStore.setVPNStatus();
   if (!isWeb) {
     int themeModeIndex = getIntAsync(THEME_MODE_INDEX);

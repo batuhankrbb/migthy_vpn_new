@@ -25,7 +25,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
   @override
   Widget build(BuildContext context) {
     return LoadingWrapper(
-      isLoading: globalStore.isLoading,
+
       child: MainLayout(
         backgroundColor: AppColors.background,
         padding: EdgeInsets.symmetric(horizontal: 15.w),

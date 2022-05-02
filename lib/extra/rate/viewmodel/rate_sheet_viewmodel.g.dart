@@ -41,6 +41,22 @@ mixin _$RateSheetViewModel on _RateSheetViewModelBase, Store {
     });
   }
 
+  late final _$hasRatedAtom =
+      Atom(name: '_RateSheetViewModelBase.hasRated', context: context);
+
+  @override
+  bool get hasRated {
+    _$hasRatedAtom.reportRead();
+    return super.hasRated;
+  }
+
+  @override
+  set hasRated(bool value) {
+    _$hasRatedAtom.reportWrite(value, super.hasRated, () {
+      super.hasRated = value;
+    });
+  }
+
   late final _$isFirstSheetVisibleAtom = Atom(
       name: '_RateSheetViewModelBase.isFirstSheetVisible', context: context);
 
@@ -73,11 +89,35 @@ mixin _$RateSheetViewModel on _RateSheetViewModelBase, Store {
     return _$sureActionAsyncAction.run(() => super.sureAction(context));
   }
 
+  late final _$showRatingSheetAsyncAction =
+      AsyncAction('_RateSheetViewModelBase.showRatingSheet', context: context);
+
+  @override
+  Future<void> showRatingSheet(BuildContext context) {
+    return _$showRatingSheetAsyncAction
+        .run(() => super.showRatingSheet(context));
+  }
+
+  late final _$_RateSheetViewModelBaseActionController =
+      ActionController(name: '_RateSheetViewModelBase', context: context);
+
+  @override
+  void navigateToFeedback(BuildContext context) {
+    final _$actionInfo = _$_RateSheetViewModelBaseActionController.startAction(
+        name: '_RateSheetViewModelBase.navigateToFeedback');
+    try {
+      return super.navigateToFeedback(context);
+    } finally {
+      _$_RateSheetViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
 rating: ${rating},
 firstSheetOpacity: ${firstSheetOpacity},
+hasRated: ${hasRated},
 isFirstSheetVisible: ${isFirstSheetVisible}
     ''';
   }

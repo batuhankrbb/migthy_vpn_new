@@ -25,10 +25,45 @@ mixin _$GlobalStore on _GlobalStoreBase, Store {
     });
   }
 
+  late final _$hasPaywallAlertShowedAtom =
+      Atom(name: '_GlobalStoreBase.hasPaywallAlertShowed', context: context);
+
+  @override
+  bool get hasPaywallAlertShowed {
+    _$hasPaywallAlertShowedAtom.reportRead();
+    return super.hasPaywallAlertShowed;
+  }
+
+  @override
+  set hasPaywallAlertShowed(bool value) {
+    _$hasPaywallAlertShowedAtom.reportWrite(value, super.hasPaywallAlertShowed,
+        () {
+      super.hasPaywallAlertShowed = value;
+    });
+  }
+
+  late final _$isLoadingAtom =
+      Atom(name: '_GlobalStoreBase.isLoading', context: context);
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-isPremium: ${isPremium}
+isPremium: ${isPremium},
+hasPaywallAlertShowed: ${hasPaywallAlertShowed},
+isLoading: ${isLoading}
     ''';
   }
 }
