@@ -290,7 +290,7 @@ class LanguageEn extends BaseLanguage {
 
   @override
   String get tellUsProblemNew =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "Would you like to tell us your problem? We promise that we'll reply you and fix your problem as soon as humanly possible.";
 
   @override
   String get thatIsSad => "Oh! That is sad.";
