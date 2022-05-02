@@ -241,80 +241,79 @@ class LanguageAr extends BaseLanguage {
   String get onlyAvailableTodayText => "متاح اليوم فقط.";
 
   @override
-  String get billedMonthlyOrWeeklyText => "Billed Monthly";
+  String get billedMonthlyOrWeeklyText => "تدفع شهريا";
 
   @override
-  String get doYouLikeUs => "Do you like us?";
+  String get doYouLikeUs => "هل تحبنا؟";
 
   @override
   String get letUsKnowWhat =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "هل تود إخبارنا بمشكلتك؟ نعدك بالرد عليك وحل مشكلتك في أقرب وقت ممكن.";
 
   @override
-  String get monthOrWeekText => "Month";
+  String get monthOrWeekText => "شهر";
 
   @override
-  String get noThanks => "NO, THANKS";
+  String get noThanks => "ًلا شكرا";
 
   @override
-  String get paywallBandwithText => "Enjoy Unlimited Bandwidth";
+  String get paywallBandwithText => "استمتع بنطاق ترددي غير محدود";
 
   @override
   String get paywallCountriesText =>
-      "Get all high-quality servers in 80 countries";
+      "احصل على جميع الخوادم عالية الجودة في 80 دولة";
 
   @override
-  String get paywallFastServersText => "8x Faster Servers";
+  String get paywallFastServersText => "8x خوادم أسرع ";
 
   @override
-  String get paywallNoAds => "No ads";
+  String get paywallNoAds => "لا اعلانات";
 
   @override
-  String get paywallSubTitleText => "Unlimited access to all features";
+  String get paywallSubTitleText => "وصول غير محدود إلى جميع الميزات";
 
   @override
-  String get paywallTitleText => "Get Premium";
+  String get paywallTitleText => "إحصل على الأفضل";
 
   @override
   String get premiumSmallText =>
-      "Get access to all servers, no ads, 8x faster, all features.";
+      "احصل على وصول إلى جميع الخوادم ، بدون إعلانات ، أسرع 8 مرات ، جميع الميزات.";
 
   @override
   String get recurringText =>
-      "Recurring subscription. Cancel anytime on Google Play Store";
+      "يتم تجديد الاشتراك ، ويمكنك الإلغاء في أي وقت على متجر Google Play";
 
   @override
-  String get restorePurchase => "Restore Purchases";
+  String get restorePurchase => "استعادة المشتريات";
 
   @override
-  String get sureText => "SURE";
+  String get sureText => "بالتأكيد";
 
   @override
   String get tellUsProblemNew =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "هل تود إخبارنا بمشكلتك؟ نعدك بالرد عليك وحل مشكلتك في أقرب وقت ممكن.";
 
   @override
-  String get thatIsSad => "Oh! That is sad.";
+  String get thatIsSad => "أوه! ذلك حزين.";
 
   @override
-  String get uploadingSpeed => "Uploading: Speed";
+  String get uploadingSpeed => "تحميل: السرعة ";
 
   @override
-  String get vpnPermissionDenied => "VPN Permission Denied";
+  String get vpnPermissionDenied => "تم رفض إذن VPN";
 
   @override
-  String get vpnPermissionGranted => "VPN Permission Granted";
+  String get vpnPermissionGranted => "تم منح إذن VPN";
 
   @override
-  String get yearText => "Year";
+  String get yearText => "سنة";
 
   @override
-  String get youAreAmazing => "You are amazing!";
+  String get youAreAmazing => "أنت رائع!";
 
   @override
-  String get downloadingSpeed => "Downloading: Speed";
+  String get downloadingSpeed => "التنزيل: السرعة";
 
   @override
-  // TODO: implement mindRatingUs
-  String get mindRatingUs => throw UnimplementedError();
+  String get mindRatingUs => "هل تمانع في تقييمنا؟";
 }

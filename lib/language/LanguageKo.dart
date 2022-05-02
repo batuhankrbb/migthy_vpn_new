@@ -310,6 +310,5 @@ class LanguageKo extends BaseLanguage {
   String get downloadingSpeed => "Downloading: Speed";
 
   @override
-  // TODO: implement mindRatingUs
-  String get mindRatingUs => throw UnimplementedError();
+  String get mindRatingUs => "Would you mind rating us?";
 }
