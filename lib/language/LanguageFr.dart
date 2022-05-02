@@ -243,79 +243,80 @@ class LanguageFr extends BaseLanguage {
   String get onlyAvailableTodayText => "Uniquement disponible aujourd'hui.";
 
   @override
-  String get billedMonthlyOrWeeklyText => "Billed Monthly";
+  String get billedMonthlyOrWeeklyText => "Facturé mensuellement";
 
   @override
-  String get doYouLikeUs => "Do you like us?";
+  String get doYouLikeUs => "Est-ce que tu nous aimes?";
 
   @override
   String get letUsKnowWhat =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "Souhaitez-vous nous faire part de votre problème ? Nous vous promettons de vous répondre et de résoudre votre problème dès que possible.";
 
   @override
-  String get monthOrWeekText => "Month";
+  String get monthOrWeekText => "Mois";
 
   @override
-  String get noThanks => "NO, THANKS";
+  String get noThanks => "NON MERCI";
 
   @override
-  String get paywallBandwithText => "Enjoy Unlimited Bandwidth";
+  String get paywallBandwithText => "Profitez d'une bande passante illimitée";
 
   @override
   String get paywallCountriesText =>
-      "Get all high-quality servers in 80 countries";
+      "Obtenez tous les serveurs de haute qualité dans 80 pays";
 
   @override
-  String get paywallFastServersText => "8x Faster Servers";
+  String get paywallFastServersText => "Serveurs 8 fois plus rapides";
 
   @override
-  String get paywallNoAds => "No ads";
+  String get paywallNoAds => "Pas de pubs";
 
   @override
-  String get paywallSubTitleText => "Unlimited access to all features";
+  String get paywallSubTitleText =>
+      "Accès illimité à toutes les fonctionnalités";
 
   @override
-  String get paywallTitleText => "Get Premium";
+  String get paywallTitleText => "Obtenez la Prime";
 
   @override
   String get premiumSmallText =>
-      "Get access to all servers, no ads, 8x faster, all features.";
+      "Accédez à tous les serveurs, sans publicité, 8 fois plus rapide, toutes les fonctionnalités.";
 
   @override
   String get recurringText =>
-      "Recurring subscription. Cancel anytime on Google Play Store";
+      "Abonnement récurrent. Annulez à tout moment sur Google Play Store";
 
   @override
-  String get restorePurchase => "Restore Purchases";
+  String get restorePurchase => "Restaurer les achats";
 
   @override
-  String get sureText => "SURE";
+  String get sureText => "BIEN SUR";
 
   @override
   String get tellUsProblemNew =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "Souhaitez-vous nous faire part de votre problème ? Nous vous promettons de vous répondre et de résoudre votre problème dès que possible.";
 
   @override
-  String get thatIsSad => "Oh! That is sad.";
+  String get thatIsSad => "Oh! C'est triste.";
 
   @override
-  String get uploadingSpeed => "Uploading: Speed";
+  String get uploadingSpeed => "Téléchargement : vitesse";
 
   @override
-  String get vpnPermissionDenied => "VPN Permission Denied";
+  String get vpnPermissionDenied => "Autorisation VPN refusée";
 
   @override
-  String get vpnPermissionGranted => "VPN Permission Granted";
+  String get vpnPermissionGranted => "Autorisation VPN accordée";
 
   @override
-  String get yearText => "Year";
+  String get yearText => "Année";
 
   @override
-  String get youAreAmazing => "You are amazing!";
+  String get youAreAmazing => "Tu es incroyable!";
 
   @override
-  String get downloadingSpeed => "Downloading: Speed";
+  String get downloadingSpeed => "Téléchargement : Vitesse";
 
   @override
-  String get mindRatingUs => "Would you mind rating us?";
+  String get mindRatingUs => "Cela vous dérangerait-il de nous évaluer ?";
 }
