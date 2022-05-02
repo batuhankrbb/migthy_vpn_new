@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/extra/rate/viewmodel/rate_sheet_viewmodel.dart';
 import 'package:mightyvpn/store/global_store.dart';
@@ -149,25 +150,32 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+        SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return Observer(
-      builder: (_) => MaterialApp(
-        title: 'GPS Spoofer',
-        debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode: appStore.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-        navigatorKey: navigatorKey,
-        supportedLocales: LanguageDataModel.languageLocales(),
-        localizationsDelegates: const [
-          AppLocalizations(),
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate, // Here !
-        ],
-        localeResolutionCallback: (locale, supportedLocales) => locale,
-        locale: Locale(appStore.selectedLanguage
-            .validate(value: AppConstant.defaultLanguage)),
+      builder: (_) => ScreenUtilInit(
+         designSize: const Size(414, 896),
+        child: MaterialApp(
+          title: 'GPS Spoofer',
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: appStore.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          navigatorKey: navigatorKey,
+          supportedLocales: LanguageDataModel.languageLocales(),
+          localizationsDelegates: const [
+            AppLocalizations(),
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate, // Here !
+          ],
+          localeResolutionCallback: (locale, supportedLocales) => locale,
+          locale: Locale(appStore.selectedLanguage
+              .validate(value: AppConstant.defaultLanguage)),
+        ),
       ),
     );
   }

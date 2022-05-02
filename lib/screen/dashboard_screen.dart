@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mightyvpn/screen/paywall_screen.dart';
+import 'package:mightyvpn/screen/paywall/paywall_screen.dart';
 import 'package:mightyvpn/screen/settings_screen.dart';
 import '../component/AdmobComponent.dart';
 import '../component/bandwidth_component.dart';

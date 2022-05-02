@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mightyvpn/screen/paywall_screen.dart';
+import 'package:mightyvpn/screen/paywall/paywall_screen.dart';
 import 'package:mightyvpn/screen/server_list_screen.dart';
 import 'package:mightyvpn/utils/AdMobUtils.dart';
 import '../main.dart';

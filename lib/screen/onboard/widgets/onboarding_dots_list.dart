@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:mightyvpn/screen/paywall_screen.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../../main.dart';
 import '../../bottom_nav_bar.dart';
