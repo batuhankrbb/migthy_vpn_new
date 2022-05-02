@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:internet_speed_test/callbacks_enum.dart';
 import 'package:internet_speed_test/internet_speed_test.dart';
@@ -285,14 +286,16 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
                 ],
               ),
               2.height,
-              isNativeAdLoaded && !globalStore.isPremium
-                  ? Container(
-                      alignment: Alignment.center,
-                      child: AdWidget(ad: speedNativeAd!),
-                      width: context.width() * 0.9,
-                      height: context.height() * 0.23,
-                    )
-                  : SizedBox(),
+              Observer(builder: (context) {
+                return isNativeAdLoaded && !globalStore.isPremium
+                    ? Container(
+                        alignment: Alignment.center,
+                        child: AdWidget(ad: speedNativeAd!),
+                        width: context.width() * 0.9,
+                        height: context.height() * 0.23,
+                      )
+                    : SizedBox();
+              }),
             ],
           ),
         ),
@@ -300,3 +303,5 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
     );
   }
 }
+
+

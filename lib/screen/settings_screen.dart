@@ -196,14 +196,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 );
               },
             ),
-            isNativeAdLoaded && !globalStore.isPremium
-                ? Container(
-                    alignment: Alignment.center,
-                    child: AdWidget(ad: settingsNativeAd!),
-                    width: context.width() * 0.9,
-                    height: context.height() * 0.23,
-                  )
-                : SizedBox(),
+            Observer(builder: (context) {
+              return isNativeAdLoaded && !globalStore.isPremium
+                  ? Container(
+                      alignment: Alignment.center,
+                      child: AdWidget(ad: settingsNativeAd!),
+                      width: context.width() * 0.9,
+                      height: context.height() * 0.23,
+                    )
+                  : SizedBox();
+            })
           ],
         ),
       ),
@@ -235,77 +237,80 @@ class PremiumButton extends StatelessWidget {
   final String fromText;
   @override
   Widget build(BuildContext context) {
-    if (globalStore.isPremium) {
-      return SizedBox();
-    }
-    return Container(
-      width: context.width() * 0.91,
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      child: GestureDetector(
-          onTap: () {
-            if (popFirst) {
-              Navigator.pop(context);
-            }
-            push(const PaywallScreen(),
-                pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
-                duration: 150.milliseconds);
-            mixpanel?.track('Clicked Premium Button via $fromText');
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 6),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              boxShadow: [
-                BoxShadow(
-                    color: Color.fromRGBO(116, 116, 191, 1.0).withOpacity(0.5),
-                    spreadRadius: 4,
-                    blurRadius: 9)
-              ],
-              gradient: LinearGradient(colors: [
-                Color.fromRGBO(116, 116, 191, 1.0),
-                Color.fromRGBO(52, 138, 199, 1.0)
-              ]),
-            ),
-            alignment: Alignment.center,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(width: 30),
-                Image.asset(
-                  "assets/images/king.png",
-                  width: 50,
-                  height: 50,
-                ),
-                Spacer(),
-                Container(
-                  width: context.width() * 0.45,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AutoSizeText(
-                        language.getPremiumText,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: context.width() * 0.05,
-                        ),
-                        maxLines: 1,
-                      ),
-                      AutoSizeText(
-                        "Get access to all servers, no ads, 8x faster, all features.",
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                            color: Colors.white.withOpacity(0.85),
-                            fontWeight: FontWeight.w300,
-                            fontSize: 12),
-                      )
-                    ],
+    return Observer(builder: (context) {
+      if (globalStore.isPremium) {
+        return SizedBox();
+      }
+      return Container(
+        width: context.width() * 0.91,
+        padding: EdgeInsets.symmetric(horizontal: 8),
+        child: GestureDetector(
+            onTap: () {
+              if (popFirst) {
+                Navigator.pop(context);
+              }
+              push(const PaywallScreen(),
+                  pageRouteAnimation: PageRouteAnimation.SlideBottomTop,
+                  duration: 150.milliseconds);
+              mixpanel?.track('Clicked Premium Button via $fromText');
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 6),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
+                boxShadow: [
+                  BoxShadow(
+                      color:
+                          Color.fromRGBO(116, 116, 191, 1.0).withOpacity(0.5),
+                      spreadRadius: 4,
+                      blurRadius: 9)
+                ],
+                gradient: LinearGradient(colors: [
+                  Color.fromRGBO(116, 116, 191, 1.0),
+                  Color.fromRGBO(52, 138, 199, 1.0)
+                ]),
+              ),
+              alignment: Alignment.center,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(width: 30),
+                  Image.asset(
+                    "assets/images/king.png",
+                    width: 50,
+                    height: 50,
                   ),
-                ),
-                Spacer(),
-              ],
-            ),
-          )),
-    );
+                  Spacer(),
+                  Container(
+                    width: context.width() * 0.45,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AutoSizeText(
+                          language.getPremiumText,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: context.width() * 0.05,
+                          ),
+                          maxLines: 1,
+                        ),
+                        AutoSizeText(
+                          "Get access to all servers, no ads, 8x faster, all features.",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                              color: Colors.white.withOpacity(0.85),
+                              fontWeight: FontWeight.w300,
+                              fontSize: 12),
+                        )
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                ],
+              ),
+            )),
+      );
+    });
   }
 }
