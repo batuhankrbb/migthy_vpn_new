@@ -57,8 +57,9 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
                       child: Container(
                         alignment: Alignment.centerRight,
                         child: Icon(
-                          CupertinoIcons.xmark_octagon_fill,
-                          size: 40,
+                          CupertinoIcons.xmark_circle,
+                          size: 30,
+                          color: Colors.grey,
                         ),
                       ),
                     ),

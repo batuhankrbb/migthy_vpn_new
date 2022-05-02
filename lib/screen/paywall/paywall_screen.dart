@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -111,11 +112,20 @@ class _PaywallScreenState extends State<PaywallScreen> {
               SizedBox(
                 height: 20.h,
               ),
+              AutoSizeText(
+                "Recurring subscription. Cancel anytime on Google Play Store",
+                style: TextStyle(
+                    color: AppColors.grey,
+                    fontWeight: FontWeight.w100,
+                    fontSize: 8),
+
+              ),
             ],
           ),
           GestureDetector(
             onTap: () async {
               mixpanel?.track('Paywall skip button clicked');
+              Navigator.pop(context);
             },
             child: Container(
               padding: EdgeInsets.only(right: 10.w, top: 30.h),

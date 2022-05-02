@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:mightyvpn/extra/rate/rate_sheet_first.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../../main.dart';
 import '../../bottom_nav_bar.dart';
@@ -39,6 +40,17 @@ class OnboardingDotsList extends StatelessWidget {
               height: 10,
             ),
             AutoSizeText("\$49.00 ." + language.perYearText),
+            SizedBox(
+              height: 5,
+            ),
+            AutoSizeText(
+              "Recurring subscription. Cancel anytime on Google Play Store",
+              style: TextStyle(
+                  color: AppColors.darkGrey,
+                  fontWeight: FontWeight.w100,
+                  fontSize: 8),
+
+            ),
           ],
         ),
       );
@@ -62,7 +74,7 @@ class OnboardingDotsList extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 50,
+          height: 65,
         ),
       ],
     );
