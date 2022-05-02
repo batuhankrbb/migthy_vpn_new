@@ -41,7 +41,7 @@ class PurchaseHelper {
   static var shared = PurchaseHelper();
   var isPremium = false;
   List<Package> packageList = [
-  testPackageMonthly,testPackageAnnualNormal,testPackageAnnualHigh
+  testPackageMonthly,testPackageAnnualNormal,testPackageAnnualHigh //TODO KALDIR PRDUCTIONDA
   ];
 
   //*DONE

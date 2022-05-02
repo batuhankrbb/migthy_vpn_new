@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mightyvpn/main.dart';
 import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -56,30 +58,35 @@ class CustomButton extends StatelessWidget {
 }
 
 class LoadingWrapper extends StatelessWidget {
-  const LoadingWrapper({Key? key, required this.child, required this.isLoading})
+  const LoadingWrapper({Key? key, required this.child})
       : super(key: key);
 
   final Widget child;
-  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         IgnorePointer(
-          ignoring: isLoading,
+          ignoring: globalStore.isLoading,
           child: child,
         ),
-        if (isLoading)
-          Positioned.fill(
-            child: Container(
-              color: Colors.black.withOpacity(0.1),
-            ),
-          ),
-        if (isLoading)
-          Center(
-            child: LoadingScreen(),
-          ),
+        Observer(builder: (context) {
+          if (globalStore.isLoading)
+            return Positioned.fill(
+              child: Container(
+                color: Colors.black.withOpacity(0.1),
+              ),
+            );
+          return SizedBox();
+        }),
+        Observer(builder: (context) {
+          if (globalStore.isLoading)
+            return Center(
+              child: LoadingScreen(),
+            );
+          return SizedBox();
+        }),
       ],
     );
   }

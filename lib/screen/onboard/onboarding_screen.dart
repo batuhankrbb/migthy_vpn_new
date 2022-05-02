@@ -26,7 +26,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       return LoadingWrapper(
-        isLoading: globalStore.isLoading,
+
         child: MainLayout(
           backgroundColor: onboardBackgroundColor,
           content: Stack(
