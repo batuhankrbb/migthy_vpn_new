@@ -78,25 +78,25 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 SizedBox(
                   height: 29.h,
                 ),
-                const PaywallFeatureCell(
+                 PaywallFeatureCell(
                     icon: "assets/images/world.svg",
                     text: language.paywallCountriesText),
                 SizedBox(
                   height: 25.h,
                 ),
-                const PaywallFeatureCell(
+                 PaywallFeatureCell(
                     icon: "assets/images/fast.svg",
                     text: language.paywallFastServersText),
                 SizedBox(
                   height: 25.h,
                 ),
-                const PaywallFeatureCell(
+                 PaywallFeatureCell(
                     icon: "assets/images/bandwith.svg",
                     text: language.paywallBandwithText),
                 SizedBox(
                   height: 25.h,
                 ),
-                const PaywallFeatureCell(
+                 PaywallFeatureCell(
                   icon: "assets/images/no_ads.svg",
                   text: language.paywallNoAds,
                 ),

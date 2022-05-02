@@ -316,4 +316,8 @@ class LanguagePh extends BaseLanguage {
 
   @override
   String get downloadingSpeed => "Downloading: Speed";
+
+  @override
+  // TODO: implement mindRatingUs
+  String get mindRatingUs => throw UnimplementedError();
 }

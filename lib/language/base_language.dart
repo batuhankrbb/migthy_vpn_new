@@ -167,4 +167,5 @@ abstract class BaseLanguage {
   String get letUsKnowWhat;
   String get doYouLikeUs;
   String get paywallNoAds;
+  String get mindRatingUs;
 }

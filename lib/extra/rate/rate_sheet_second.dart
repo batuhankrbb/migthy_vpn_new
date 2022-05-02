@@ -56,7 +56,7 @@ class RateSheetSecond extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: context.width() * (0.02)),
               child: CustomText(
                 rateSheetViewModel.rating >= 3
-                    ? language.mindRatingUs,
+                    ? language.mindRatingUs
                     : language.tellUsProblemNew,
                 fontWeight: fontLight,
                 color: Colors.white,

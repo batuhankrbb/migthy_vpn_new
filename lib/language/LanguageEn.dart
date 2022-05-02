@@ -312,4 +312,7 @@ class LanguageEn extends BaseLanguage {
 
   @override
   String get downloadingSpeed => "Downloading: Speed";
+
+  @override
+  String get mindRatingUs => "Would you mind rating us?";
 }
