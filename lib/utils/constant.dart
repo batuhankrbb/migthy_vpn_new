@@ -14,6 +14,10 @@ const textSize = 16.0;
 const revenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
 const mixpanelKey = '1d81f3fb8497319e960929e845d790e2';
 
+const annualPriceHighConstant = 58.99;
+const annualPriceConstant = 38.99;
+const monthlyPriceConstant = 13.99;
+
 class AppConstant {
   static const appName = 'GPS Spoofer';
   static const appDescription =
@@ -204,25 +208,22 @@ List<LanguageDataModel> languageList() {
 }
 
 final List<Widget> introWidgetsList = [
-   OnboardPageWidget(
+  OnboardPageWidget(
     image: "assets/images/globe_lottie.json",
     title: language.onboard1Title,
-    description:
-      language.onboard2Description,
+    description: language.onboard2Description,
     index: 0,
   ),
-   OnboardPageWidget(
+  OnboardPageWidget(
     image: "assets/images/unlock_lottie.json",
     title: language.onboard2Title,
-    description:
-        language.onboard2Description,
+    description: language.onboard2Description,
     index: 1,
   ),
-   OnboardPageWidget(
+  OnboardPageWidget(
     image: "assets/images/rocket_lottie.json",
     title: language.onboard3Title,
-    description:
-       language.onboard3Description,
+    description: language.onboard3Description,
     index: 2,
   ),
 ];

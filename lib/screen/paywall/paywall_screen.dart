@@ -10,6 +10,7 @@ import 'package:mightyvpn/screen/paywall/widgets/paywall_option_cell.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 import '../../main.dart';
+import '../../utils/constant.dart';
 import '../../utils/purchase_helper.dart';
 import '../onboard/widgets/custom_text_button.dart';
 import '../onboard/widgets/main_layout.dart';
@@ -25,7 +26,6 @@ class _PaywallScreenState extends State<PaywallScreen> {
   @override
   Widget build(BuildContext context) {
     return LoadingWrapper(
-
       child: MainLayout(
         backgroundColor: AppColors.background,
         padding: EdgeInsets.symmetric(horizontal: 15.w),
@@ -103,14 +103,15 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 ),
                 PaywallOptionCell(
                   onTap: () async {
-                    await purchase(
-                        package: PurchaseHelper.shared.packageList[1],
-                        context: context);
+                    try {
+                      await purchase(
+                          package: PurchaseHelper.shared.packageList[1],
+                          context: context);
+                      mixpanel?.track("Click Annual Purchase");
+                    } catch (e) {}
                   },
-                  title:
-                      "${PurchaseHelper.shared.packageList[1].product.priceString} / Year",
-                  subtitle:
-                      "${PurchaseHelper.shared.get12MonthsMonthly()} / Month",
+                  title: "${getYearlyPrice()} / Year",
+                  subtitle: "${getYearlyMonthlyPrice()} / Month",
                   icon: "assets/images/crown.fill.svg",
                   isColored: true,
                 ),
@@ -119,12 +120,14 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 ),
                 PaywallOptionCell(
                   onTap: () async {
-                    await purchase(
-                        package: PurchaseHelper.shared.packageList[0],
-                        context: context);
+                    try {
+                      await purchase(
+                          package: PurchaseHelper.shared.packageList[0],
+                          context: context);
+                      mixpanel?.track("Click Monthly Purchase");
+                    } catch (e) {}
                   },
-                  title:
-                      "${PurchaseHelper.shared.packageList[0].product.priceString} / Month",
+                  title: "${getMonthlyPrice()} / Month",
                   subtitle: "Billed Monthly",
                   icon: "assets/images/icon_rating_star.svg",
                 ),
@@ -160,11 +163,38 @@ class _PaywallScreenState extends State<PaywallScreen> {
 
   Future<void> purchase(
       {required Package package, required BuildContext context}) async {
-    globalStore.isLoading = true;
+   try{
+ globalStore.isLoading = true;
     var isPurchased = await PurchaseHelper.shared.purchase(package);
     globalStore.isLoading = false;
     if (isPurchased) {
       Navigator.pop(context);
+    }
+   }catch(e){}
+  }
+
+  String getMonthlyPrice() {
+    try {
+      return PurchaseHelper.shared.packageList[0].product.priceString;
+    } catch (e) {
+      return "\$$monthlyPriceConstant";
+    }
+  }
+
+  String getYearlyPrice() {
+    try {
+      return PurchaseHelper.shared.packageList[1].product.priceString;
+    } catch (e) {
+      return "\$$annualPriceConstant";
+    }
+  }
+
+  String getYearlyMonthlyPrice() {
+    try {
+      return PurchaseHelper.shared.get12MonthsMonthly();
+    } catch (e) {
+      var prefix = "\$";
+      return prefix + (annualPriceConstant / 12).toStringAsFixed(2);
     }
   }
 }

@@ -4,6 +4,7 @@ import 'package:mightyvpn/extra/rate/rate_sheet_first.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import '../../../main.dart';
+import '../../../utils/constant.dart';
 import '../../../utils/purchase_helper.dart';
 import '../../bottom_nav_bar.dart';
 import 'custom_text_button.dart';
@@ -30,25 +31,25 @@ class OnboardingDotsList extends StatelessWidget {
             CustomTextButton(
                 width: 325,
                 onTap: () async {
-                  await setValue("showOnboard", false);
-                  globalStore.isLoading = true;
-                  var isPurchased = await PurchaseHelper.shared
-                      .purchase(PurchaseHelper.shared.packageList[2]);
-                  globalStore.isLoading = false;
-                  if (isPurchased) {
-                    push(const BottomNavBar(),
-                        isNewTask: true,
-                        pageRouteAnimation: PageRouteAnimation.Fade);
-                  }
-                  mixpanel?.track('Onboard expensive purchase clicked');
+                  try {
+                    await setValue("showOnboard", false);
+                    globalStore.isLoading = true;
+                    var isPurchased = await PurchaseHelper.shared
+                        .purchase(PurchaseHelper.shared.packageList[2]);
+                    globalStore.isLoading = false;
+                    if (isPurchased) {
+                      push(const BottomNavBar(),
+                          isNewTask: true,
+                          pageRouteAnimation: PageRouteAnimation.Fade);
+                    }
+                    mixpanel?.track('Onboard expensive purchase clicked');
+                  } catch (e) {}
                 },
                 text: language.buyAndContinueText),
             SizedBox(
               height: 10,
             ),
-            AutoSizeText(
-                PurchaseHelper.shared.packageList[2].product.priceString + " ." +
-                    language.perYearText),
+            AutoSizeText(getYearlyPrice() + " " + language.perYearText),
             SizedBox(
               height: 5,
             ),
@@ -86,5 +87,13 @@ class OnboardingDotsList extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String getYearlyPrice() {
+    try {
+      return PurchaseHelper.shared.packageList[2].product.priceString;
+    } catch (e) {
+      return "\$$annualPriceHighConstant";
+    }
   }
 }

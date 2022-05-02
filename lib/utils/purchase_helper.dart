@@ -8,28 +8,27 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 
 import '../main.dart';
 
-
 var testPackageMonthly = Package(
   "monthly_package_offer",
   PackageType.annual,
-  Product(
-      "monthly_product", "description", "Monthly Product", 12.99, "\$12.99", "usd"),
+  Product("monthly_product", "description", "Monthly Product", 12.99, "\$12.99",
+      "usd"),
   "monthly_offering",
 );
 
 var testPackageAnnualNormal = Package(
   "yearly_package_offer",
   PackageType.annual,
-  Product(
-      "yearly_product", "description", "Yearly Product", 38.99, "\$38.99", "usd"),
+  Product("yearly_product", "description", "Yearly Product", 38.99, "\$38.99",
+      "usd"),
   "yearly_offering",
 );
 
 var testPackageAnnualHigh = Package(
   "yearly_package_high_offer",
   PackageType.annual,
-  Product(
-      "yearly_product_high", "description", "Yearly Product High", 58.99, "\$58.99", "usd"),
+  Product("yearly_product_high", "description", "Yearly Product High", 58.99,
+      "\$58.99", "usd"),
   "yearly_offering_high",
 );
 
@@ -40,9 +39,7 @@ var testPackageAnnualHigh = Package(
 class PurchaseHelper {
   static var shared = PurchaseHelper();
   var isPremium = false;
-  List<Package> packageList = [
-  testPackageMonthly,testPackageAnnualNormal,testPackageAnnualHigh //TODO KALDIR PRDUCTIONDA
-  ];
+  List<Package> packageList = [];
 
   //*DONE
   Future<void> initPurchase() async {
