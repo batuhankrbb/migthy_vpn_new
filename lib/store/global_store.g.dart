@@ -9,6 +9,23 @@ part of 'global_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$GlobalStore on _GlobalStoreBase, Store {
+  late final _$hasComeFromNotificationAtom =
+      Atom(name: '_GlobalStoreBase.hasComeFromNotification', context: context);
+
+  @override
+  bool get hasComeFromNotification {
+    _$hasComeFromNotificationAtom.reportRead();
+    return super.hasComeFromNotification;
+  }
+
+  @override
+  set hasComeFromNotification(bool value) {
+    _$hasComeFromNotificationAtom
+        .reportWrite(value, super.hasComeFromNotification, () {
+      super.hasComeFromNotification = value;
+    });
+  }
+
   late final _$isPremiumAtom =
       Atom(name: '_GlobalStoreBase.isPremium', context: context);
 
@@ -85,6 +102,7 @@ mixin _$GlobalStore on _GlobalStoreBase, Store {
   @override
   String toString() {
     return '''
+hasComeFromNotification: ${hasComeFromNotification},
 isPremium: ${isPremium},
 hasPaywallAlertShowed: ${hasPaywallAlertShowed},
 isLoading: ${isLoading},

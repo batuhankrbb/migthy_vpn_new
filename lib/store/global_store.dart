@@ -9,6 +9,9 @@ class GlobalStore = _GlobalStoreBase with _$GlobalStore;
 
 abstract class _GlobalStoreBase with Store {
   @observable
+  var hasComeFromNotification = false;
+
+  @observable
   var isPremium = false;
 
   @observable
@@ -41,8 +44,8 @@ abstract class _GlobalStoreBase with Store {
                   versionModel.lowestVersionShouldBe[2]);
           if (currentVersionToCompare < lowestVersionShouldBe) {
             versionToUpdate = versionModel;
-          }else{
-              versionToUpdate = null;
+          } else {
+            versionToUpdate = null;
           }
         }
       }

@@ -17,6 +17,7 @@ dependencies:
   firebase_analytics: ^9.1.5
   firebase_core: ^1.14.1
   firebase_crashlytics: ^2.6.2
+  firebase_messaging: ^11.2.15
   flutter:
     sdk: flutter
   flutter_localizations:

@@ -9,6 +9,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/extra/rate/viewmodel/rate_sheet_viewmodel.dart';
+import 'package:mightyvpn/services/notification_service.dart';
 import 'package:mightyvpn/store/global_store.dart';
 import 'package:mightyvpn/utils/purchase_helper.dart';
 import 'package:mixpanel_flutter/mixpanel_flutter.dart';
@@ -63,6 +64,7 @@ void main() async {
   vpnStore.setIsPrepared(getBoolAsync(SharedPrefKeys.isPrepared));
   vpnStore.setVPNStatus();
   await globalStore.checkVersion();
+  await CloudMessageHelper.shared.init();
   if (!isWeb) {
     int themeModeIndex = getIntAsync(THEME_MODE_INDEX);
     if (themeModeIndex == AppThemeMode.themeModeLight) {

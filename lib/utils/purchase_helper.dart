@@ -3,6 +3,7 @@
 
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'package:mightyvpn/services/notification_service.dart';
 import 'package:mightyvpn/utils/constant.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
@@ -75,6 +76,11 @@ class PurchaseHelper {
       isPremium = purchaserInfo.entitlements.all["premium"]?.isActive ?? false;
       globalStore.isPremium = isPremium;
       setValue("isPremium", isPremium);
+      if (isPremium) {
+        CloudMessageHelper.shared.unsubscribe();
+      } else {
+        CloudMessageHelper.shared.subscribe();
+      }
     } catch (e) {
       isPremium = getBoolAsync("isPremium", defaultValue: false);
       globalStore.isPremium = isPremium;
