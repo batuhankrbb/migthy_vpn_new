@@ -3,26 +3,24 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 import '../model/server_model.dart';
 import '../screen/onboard/widgets/onboard_page_widget.dart';
-import 'images.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-const appName = 'Anonymous VPN';
-
-const iconSize = 26.0;
-const textSize = 16.0;
-
+//* -------- KEYS --------
 const revenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
 const mixpanelKey = '1d81f3fb8497319e960929e845d790e2';
+
+//* -------- PRICING --------
 
 const annualPriceHighConstant = 58.99;
 const annualPriceConstant = 38.99;
 const monthlyPriceConstant = 13.99;
 
+//* -------- CONSTANTS --------
+
+const vpnLogo = 'assets/images/vpn_logo.png';
+
 class AppConstant {
   static const appName = 'GPS Spoofer';
-  static const appDescription =
-      'Surf the web anonymously and securely with IP Changer app template. If you are a web surfer, IP Changer is for you. For an uninterrupted, high speed browsing and zero logs, this app template allows online activity to be private. Facilitate lightning fast speed, IP Changer is compatible with PC, Mac, iOS, Android, Routers, and more. Protect your privacy, keeping you safe from third party tracking, unblock geographically restricted sites, one click to connect VPN, encrypt the internet traffic, and more. Unblock and access streaming videos, movies, series, matches, shows, and more without buffering. The super fast IP Changer app is ideal for streaming games. You can also change your IP address to wherever you want. With a set of resourceful features.';
-
   static const defaultLanguage = 'en';
   static ServerModel defaultServer = ServerModel(
       country: 'Japan',
@@ -32,76 +30,18 @@ class AppConstant {
       flagUrl: LanguageImages.icJapanese);
 }
 
-class AppThemeMode {
-  static const themeModeSystem = 0;
-  static const themeModeLight = 1;
-  static const themeModeDark = 2;
-}
-
-class VpnConstants {
-  //Native Event Name
-  static const String eventStage = 'com.mighty.vpn/vpnStage';
-  static const String eventData = 'com.mighty.vpn/vpnData';
-  static const String methodChannelName = 'vpn_channel';
-
-  // Native Method Name
-  static const String prepareVpn = 'prepareVpn';
-  static const String startVpn = 'startVpn';
-  static const String updateVpn = 'updateVpn';
-  static const String stopVpn = 'stopVpn';
-  static const String fromServer = 'fromServer';
-
-  static const String connecting = 'Connecting';
-  static const String wait = 'Waiting for server reply';
-  static const String auth = 'Authenticating';
-  static const String getConfig = 'Getting client configuration';
-  static const String assignIp = 'Assigning IP addresses';
-  static const String addRoutes = 'Adding routes';
-  static const String connected = 'Connected';
-  static const String disconnected = 'Disconnect';
-  static const String reconnecting = 'Reconnecting';
-  static const String exiting = 'Exiting';
-  static const String resolve = 'Not running';
-  static const String tcpConnect = 'Resolving host names';
-  static const String noNetwork = 'Not Connected to network';
-  static const String connectRetry = 'Retrying';
-  static const String authPending = 'Connecting (TCP)';
-  static const String userPause = 'Connection paused';
-  static const String notConnected = 'Not connected';
-}
-
-class SharedPrefKeys {
-  static const selectedServer = 'selectedServer';
-  static const vpnConnected = 'vpnConnected';
-  static const vpnConnecting = 'vpnConnecting';
-  static const vpnDisconnected = 'vpnDisconnected';
-  static const vpnWaitConnection = 'vpnWaitConnection';
-  static const language = 'language';
-  static const isPrepared = 'isPrepared';
-}
+//* -------- URLS --------
 
 class Urls {
-  static const appDescription = "";
-  static String copyRight =
-      'copyright @${DateTime.now().year} ${AppConstant.appName}';
   static const packageName = "com.location.spoofer.gps";
   static const privacyPolicy = "https://www.google.com/";
   static const termsAndConditionURL = 'https://www.google.com/';
   static const supportURL = 'https://mighty.desky.support/';
   static const appShareURL = '$playStoreBaseURL$packageName';
   static const mailto = 'hi@appstun.com';
-  static const purchaseUrl =
-      'https://codecanyon.net/user/meetmighty/portfolio?direction=desc&order_by=sortable_at&view=grid';
-  static const documentation =
-      'https://meetmighty.com/codecanyon/document/mightyvpn/';
 }
 
-const AD_MOB_OPEN_AD_ID = "ca-app-pub-3940256099942544/3419835294";
-const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
-const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
-const AD_MOB_REWARDED_ID = "ca-app-pub-8037703403650159/6016175059";
-const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-3940256099942544/2247696110";
-const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-3940256099942544/2247696110";
+//* -------- COLORS --------
 
 const primaryColor = Color(0xFF005AFF);
 const appButtonColor = Color(0xFFe3effe);
@@ -113,8 +53,39 @@ const scaffoldColorDark = Color(0xFF090909);
 const appButtonColorDark = Color(0xFF282828);
 const premiumColor = Color(0xFFFFD200);
 
-const vpnLogo = 'assets/images/vpn_logo.png';
-const onBoardScreenImg = 'assets/images/onBoardScreenImage2.png';
+//* -------- ADMOB --------
+
+const AD_MOB_OPEN_AD_ID = "ca-app-pub-3940256099942544/3419835294";
+const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
+const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
+const AD_MOB_REWARDED_ID = "ca-app-pub-8037703403650159/6016175059";
+const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-3940256099942544/2247696110";
+const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-3940256099942544/2247696110";
+
+//* -------- ONBOARD --------
+
+final List<Widget> introWidgetsList = [
+  OnboardPageWidget(
+    image: "assets/images/globe_lottie.json",
+    title: language.onboard1Title,
+    description: language.onboard2Description,
+    index: 0,
+  ),
+  OnboardPageWidget(
+    image: "assets/images/unlock_lottie.json",
+    title: language.onboard2Title,
+    description: language.onboard2Description,
+    index: 1,
+  ),
+  OnboardPageWidget(
+    image: "assets/images/rocket_lottie.json",
+    title: language.onboard3Title,
+    description: language.onboard3Description,
+    index: 2,
+  ),
+];
+
+//* -------- LOCALIZATIONS --------
 
 class LanguageImages {
   static const icUs = "assets/flag/ic_us.png";
@@ -207,23 +178,54 @@ List<LanguageDataModel> languageList() {
   ];
 }
 
-final List<Widget> introWidgetsList = [
-  OnboardPageWidget(
-    image: "assets/images/globe_lottie.json",
-    title: language.onboard1Title,
-    description: language.onboard2Description,
-    index: 0,
-  ),
-  OnboardPageWidget(
-    image: "assets/images/unlock_lottie.json",
-    title: language.onboard2Title,
-    description: language.onboard2Description,
-    index: 1,
-  ),
-  OnboardPageWidget(
-    image: "assets/images/rocket_lottie.json",
-    title: language.onboard3Title,
-    description: language.onboard3Description,
-    index: 2,
-  ),
-];
+//* ------------------------------- AŞAĞISI RESKİN EDİLMEYECEK ---------------------------
+class AppThemeMode {
+  static const themeModeSystem = 0;
+  static const themeModeLight = 1;
+  static const themeModeDark = 2;
+}
+
+const iconSize = 26.0;
+const textSize = 16.0;
+
+class VpnConstants {
+  //Native Event Name
+  static const String eventStage = 'com.mighty.vpn/vpnStage';
+  static const String eventData = 'com.mighty.vpn/vpnData';
+  static const String methodChannelName = 'vpn_channel';
+
+  // Native Method Name
+  static const String prepareVpn = 'prepareVpn';
+  static const String startVpn = 'startVpn';
+  static const String updateVpn = 'updateVpn';
+  static const String stopVpn = 'stopVpn';
+  static const String fromServer = 'fromServer';
+
+  static const String connecting = 'Connecting';
+  static const String wait = 'Waiting for server reply';
+  static const String auth = 'Authenticating';
+  static const String getConfig = 'Getting client configuration';
+  static const String assignIp = 'Assigning IP addresses';
+  static const String addRoutes = 'Adding routes';
+  static const String connected = 'Connected';
+  static const String disconnected = 'Disconnect';
+  static const String reconnecting = 'Reconnecting';
+  static const String exiting = 'Exiting';
+  static const String resolve = 'Not running';
+  static const String tcpConnect = 'Resolving host names';
+  static const String noNetwork = 'Not Connected to network';
+  static const String connectRetry = 'Retrying';
+  static const String authPending = 'Connecting (TCP)';
+  static const String userPause = 'Connection paused';
+  static const String notConnected = 'Not connected';
+}
+
+class SharedPrefKeys {
+  static const selectedServer = 'selectedServer';
+  static const vpnConnected = 'vpnConnected';
+  static const vpnConnecting = 'vpnConnecting';
+  static const vpnDisconnected = 'vpnDisconnected';
+  static const vpnWaitConnection = 'vpnWaitConnection';
+  static const language = 'language';
+  static const isPrepared = 'isPrepared';
+}

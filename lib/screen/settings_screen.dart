@@ -8,7 +8,6 @@ import 'package:mightyvpn/screen/server_list_screen.dart';
 import 'package:mightyvpn/utils/AdMobUtils.dart';
 import 'package:mightyvpn/utils/purchase_helper.dart';
 import '../main.dart';
-import 'about_screen.dart';
 import 'language_screen.dart';
 import 'theme_screen.dart';
 import '../utils/common.dart';
@@ -194,7 +193,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: language.lblShareApp,
                   onTap: () {
                     Share.share(
-                      '${language.lblShare} ${AppConstant.appName} app\n\n${AppConstant.appDescription}\n\n$playStoreBaseURL${packageInfo?.packageName}',
+                      '${language.lblShare} ${AppConstant.appName} \n${Urls.appShareURL}',
                     );
                   },
                 );
