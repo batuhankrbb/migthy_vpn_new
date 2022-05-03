@@ -41,7 +41,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   void init() async {
     initializeStream();
     loadInterstitialAd();
-    Future.delayed(Duration(seconds: 1,milliseconds:500), () {
+    Future.delayed(Duration(seconds: 1, milliseconds: 500), () {
       if (globalStore.hasComeFromNotification) {
         showPaywallDashboardAlert(context);
       }
@@ -335,6 +335,7 @@ Future<dynamic> showPaywallDashboardAlert(BuildContext context) async {
                               ),
                               Center(
                                 child: Text(language.onlyAvailableTodayText +
+                                    " " +
                                     getLowYearlyPriceForAlert() +
                                     " " +
                                     language.perYearText),

@@ -61,7 +61,6 @@ class _HardUpdateScreenState extends State<HardUpdateScreen>
                 child: CustomText(
                   globalStore.versionToUpdate!.title,
                   fontWeight: fontBold,
-                  maxLines: 1,
                   fontSize: context.getWidth(0.08),
                 ),
               );
@@ -74,7 +73,6 @@ class _HardUpdateScreenState extends State<HardUpdateScreen>
               child: CustomText(
                 globalStore.versionToUpdate!.subTitle,
                 fontWeight: fontRegular,
-                maxLines: 2,
                 textAlign: TextAlign.center,
                 fontSize: context.width() * (0.04),
               ),

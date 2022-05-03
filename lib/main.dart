@@ -63,8 +63,8 @@ void main() async {
   await loadOpenAd();
   vpnStore.setIsPrepared(getBoolAsync(SharedPrefKeys.isPrepared));
   vpnStore.setVPNStatus();
-  await globalStore.checkVersion();
-  await CloudMessageHelper.shared.init();
+  globalStore.checkVersion();
+  CloudMessageHelper.shared.init();
   if (!isWeb) {
     int themeModeIndex = getIntAsync(THEME_MODE_INDEX);
     if (themeModeIndex == AppThemeMode.themeModeLight) {

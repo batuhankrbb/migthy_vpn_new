@@ -36,6 +36,7 @@ class CloudMessageHelper {
 
   void _handleMessage(RemoteMessage message) {
     globalStore.hasComeFromNotification = true;
+    mixpanel?.track("Notification Clicked");
   }
 
   Future<void> subscribe() async {
