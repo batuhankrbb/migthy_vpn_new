@@ -14,6 +14,7 @@ import 'package:nb_utils/nb_utils.dart';
 
 
 //* -------- KEYS --------
+
 const revenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
 const mixpanelKey = '1d81f3fb8497319e960929e845d790e2';
 
