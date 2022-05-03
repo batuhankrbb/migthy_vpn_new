@@ -53,12 +53,12 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   child: Center(
                       child: LottieBuilder.asset(
                     "assets/images/rocket_lottie.json",
-                    width: 150.w,
-                    height: 150.w,
+                    width: 140.w,
+                    height: 140.w,
                   )),
                 ),
                 SizedBox(
-                  height: 40.h,
+                  height: 35.h,
                 ),
                 Text(
                   language.paywallTitleText,
@@ -78,30 +78,30 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 SizedBox(
                   height: 29.h,
                 ),
-                 PaywallFeatureCell(
+                PaywallFeatureCell(
                     icon: "assets/images/world.svg",
                     text: language.paywallCountriesText),
                 SizedBox(
                   height: 25.h,
                 ),
-                 PaywallFeatureCell(
+                PaywallFeatureCell(
                     icon: "assets/images/fast.svg",
                     text: language.paywallFastServersText),
                 SizedBox(
                   height: 25.h,
                 ),
-                 PaywallFeatureCell(
+                PaywallFeatureCell(
                     icon: "assets/images/bandwith.svg",
                     text: language.paywallBandwithText),
                 SizedBox(
                   height: 25.h,
                 ),
-                 PaywallFeatureCell(
+                PaywallFeatureCell(
                   icon: "assets/images/no_ads.svg",
                   text: language.paywallNoAds,
                 ),
                 SizedBox(
-                  height: 60.h,
+                  height: 50.h,
                 ),
                 PaywallOptionCell(
                   onTap: () async {

@@ -18,11 +18,15 @@ class PaywallFeatureCell extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SvgPicture.asset(
-          icon,
-          color: Color(0xFFB3DAF4),
+        Container(
           width: 24.w,
           height: 24.w,
+          child: SvgPicture.asset(
+            icon,
+            color: Color(0xFFB3DAF4),
+            width: 24.w,
+            height: 24.w,
+          ),
         ),
         SizedBox(
           width: 10.w,
