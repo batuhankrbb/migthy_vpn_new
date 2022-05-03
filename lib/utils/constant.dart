@@ -5,6 +5,14 @@ import '../model/server_model.dart';
 import '../screen/onboard/widgets/onboard_page_widget.dart';
 import 'package:nb_utils/nb_utils.dart';
 
+//* -------- DON'T FORGET --------
+//? App Name'i değiştir android dosyalarından
+//? Bundle id değitşir android dosyalarından
+//? Projeyi Firebase'e ekleyip Firebase JSON ları değiştir
+//? Proje Logosunu değiştir android dosyalarından
+//? Proje hard update'i için firebase'in app kısmına bundle id ile yeni document ekle
+
+
 //* -------- KEYS --------
 const revenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
 const mixpanelKey = '1d81f3fb8497319e960929e845d790e2';
