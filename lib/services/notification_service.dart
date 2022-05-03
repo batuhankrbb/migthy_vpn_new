@@ -7,7 +7,15 @@ class CloudMessageHelper {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   Future<void> init() async {
-    NotificationSettings settings = await messaging.requestPermission();
+    NotificationSettings settings = await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: true,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
 
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
@@ -24,19 +32,17 @@ class CloudMessageHelper {
       _handleMessage(initialMessage);
     }
     FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
-    var token = await FirebaseMessaging.instance.getToken();
-    print("token = $token");
   }
 
   void _handleMessage(RemoteMessage message) {
     globalStore.hasComeFromNotification = true;
   }
 
-  Future<void> subscribe() async{
- await FirebaseMessaging.instance.subscribeToTopic('vpn-non-premium');
+  Future<void> subscribe() async {
+    await FirebaseMessaging.instance.subscribeToTopic('vpn-non-premium');
   }
 
-    Future<void> unsubscribe() async{
- await FirebaseMessaging.instance.unsubscribeFromTopic('vpn-non-premium');
+  Future<void> unsubscribe() async {
+    await FirebaseMessaging.instance.unsubscribeFromTopic('vpn-non-premium');
   }
 }
