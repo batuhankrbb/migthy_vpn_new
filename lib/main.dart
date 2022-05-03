@@ -44,7 +44,6 @@ StreamSubscription? stageStream;
 StreamSubscription? dataStream;
 Mixpanel? mixpanel;
 
-
 late BaseLanguage language;
 
 void main() async {
@@ -59,10 +58,11 @@ void main() async {
   MobileAds.instance.initialize();
   await PurchaseHelper.shared.initPurchase();
   PurchaseHelper.shared.loadProducts();
-   mixpanel = await Mixpanel.init(mixpanelKey, optOutTrackingDefault: false);
+  mixpanel = await Mixpanel.init(mixpanelKey, optOutTrackingDefault: false);
   await loadOpenAd();
   vpnStore.setIsPrepared(getBoolAsync(SharedPrefKeys.isPrepared));
   vpnStore.setVPNStatus();
+  await globalStore.checkVersion();
   if (!isWeb) {
     int themeModeIndex = getIntAsync(THEME_MODE_INDEX);
     if (themeModeIndex == AppThemeMode.themeModeLight) {
@@ -149,13 +149,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-        SystemChrome.setPreferredOrientations([
+    SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
     return Observer(
       builder: (_) => ScreenUtilInit(
-         designSize: const Size(414, 896),
+        designSize: const Size(414, 896),
         child: MaterialApp(
           title: 'GPS Spoofer',
           debugShowCheckedModeBanner: false,

@@ -7,6 +7,7 @@ import 'package:mightyvpn/screen/onboard/widgets/onboard_page_widget.dart';
 import 'package:mightyvpn/screen/onboard/widgets/onboarding_dots_list.dart';
 
 import '../../utils/constant.dart';
+import '../hard_update_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -25,6 +26,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
+         if (globalStore.versionToUpdate != null) {
+      return HardUpdateScreen();
+    }
       return LoadingWrapper(
 
         child: MainLayout(

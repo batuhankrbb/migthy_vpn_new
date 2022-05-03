@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mightyvpn/screen/hard_update_screen.dart';
 import '../main.dart';
 import '../utils/constant.dart';
 import 'dashboard_screen.dart';
@@ -38,6 +40,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    return Observer(builder: (context) {
+       if (globalStore.versionToUpdate != null) {
+      return HardUpdateScreen();
+    }
     return Scaffold(
       body: IndexedStack(
         children: vpnTabs,
@@ -90,5 +96,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ],
       ),
     );
+    });
   }
 }

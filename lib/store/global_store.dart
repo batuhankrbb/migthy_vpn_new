@@ -39,14 +39,15 @@ abstract class _GlobalStoreBase with Store {
               versionModel.lowestVersionShouldBe[0] +
                   versionModel.lowestVersionShouldBe[1] +
                   versionModel.lowestVersionShouldBe[2]);
-          print("xx current = ${currentVersionToCompare}");
-          print("xx lowest = ${lowestVersionShouldBe}");
           if (currentVersionToCompare < lowestVersionShouldBe) {
             versionToUpdate = versionModel;
+          }else{
+              versionToUpdate = null;
           }
         }
       }
     } catch (e) {
+      versionToUpdate = null;
       print(e);
     }
   }
