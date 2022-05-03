@@ -244,79 +244,80 @@ class LanguagePh extends BaseLanguage {
   String get onlyAvailableTodayText => "Available lang ngayong araw.";
 
   @override
-  String get billedMonthlyOrWeeklyText => "Billed Monthly";
+  String get billedMonthlyOrWeeklyText => "Sinisingil Buwan-buwan";
 
   @override
-  String get doYouLikeUs => "Do you like us?";
+  String get doYouLikeUs => "Gusto mo ba kami?";
 
   @override
   String get letUsKnowWhat =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "Gusto mo bang sabihin sa amin ang iyong problema? Nangangako kami na sasagutin ka namin at aayusin ang iyong problema sa lalong madaling panahon.";
 
   @override
-  String get monthOrWeekText => "Month";
+  String get monthOrWeekText => "Buwan";
 
   @override
-  String get noThanks => "NO, THANKS";
+  String get noThanks => "SALAMAT NALANG";
 
   @override
-  String get paywallBandwithText => "Enjoy Unlimited Bandwidth";
+  String get paywallBandwithText => "Tangkilikin ang Unlimited Bandwidth";
 
   @override
   String get paywallCountriesText =>
-      "Get all high-quality servers in 80 countries";
+      "Kunin ang lahat ng de-kalidad na server sa 80 bansa";
 
   @override
-  String get paywallFastServersText => "8x Faster Servers";
+  String get paywallFastServersText => "8x Mas Mabilis na Mga Server";
 
   @override
-  String get paywallNoAds => "No ads";
+  String get paywallNoAds => "Walang mga ad";
 
   @override
-  String get paywallSubTitleText => "Unlimited access to all features";
+  String get paywallSubTitleText =>
+      "Walang limitasyong pag-access sa lahat ng mga tampok";
 
   @override
-  String get paywallTitleText => "Get Premium";
+  String get paywallTitleText => "Kumuha ng Premium";
 
   @override
   String get premiumSmallText =>
-      "Get access to all servers, no ads, 8x faster, all features.";
+      "Magkaroon ng access sa lahat ng server, walang ad, 8x na mas mabilis, lahat ng feature.";
 
   @override
   String get recurringText =>
-      "Recurring subscription. Cancel anytime on Google Play Store";
+      "Paulit-ulit na subscription. Kanselahin anumang oras sa Google Play Store";
 
   @override
-  String get restorePurchase => "Restore Purchases";
+  String get restorePurchase => "Ibalik ang Mga Pagbili";
 
   @override
-  String get sureText => "SURE";
+  String get sureText => "SIGURADO";
 
   @override
   String get tellUsProblemNew =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "Gusto mo bang sabihin sa amin ang iyong problema? Nangangako kami na sasagutin ka namin at aayusin ang iyong problema sa lalong madaling panahon.";
 
   @override
-  String get thatIsSad => "Oh! That is sad.";
+  String get thatIsSad => "Oh! Iyan ay malungkot.";
 
   @override
-  String get uploadingSpeed => "Uploading: Speed";
+  String get uploadingSpeed => "Pag-upload: Bilis";
 
   @override
-  String get vpnPermissionDenied => "VPN Permission Denied";
+  String get vpnPermissionDenied => "Tinanggihan ang Pahintulot ng VPN";
 
   @override
-  String get vpnPermissionGranted => "VPN Permission Granted";
+  String get vpnPermissionGranted => "Ipinagkaloob ang Pahintulot ng VPN";
 
   @override
-  String get yearText => "Year";
+  String get yearText => "Taon";
 
   @override
-  String get youAreAmazing => "You are amazing!";
+  String get youAreAmazing => "Ang galing mo!";
 
   @override
-  String get downloadingSpeed => "Downloading: Speed";
+  String get downloadingSpeed => "Dina-download: Bilis";
 
   @override
-  String get mindRatingUs => "Would you mind rating us?";
+  String get mindRatingUs => "Gusto mo bang i-rate kami?";
 }

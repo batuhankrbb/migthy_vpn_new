@@ -236,79 +236,77 @@ class LanguageKo extends BaseLanguage {
   String get onlyAvailableTodayText => "오늘만 가능합니다.";
 
   @override
-  String get billedMonthlyOrWeeklyText => "Billed Monthly";
+  String get billedMonthlyOrWeeklyText => "매월 청구";
 
   @override
-  String get doYouLikeUs => "Do you like us?";
+  String get doYouLikeUs => "당신은 우리를 좋아합니까?";
 
   @override
   String get letUsKnowWhat =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "문제를 알려주시겠습니까? 우리는 인간적으로 가능한 한 빨리 회신하고 문제를 해결할 것을 약속합니다.";
 
   @override
-  String get monthOrWeekText => "Month";
+  String get monthOrWeekText => "월";
 
   @override
-  String get noThanks => "NO, THANKS";
+  String get noThanks => "고맙지 만 사양 할게";
 
   @override
-  String get paywallBandwithText => "Enjoy Unlimited Bandwidth";
+  String get paywallBandwithText => "무제한 대역폭 즐기기";
 
   @override
-  String get paywallCountriesText =>
-      "Get all high-quality servers in 80 countries";
+  String get paywallCountriesText => "80개국의 모든 고품질 서버 확보";
 
   @override
-  String get paywallFastServersText => "8x Faster Servers";
+  String get paywallFastServersText => "8배 더 빠른 서버";
 
   @override
-  String get paywallNoAds => "No ads";
+  String get paywallNoAds => "광고 없음";
 
   @override
-  String get paywallSubTitleText => "Unlimited access to all features";
+  String get paywallSubTitleText => "모든 기능에 대한 무제한 액세스";
 
   @override
-  String get paywallTitleText => "Get Premium";
+  String get paywallTitleText => "프리미엄 받기";
 
   @override
   String get premiumSmallText =>
-      "Get access to all servers, no ads, 8x faster, all features.";
+      "광고 없이 모든 서버에 액세스할 수 있으며 8배 더 빠르고 모든 기능을 사용할 수 있습니다.";
 
   @override
-  String get recurringText =>
-      "Recurring subscription. Cancel anytime on Google Play Store";
+  String get recurringText => "갱신 가능한 구독, Google Play 스토어에서 언제든지 취소할 수 있습니다.";
 
   @override
-  String get restorePurchase => "Restore Purchases";
+  String get restorePurchase => "구매를 복원";
 
   @override
-  String get sureText => "SURE";
+  String get sureText => "확실한";
 
   @override
   String get tellUsProblemNew =>
-      "Would you like to tell us your problem?  We promise that we'll reply you and fix your problem as soon as humanly possible.";
+      "문제를 알려주시겠습니까? 우리는 인간적으로 가능한 한 빨리 회신하고 문제를 해결할 것을 약속합니다.";
 
   @override
-  String get thatIsSad => "Oh! That is sad.";
+  String get thatIsSad => "오! 슬프다.";
 
   @override
-  String get uploadingSpeed => "Uploading: Speed";
+  String get uploadingSpeed => "업로드: 속도";
 
   @override
-  String get vpnPermissionDenied => "VPN Permission Denied";
+  String get vpnPermissionDenied => "VPN 권한이 거부되었습니다.";
 
   @override
-  String get vpnPermissionGranted => "VPN Permission Granted";
+  String get vpnPermissionGranted => "VPN 권한 부여";
 
   @override
-  String get yearText => "Year";
+  String get yearText => "년도";
 
   @override
-  String get youAreAmazing => "You are amazing!";
+  String get youAreAmazing => "진짜 대단한데!";
 
   @override
-  String get downloadingSpeed => "Downloading: Speed";
+  String get downloadingSpeed => "다운로드: 속도";
 
   @override
-  String get mindRatingUs => "Would you mind rating us?";
+  String get mindRatingUs => "평가해 주시겠습니까?";
 }

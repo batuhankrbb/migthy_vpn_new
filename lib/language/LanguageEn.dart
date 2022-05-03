@@ -280,7 +280,7 @@ class LanguageEn extends BaseLanguage {
 
   @override
   String get recurringText =>
-      "Recurring subscription. Cancel anytime on Google Play Store";
+      "Renewable subscription. Cancel anytime on Google Play Store";
 
   @override
   String get restorePurchase => "Restore Purchases";
