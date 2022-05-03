@@ -58,12 +58,37 @@ mixin _$GlobalStore on _GlobalStoreBase, Store {
     });
   }
 
+  late final _$versionToUpdateAtom =
+      Atom(name: '_GlobalStoreBase.versionToUpdate', context: context);
+
+  @override
+  VersionModel? get versionToUpdate {
+    _$versionToUpdateAtom.reportRead();
+    return super.versionToUpdate;
+  }
+
+  @override
+  set versionToUpdate(VersionModel? value) {
+    _$versionToUpdateAtom.reportWrite(value, super.versionToUpdate, () {
+      super.versionToUpdate = value;
+    });
+  }
+
+  late final _$checkVersionAsyncAction =
+      AsyncAction('_GlobalStoreBase.checkVersion', context: context);
+
+  @override
+  Future<void> checkVersion() {
+    return _$checkVersionAsyncAction.run(() => super.checkVersion());
+  }
+
   @override
   String toString() {
     return '''
 isPremium: ${isPremium},
 hasPaywallAlertShowed: ${hasPaywallAlertShowed},
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+versionToUpdate: ${versionToUpdate}
     ''';
   }
 }

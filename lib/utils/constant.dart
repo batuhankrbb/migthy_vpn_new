@@ -84,7 +84,7 @@ class Urls {
   static const appDescription = "";
   static String copyRight =
       'copyright @${DateTime.now().year} ${AppConstant.appName}';
-  static const packageName = "com.mighty.vpn";
+  static const packageName = "com.location.spoofer.gps";
   static const privacyPolicy = "https://www.google.com/";
   static const termsAndConditionURL = 'https://www.google.com/';
   static const supportURL = 'https://mighty.desky.support/';
