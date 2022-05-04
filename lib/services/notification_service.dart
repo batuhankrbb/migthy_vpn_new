@@ -39,7 +39,11 @@ class CloudMessageHelper {
     if (message.data["link"] != null) {
       mixpanel?.track("Notification Clicked Link");
       Future.delayed(Duration(seconds: 4), () {
-        launch(message.data["link"]);
+        try {
+          launch(message.data["link"]);
+        } catch (e) {
+          print(e);
+        }
       });
     } else {
       globalStore.hasComeFromNotification = true;

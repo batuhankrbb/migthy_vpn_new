@@ -105,14 +105,18 @@ class AppCommon {
   }
 
   static Future<void> launchUrl(String url, {bool forceWebView = false}) async {
-    await launch(url,
-            forceWebView: forceWebView,
-            enableJavaScript: true,
-            statusBarBrightness: Brightness.light,
-            webOnlyWindowName: "News")
-        .catchError((e) {
-      toast('Invalid URL: $url');
-    });
+    try {
+      await launch(url,
+              forceWebView: forceWebView,
+              enableJavaScript: true,
+              statusBarBrightness: Brightness.light,
+              webOnlyWindowName: "News")
+          .catchError((e) {
+        toast('Invalid URL: $url');
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 }
 

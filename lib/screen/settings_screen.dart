@@ -165,7 +165,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               leading: const Icon(Icons.privacy_tip_outlined, size: 20),
               trailing: trailingIcon(),
               onTap: () {
-                launch(Urls.privacyPolicy);
+                try {
+                  launch(Urls.privacyPolicy);
+                } catch (e) {
+                  print(e);
+                }
               },
             ),
             SettingItemWidget(

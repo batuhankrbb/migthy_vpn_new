@@ -85,11 +85,15 @@ class _HardUpdateScreenState extends State<HardUpdateScreen>
               onTap: () async {
                 try {
                   var urlToOpen = globalStore.versionToUpdate!.link;
-                  await launch(
-                    urlToOpen,
-                    forceSafariVC: false,
-                    forceWebView: false,
-                  );
+                  try {
+                    await launch(
+                      urlToOpen,
+                      forceSafariVC: false,
+                      forceWebView: false,
+                    );
+                  } catch (e) {
+                    print(e);
+                  }
                 } catch (e) {
                   globalStore.versionToUpdate = null;
                 }
