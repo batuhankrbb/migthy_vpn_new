@@ -62,45 +62,57 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   void startVPN() {
-    appStore.setLoading(true);
-    vpnServicesMethods
-        .startVpn(server: appStore.mSelectedServerModel)
-        .then((value) {
-      initializeStream();
-    }).catchError((e) {
-      toast(e.toString(), print: true);
-    });
+    try {
+      appStore.setLoading(true);
+      vpnServicesMethods
+          .startVpn(server: appStore.mSelectedServerModel)
+          .then((value) {
+        initializeStream();
+      }).catchError((e) {
+        toast(e.toString(), print: true);
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   void prepareVPN() {
-    vpnServicesMethods.prepareVpn().then(
-      (value) {
-        log(value);
-        if (value == "0") {
-          toast(language.vpnPermissionDenied);
-          vpnStore.setIsPrepared(false, initialize: true);
-        } else if (value == "-1") {
-          toast(language.vpnPermissionGranted);
-          vpnStore.setIsPrepared(true, initialize: true);
-        } else if (value == "1") {
-          vpnStore.setIsPrepared(true, initialize: true);
-          startVPN();
-        }
-      },
-    ).catchError((e) {
-      log(e.toString());
-    });
+    try {
+      vpnServicesMethods.prepareVpn().then(
+        (value) {
+          log(value);
+          if (value == "0") {
+            toast(language.vpnPermissionDenied);
+            vpnStore.setIsPrepared(false, initialize: true);
+          } else if (value == "-1") {
+            toast(language.vpnPermissionGranted);
+            vpnStore.setIsPrepared(true, initialize: true);
+          } else if (value == "1") {
+            vpnStore.setIsPrepared(true, initialize: true);
+            startVPN();
+          }
+        },
+      ).catchError((e) {
+        log(e.toString());
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> stopVpn() async {
-    await vpnServicesMethods.stopVpn().then((value) {
-      toast(language.lblDisconnect);
-      showInterstitialAd();
-      appStore.setLoading(false);
-    }).catchError((e) {
-      toast(e.toString());
-    });
-    vpnStore.setVPNStatus();
+    try {
+      await vpnServicesMethods.stopVpn().then((value) {
+        toast(language.lblDisconnect);
+        showInterstitialAd();
+        appStore.setLoading(false);
+      }).catchError((e) {
+        toast(e.toString());
+      });
+      vpnStore.setVPNStatus();
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override

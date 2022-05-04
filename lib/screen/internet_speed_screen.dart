@@ -73,96 +73,108 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
   }
 
   void init() async {
-    setupNativeAd();
+    try {
+       setupNativeAd();
+    } catch (e) {
+      print(e);
+    }
   }
 
   void startDownloading() {
-    internetSpeedTest.startDownloadTesting(
-      onDone: (double transferRate, SpeedUnit unit) {
-        setState(() {
-          downloadRate = transferRate;
-          if (globalStore.isPremium) {
-            if ((downloadRate *= 2.5) > 62.53) {
-              uploadRate = 62.53;
+    try {
+      internetSpeedTest.startDownloadTesting(
+        onDone: (double transferRate, SpeedUnit unit) {
+          setState(() {
+            downloadRate = transferRate;
+            if (globalStore.isPremium) {
+              if ((downloadRate *= 2.5) > 62.53) {
+                uploadRate = 62.53;
+              }
             }
-          }
-          protectGauge(downloadRate);
-          unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
-          downloadProgress = 100.0;
-          displayPer = 100.0;
-        });
-        startUploading();
-      },
-      onProgress: (double percent, double transferRate, SpeedUnit unit) {
-        value = language.downloadingSpeed;
-        setState(() {
-          downloadRate = transferRate;
-          if (globalStore.isPremium) {
-            if ((downloadRate *= 2.5) > 62.53) {
-              uploadRate = 62.53;
+            protectGauge(downloadRate);
+            unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
+            downloadProgress = 100.0;
+            displayPer = 100.0;
+          });
+          startUploading();
+        },
+        onProgress: (double percent, double transferRate, SpeedUnit unit) {
+          value = language.downloadingSpeed;
+          setState(() {
+            downloadRate = transferRate;
+            if (globalStore.isPremium) {
+              if ((downloadRate *= 2.5) > 62.53) {
+                uploadRate = 62.53;
+              }
             }
-          }
-          protectGauge(downloadRate);
-          unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
-          downloadProgress = percent;
-          displayPer = percent;
-        });
-      },
-      onError: (String errorMessage, String speedTestError) {
-        toast(language.lblDownloadTestFailed);
-        setState(() {
-          value = language.lblStartTest;
-          isTesting = false;
-        });
-      },
-      fileSize: 1,
-    );
+            protectGauge(downloadRate);
+            unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
+            downloadProgress = percent;
+            displayPer = percent;
+          });
+        },
+        onError: (String errorMessage, String speedTestError) {
+          toast(language.lblDownloadTestFailed);
+          setState(() {
+            value = language.lblStartTest;
+            isTesting = false;
+          });
+        },
+        fileSize: 1,
+      );
+    } catch (e) {
+      print(e);
+    }
   }
 
   void startUploading() {
-    internetSpeedTest.startUploadTesting(
-      onDone: (double transferRate, SpeedUnit unit) {
-        setState(() {
-          uploadRate = transferRate;
-          uploadRate = uploadRate * 10;
-          if (globalStore.isPremium) {
-            if ((uploadRate *= 8) > 36.82) {
-              uploadRate = 36.82;
+    try {
+      internetSpeedTest.startUploadTesting(
+        onDone: (double transferRate, SpeedUnit unit) {
+          setState(() {
+            uploadRate = transferRate;
+            uploadRate = uploadRate * 10;
+            if (globalStore.isPremium) {
+              if ((uploadRate *= 8) > 36.82) {
+                uploadRate = 36.82;
+              }
             }
-          }
-          protectGauge(uploadRate);
-          unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
-          uploadProgress = 100.0;
-          displayPer = 100.0;
-          isTesting = false;
-          value = "";
-        });
-      },
-      onProgress: (double percent, double transferRate, SpeedUnit unit) {
-        value = language.uploadingSpeed;
+            protectGauge(uploadRate);
+            unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
+            uploadProgress = 100.0;
+            displayPer = 100.0;
+            isTesting = false;
+            value = "";
+          });
+        },
+        onProgress: (double percent, double transferRate, SpeedUnit unit) {
+          value = language.uploadingSpeed;
 
-        setState(() {
-          uploadRate = transferRate;
-          uploadRate = uploadRate * 10;
-          if (globalStore.isPremium) {
-            if ((uploadRate *= 8) > 36.82) {
-              uploadRate = 36.82;
+          setState(() {
+            uploadRate = transferRate;
+            uploadRate = uploadRate * 10;
+            if (globalStore.isPremium) {
+              if ((uploadRate *= 8) > 36.82) {
+                uploadRate = 36.82;
+              }
             }
-          }
-          protectGauge(uploadRate);
-          unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
-          uploadProgress = percent;
-          displayPer = percent;
-        });
-      },
-      onError: (String errorMessage, String speedTestError) {
-        toast(language.lblUploadTestFailed);
-        setState(() {
-          isTesting = false;
-        });
-      },
-      fileSize: 1,
-    );
+            protectGauge(uploadRate);
+            unitText = unit == SpeedUnit.Kbps ? 'Kb/s' : 'Mb/s';
+            uploadProgress = percent;
+            displayPer = percent;
+          });
+        },
+        onError: (String errorMessage, String speedTestError) {
+          toast(language.lblUploadTestFailed);
+          setState(() {
+            isTesting = false;
+          });
+        },
+        fileSize: 1,
+      );
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -303,5 +315,3 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
     );
   }
 }
-
-
