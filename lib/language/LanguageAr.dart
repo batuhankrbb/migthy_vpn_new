@@ -193,7 +193,7 @@ class LanguageAr extends BaseLanguage {
 
   @override
   String get onboard3Description =>
-      "هل سئمت من التطبيقات البطيئة الأخرى الموجودة هناك؟ جرب خادمنا السريع x8 المحسن. لن تواجهك مشاكل بشأن سرعة الإنترنت مرة أخرى.";
+      "جرب خادمنا المحسن x8 Faster. لن تواجهك مشكلات بشأن سرعة الإنترنت مرة أخرى.";
 
   @override
   String get onboard3Title => "8x اتصال إنترنت أسرع";
