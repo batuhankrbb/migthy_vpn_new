@@ -60,7 +60,11 @@ class PurchaseHelper {
       var offerings = await Purchases.getOfferings();
 
       if (offerings.current != null) {
-        packageList = offerings.current!.availablePackages;
+        var offeringList = offerings.all.values.toList();
+        offeringList.forEach((element) {
+          packageList.addAll(element.availablePackages);
+        });
+        
         packageList.sort((first, second) =>
             first.product.price.compareTo(second.product.price));
       }
