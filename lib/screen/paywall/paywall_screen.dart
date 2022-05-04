@@ -214,7 +214,7 @@ String getHighYearlyPriceForAlert() {
 
 String getLowYearlyPriceForAlert() {
   try {
-    return PurchaseHelper.shared.packageList[2].product.priceString;
+    return PurchaseHelper.shared.packageList[1].product.priceString;
   } catch (e) {
     return "\$$annualPriceConstant";
   }
