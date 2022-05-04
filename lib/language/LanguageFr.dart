@@ -193,7 +193,7 @@ class LanguageFr extends BaseLanguage {
 
   @override
   String get onboard3Description =>
-      "Vous en avez marre des autres VPN lents ? Essayez notre serveur x8 plus rapide amélioré. Vous n'aurez plus jamais de problèmes de vitesse Internet.";
+      "Essayez notre serveur x8 plus rapide amélioré. Vous n'aurez plus jamais de problèmes de vitesse Internet.";
 
   @override
   String get onboard3Title => "Connexion Internet 8 fois plus rapide";

@@ -188,7 +188,7 @@ class LanguageCn extends BaseLanguage {
 
   @override
   String get onboard3Description =>
-      "厌倦了其他慢速 VPN？ 试试我们增强的 x8 Faster Server。 您将永远不会再遇到互联网速度问题";
+      "试试我们增强的 x8 Faster Server。你再也不会遇到互联网速度的问题了。";
 
   @override
   String get onboard3Title => "8 倍更快的互联网连接";

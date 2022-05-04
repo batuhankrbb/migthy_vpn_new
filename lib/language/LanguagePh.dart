@@ -194,7 +194,7 @@ class LanguagePh extends BaseLanguage {
 
   @override
   String get onboard3Description =>
-      "Nahihiya sa iba pang mabagal na VPN doon? Subukan ang aming pinahusay na x8 Faster Server. Hindi ka na muling magkakaroon ng mga problema tungkol sa bilis ng internet.";
+      "Subukan ang aming pinahusay na x8 Faster Server. Hindi ka na muling magkakaroon ng mga problema tungkol sa bilis ng internet.";
 
   @override
   String get onboard3Title => "8x Mas Mabilis na Koneksyon sa Internet";
