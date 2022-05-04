@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -31,12 +32,15 @@ class PaywallFeatureCell extends StatelessWidget {
         SizedBox(
           width: 10.w,
         ),
-        Text(
-          text,
-          style: AppTextStyle.headline2(
-            color: Colors.white,
-            size: 18.sp,
-            weight: fontRegular,
+        Flexible(
+          child: AutoSizeText(
+            text,
+            style: AppTextStyle.headline2(
+              color: Colors.white,
+              size: 18.sp,
+              weight: fontRegular,
+              overflow: TextOverflow.visible,
+            ),
           ),
         ),
       ],

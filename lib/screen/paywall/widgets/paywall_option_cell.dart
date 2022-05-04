@@ -31,7 +31,7 @@ class PaywallOptionCell extends StatelessWidget {
         fit: StackFit.loose,
         children: [
           Container(
-            height: 80.h,
+            padding: EdgeInsets.symmetric(vertical: 3),
             decoration: BoxDecoration(
                 gradient: isColored ? cardGradient : null,
                 borderRadius: BorderRadius.circular(

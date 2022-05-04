@@ -30,125 +30,116 @@ class _PaywallScreenState extends State<PaywallScreen> {
         backgroundColor: AppColors.background,
         padding: EdgeInsets.symmetric(horizontal: 15.w),
         content: Stack(
+          fit: StackFit.loose,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
+            SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
                     child: LottieBuilder.asset(
-                  "assets/images/rocket_lottie.json",
-                  width: 240.w,
-                  height: 240.w,
-                )),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 55.h,
-                ),
-                Opacity(
-                  opacity: 0,
-                  child: Center(
-                      child: LottieBuilder.asset(
-                    "assets/images/rocket_lottie.json",
-                    width: 140.w,
-                    height: 140.w,
-                  )),
-                ),
-                SizedBox(
-                  height: 35.h,
-                ),
-                Text(
-                  language.paywallTitleText,
-                  style: AppTextStyle.headline1(
-                      weight: fontBold, size: 40.sp, color: AppColors.white),
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
-                Text(
-                  language.paywallSubTitleText,
-                  style: AppTextStyle.headline1(
-                      weight: fontSemibold,
-                      size: 26.sp,
-                      color: const Color(0xFFCBC8D7)),
-                ),
-                SizedBox(
-                  height: 29.h,
-                ),
-                PaywallFeatureCell(
-                    icon: "assets/images/world.svg",
-                    text: language.paywallCountriesText),
-                SizedBox(
-                  height: 25.h,
-                ),
-                PaywallFeatureCell(
-                    icon: "assets/images/fast.svg",
-                    text: language.paywallFastServersText),
-                SizedBox(
-                  height: 25.h,
-                ),
-                PaywallFeatureCell(
-                    icon: "assets/images/bandwith.svg",
-                    text: language.paywallBandwithText),
-                SizedBox(
-                  height: 25.h,
-                ),
-                PaywallFeatureCell(
-                  icon: "assets/images/no_ads.svg",
-                  text: language.paywallNoAds,
-                ),
-                SizedBox(
-                  height: 50.h,
-                ),
-                PaywallOptionCell(
-                  onTap: () async {
-                    try {
-                      await purchase(
-                          package: PurchaseHelper.shared.packageList[1],
-                          context: context);
-                      mixpanel?.track("Click Annual Purchase");
-                    } catch (e) {
-                      globalStore.isLoading = false;
-                    }
-                  },
-                  title: "${getYearlyPrice()} / ${language.yearText}",
-                  subtitle:
-                      "${getYearlyMonthlyPrice()} / ${language.monthOrWeekText}",
-                  icon: "assets/images/crown.fill.svg",
-                  isColored: true,
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                PaywallOptionCell(
-                  onTap: () async {
-                    try {
-                      await purchase(
-                          package: PurchaseHelper.shared.packageList[0],
-                          context: context);
-                      mixpanel?.track("Click Monthly Purchase");
-                    } catch (e) {
-                      globalStore.isLoading = false;
-                    }
-                  },
-                  title: "${getMonthlyPrice()} / ${language.monthOrWeekText}",
-                  subtitle: language.billedMonthlyOrWeeklyText,
-                  icon: "assets/images/icon_rating_star.svg",
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                AutoSizeText(
-                  language.recurringText,
-                  style: TextStyle(
-                      color: AppColors.grey,
-                      fontWeight: FontWeight.w100,
-                      fontSize: 8),
-                ),
-              ],
+                      "assets/images/rocket_lottie.json",
+                      width: 240.w,
+                      height: 240.w,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    language.paywallTitleText,
+                    style: AppTextStyle.headline1(
+                        weight: fontBold, size: 40.sp, color: AppColors.white),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Text(
+                    language.paywallSubTitleText,
+                    style: AppTextStyle.headline1(
+                        weight: fontSemibold,
+                        size: 26.sp,
+                        color: const Color(0xFFCBC8D7)),
+                  ),
+                  SizedBox(
+                    height: 29.h,
+                  ),
+                  PaywallFeatureCell(
+                      icon: "assets/images/world.svg",
+                      text: language.paywallCountriesText),
+                  SizedBox(
+                    height: 25.h,
+                  ),
+                  PaywallFeatureCell(
+                      icon: "assets/images/fast.svg",
+                      text: language.paywallFastServersText),
+                  SizedBox(
+                    height: 25.h,
+                  ),
+                  PaywallFeatureCell(
+                      icon: "assets/images/bandwith.svg",
+                      text: language.paywallBandwithText),
+                  SizedBox(
+                    height: 25.h,
+                  ),
+                  PaywallFeatureCell(
+                    icon: "assets/images/no_ads.svg",
+                    text: language.paywallNoAds,
+                  ),
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  PaywallOptionCell(
+                    onTap: () async {
+                      try {
+                        await purchase(
+                            package: PurchaseHelper.shared.packageList[1],
+                            context: context);
+                        mixpanel?.track("Click Annual Purchase");
+                      } catch (e) {
+                        globalStore.isLoading = false;
+                      }
+                    },
+                    title: "${getYearlyPrice()} / ${language.yearText}",
+                    subtitle:
+                        "${getYearlyMonthlyPrice()} / ${language.monthOrWeekText}",
+                    icon: "assets/images/crown.fill.svg",
+                    isColored: true,
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  PaywallOptionCell(
+                    onTap: () async {
+                      try {
+                        await purchase(
+                            package: PurchaseHelper.shared.packageList[0],
+                            context: context);
+                        mixpanel?.track("Click Monthly Purchase");
+                      } catch (e) {
+                        globalStore.isLoading = false;
+                      }
+                    },
+                    title: "${getMonthlyPrice()} / ${language.monthOrWeekText}",
+                    subtitle: language.billedMonthlyOrWeeklyText,
+                    icon: "assets/images/icon_rating_star.svg",
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  AutoSizeText(
+                    language.recurringText,
+                    style: TextStyle(
+                        color: AppColors.grey,
+                        fontWeight: FontWeight.w100,
+                        fontSize: 8),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                ],
+              ),
             ),
             GestureDetector(
               onTap: () async {
