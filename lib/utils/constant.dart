@@ -45,10 +45,18 @@ class Urls {
   static const packageName = "com.location.spoofer.gps";
   static const privacyPolicy = "https://www.google.com/";
   static const termsAndConditionURL = 'https://www.google.com/';
-  static const supportURL = 'https://mighty.desky.support/';
   static const appShareURL = '$playStoreBaseURL$packageName';
   static const mailto = 'hi@appstun.com';
 }
+
+//* -------- ADMOB --------
+
+const AD_MOB_OPEN_AD_ID = "ca-app-pub-3940256099942544/3419835294";
+const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
+const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
+const AD_MOB_REWARDED_ID = "ca-app-pub-8037703403650159/6016175059";
+const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-3940256099942544/2247696110";
+const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-3940256099942544/2247696110";
 
 //* -------- COLORS --------
 
@@ -62,14 +70,8 @@ const scaffoldColorDark = Color(0xFF090909);
 const appButtonColorDark = Color(0xFF282828);
 const premiumColor = Color(0xFFFFD200);
 
-//* -------- ADMOB --------
 
-const AD_MOB_OPEN_AD_ID = "ca-app-pub-3940256099942544/3419835294";
-const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
-const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
-const AD_MOB_REWARDED_ID = "ca-app-pub-8037703403650159/6016175059";
-const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-3940256099942544/2247696110";
-const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-3940256099942544/2247696110";
+//* ------------------------------- AŞAĞISI RESKİN EDİLMEYECEK ---------------------------
 
 //* -------- ONBOARD --------
 
@@ -187,7 +189,6 @@ List<LanguageDataModel> languageList() {
   ];
 }
 
-//* ------------------------------- AŞAĞISI RESKİN EDİLMEYECEK ---------------------------
 class AppThemeMode {
   static const themeModeSystem = 0;
   static const themeModeLight = 1;
