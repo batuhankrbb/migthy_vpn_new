@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:mightyvpn/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CloudMessageHelper {
   static var shared = CloudMessageHelper();
@@ -35,8 +36,15 @@ class CloudMessageHelper {
   }
 
   void _handleMessage(RemoteMessage message) {
-    globalStore.hasComeFromNotification = true;
-    mixpanel?.track("Notification Clicked");
+    if (message.data["link"] != null) {
+      mixpanel?.track("Notification Clicked Link");
+      Future.delayed(Duration(seconds: 4), () {
+        launch(message.data["link"]);
+      });
+    } else {
+      globalStore.hasComeFromNotification = true;
+      mixpanel?.track("Notification Clicked Sale");
+    }
   }
 
   Future<void> subscribe() async {
