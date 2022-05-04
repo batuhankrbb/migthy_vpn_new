@@ -44,7 +44,7 @@ class OnboardingDotsList extends StatelessWidget {
                     }
                     mixpanel?.track('Onboard expensive purchase clicked');
                   } catch (e) {
-                         globalStore.isLoading = false;
+                    globalStore.isLoading = false;
                   }
                 },
                 text: language.buyAndContinueText),
@@ -56,11 +56,12 @@ class OnboardingDotsList extends StatelessWidget {
               height: 5,
             ),
             AutoSizeText(
-             language.recurringText,
+              language.recurringText,
               style: TextStyle(
                   color: AppColors.darkGrey,
                   fontWeight: FontWeight.w100,
                   fontSize: 8),
+              maxLines: 3,
             ),
           ],
         ),

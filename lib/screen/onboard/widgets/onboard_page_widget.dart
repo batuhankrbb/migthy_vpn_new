@@ -70,23 +70,23 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
           Center(
             child: Lottie.asset(
               widget.image,
-              height: context.width() * 0.6,
+              height: context.height() * 0.3,
               fit: BoxFit.fitHeight,
             ),
           ),
           SizedBox(
-            height: 55,
+            height: context.height() * 0.04,
           ),
           AutoSizeText(
             widget.title,
             textAlign: TextAlign.start,
             style: AppTextStyle.headline(
                 overflow: TextOverflow.visible,
-                size: 24,
+                size: context.height() * 0.03,
                 color: onboardTextColor),
           ),
           SizedBox(
-            height: 45,
+            height: context.height() * 0.03,
           ),
           AutoSizeText(
             widget.description,
@@ -94,7 +94,7 @@ class _OnboardPageWidgetState extends State<OnboardPageWidget> {
             style: AppTextStyle.paragraph(
               color: onboardTextColor,
               overflow: TextOverflow.visible,
-              size: 16,
+              size: context.height() * 0.023,
             ),
           )
         ],
