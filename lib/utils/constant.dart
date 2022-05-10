@@ -11,11 +11,12 @@ import 'package:nb_utils/nb_utils.dart';
 //? Projeyi Firebase'e ekleyip Firebase JSON ları değiştir
 //? Proje Logosunu değiştir android dosyalarından
 //? Proje hard update'i için firebase'in app kısmına bundle id ile yeni document ekle
+//? Admob proje ID değiştir manifestten
 
 
 //* -------- KEYS --------
 
-const revenueCatKey = 'goog_HkYGxKQJURUnLdBZHGuFKuHUXKz';
+const revenueCatKey = 'goog_qUvrZVcrxoQPBmwxldjwXvNgllT';
 const mixpanelKey = '1d81f3fb8497319e960929e845d790e2';
 
 //* -------- PRICING --------
@@ -43,20 +44,19 @@ class AppConstant {
 
 class Urls {
   static const packageName = "com.location.spoofer.gps";
-  static const privacyPolicy = "https://www.google.com/";
-  static const termsAndConditionURL = 'https://www.google.com/';
+  static const privacyPolicy = "appstun.com/location-spoofer-privacy";
+  static const termsAndConditionURL = 'appstun.com/location-spoofer-terms';
   static const appShareURL = '$playStoreBaseURL$packageName';
   static const mailto = 'hi@appstun.com';
 }
 
 //* -------- ADMOB --------
 
-const AD_MOB_OPEN_AD_ID = "ca-app-pub-3940256099942544/3419835294";
-const AD_MOB_BANNER_ID = "ca-app-pub-8037703403650159/3070447519";
-const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-8037703403650159/6016175059";
-const AD_MOB_REWARDED_ID = "ca-app-pub-8037703403650159/6016175059";
-const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-3940256099942544/2247696110";
-const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-3940256099942544/2247696110";
+const AD_MOB_OPEN_AD_ID = "ca-app-pub-9266297271060489/3387276123";
+const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-9266297271060489/1144256160";
+const AD_MOB_REWARDED_ID = "ca-app-pub-9266297271060489/5587979772";
+const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-9266297271060489/4317214419";
+const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-9266297271060489/6751806061";
 
 //* -------- COLORS --------
 
