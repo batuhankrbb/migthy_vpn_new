@@ -253,10 +253,10 @@ class _InternetSpeedTestScreenState extends State<InternetSpeedTestScreen> {
                             TextSpan(
                                 text: displayRate.toStringAsFixed(2),
                                 style: boldTextStyle(
-                                    size: 24, color: primaryColor)),
+                                    size: 19, color: primaryColor)),
                             TextSpan(
                                 text: " $unitText",
-                                style: secondaryTextStyle(size: 14)),
+                                style: secondaryTextStyle(size: 11)),
                           ],
                         ),
                         angle: 90,
