@@ -14,7 +14,7 @@
         android:allowBackup="true"
         android:extractNativeLibs="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="GPS Spoofer"
+        android:label="Indonesia VPN"
         android:supportsRtl="true"
         tools:replace="android:extractNativeLibs"
         tools:ignore="UnusedAttribute">
