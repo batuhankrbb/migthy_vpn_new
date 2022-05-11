@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_ip_address/get_ip_address.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:mightyvpn/extra/rate/viewmodel/rate_sheet_viewmodel.dart';
 import 'package:mightyvpn/services/notification_service.dart';
@@ -159,7 +160,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       builder: (_) => ScreenUtilInit(
         designSize: const Size(414, 896),
         child: MaterialApp(
-          title: 'GPS Spoofer',
+          title: AppConstant.appName,
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
           theme: AppTheme.lightTheme,

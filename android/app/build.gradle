@@ -51,7 +51,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.location.spoofer.gps"
+        applicationId "com.indonesia.vpn.server.master.forfree"
         minSdkVersion 22
         targetSdkVersion 31
         versionCode 16

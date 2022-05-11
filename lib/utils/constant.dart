@@ -16,7 +16,7 @@ import 'package:nb_utils/nb_utils.dart';
 
 //* -------- KEYS --------
 
-const revenueCatKey = 'goog_qUvrZVcrxoQPBmwxldjwXvNgllT';
+const revenueCatKey = 'goog_dIiSYyNOCekhZBlZcoUeuEvBuPq';
 const mixpanelKey = '1d81f3fb8497319e960929e845d790e2';
 
 //* -------- PRICING --------
@@ -30,7 +30,7 @@ const monthlyPriceConstant = 13.99;
 const vpnLogo = 'assets/images/vpn_logo.png';
 
 class AppConstant {
-  static const appName = 'GPS Spoofer';
+  static const appName = 'Indonesia VPN';
   static const defaultLanguage = 'en';
   static ServerModel defaultServer = ServerModel(
       country: 'Japan',
@@ -43,7 +43,7 @@ class AppConstant {
 //* -------- URLS --------
 
 class Urls {
-  static const packageName = "com.location.spoofer.gps";
+  static const packageName = "com.indonesia.vpn.server.master.forfree";
   static const privacyPolicy = "appstun.com/location-spoofer-privacy";
   static const termsAndConditionURL = 'appstun.com/location-spoofer-terms';
   static const appShareURL = '$playStoreBaseURL$packageName';
@@ -52,11 +52,11 @@ class Urls {
 
 //* -------- ADMOB --------
 
-const AD_MOB_OPEN_AD_ID = "ca-app-pub-9266297271060489/3387276123";
-const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-9266297271060489/1144256160";
-const AD_MOB_REWARDED_ID = "ca-app-pub-9266297271060489/5587979772";
-const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-9266297271060489/4317214419";
-const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-9266297271060489/6751806061";
+const AD_MOB_OPEN_AD_ID = "ca-app-pub-9266297271060489/2737922322";
+const AD_MOB_INTERSTITIAL_ID = "ca-app-pub-9266297271060489/8088405630";
+const AD_MOB_REWARDED_ID = "ca-app-pub-9266297271060489/6775323961";
+const AD_MOB_NATIVE_ID_SPEED = "ca-app-pub-9266297271060489/2546350630";
+const AD_MOB_NATIVE_ID_SETTINGS = "ca-app-pub-9266297271060489/2836078955";
 
 //* -------- COLORS --------
 
